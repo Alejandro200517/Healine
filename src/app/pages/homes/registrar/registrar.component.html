@@ -1,0 +1,48 @@
+<div>
+  <h1>ㅤ</h1>
+  <div class="blue-box">
+    <div>
+      <h1 class="title1">Registrarse</h1>
+      <div class="section-divisor"></div>
+    </div>
+
+    <form [formGroup]="registroForm" (ngSubmit)="registrar()">
+      <h4>ㅤ</h4>
+      <div style="margin-right: 5px;">
+        <input class="selectLogin" name="Documento" id="Documento" type="text" placeholder="Documento" formControlName="Documento">
+      </div>
+
+      <div style="margin-right: 5px; margin-top: -5px;">
+        <input class="selectLogin" name="PrimerNombre" id="PrimerNombre" type="text" placeholder="1er Nombre" formControlName="PrimerNombre">
+      </div>
+
+      <div style="margin-right: 5px; margin-top: -5px;">
+        <input class="selectLogin" name="SegundoNombre" id="SegundoNombre" type="text" placeholder="2do Nombre" formControlName="SegundoNombre">
+      </div>
+
+      <div style="margin-right: 5px; margin-top: -5px;">
+        <input class="selectLogin" name="PrimerApellido" id="PrimerApellido" type="text" placeholder="1er Apellido" formControlName="PrimerApellido">
+      </div>
+
+      <div style="margin-right: 5px;">
+        <input class="selectLogin" name="SegundoApellido" id="SegundoApellido" type="text" placeholder="2do Apellido" formControlName="SegundoApellido">
+      </div>
+
+      <div style="margin-right: 5px; margin-top: -5px;">
+        <input class="selectLogin" name="Email" id="Email" type="text" placeholder="Email" formControlName="Email">
+      </div>
+
+      <div style="margin-right: 5px; margin-top: -5px;">
+        <input class="selectLogin" name="Contraseña" id="Contraseña" type="password" placeholder="Contraseña" formControlName="Contraseña">
+      </div>
+
+      <div style="margin-right: 5px; margin-top: -5px;">
+        <input class="selectLogin" name="Numero" id="Numero" type="text" placeholder="Numero" formControlName="Numero">
+      </div>
+
+      <div class="form-group mt-3">
+        <button type="submit" class="button button-contactForm boxed-btn" style="border-radius: 20px;">Registrarse</button>
+      </div>
+    </form>
+  </div>
+</div>
