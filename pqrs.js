@@ -1,4 +1,3 @@
-
 const express = require('express')
 const mysql = require('mysql')
 const bodyParser = require('body-parser')
@@ -19,7 +18,7 @@ const PUERTO = 3000
 const conexion = mysql.createConnection(
     {
         host:'localhost',
-        database:'healine',
+        database:'crud',
         user:'root',
         password:''
     }
@@ -38,74 +37,84 @@ app.get('/', (req, res) => {
     res.send('API')
 })
 
-app.get('/turno', (req, res) => {
-    const query = `SELECT * FROM turnomedico;`
+app.get('/pqrs', (req, res) => {
+    const query = `SELECT * FROM pqrs;`
     conexion.query(query, (error, resultado) => {
         if(error) return console.error(error.message)
 
         if(resultado.length > 0) {
             res.json(resultado)
         } else {
-            res.json(`No hay agenda`)
+            res.json(`No hay registros`)
         }
     })
 })
 
-app.get('/turno/:id', (req, res) => {
+app.get('/pqrs/:id', (req, res) => {
     const { id } = req.params
 
-    const query = `SELECT * FROM turnomedico WHERE idturnoMedico=${id};`
+    const query = `SELECT * FROM pqrs WHERE id_pqrs=${id};`
     conexion.query(query, (error, resultado) => {
         if(error) return console.error(error.message)
 
         if(resultado.length > 0) {
             res.json(resultado)
         } else {
-            res.json(`No hay agenda`)
+            res.json(`No hay registros`)
         }
     })
 })
 
-app.post('/turno/agregar', (req, res) => {
-    const turno = {
-      tiempEst: req.body.tiempEst,
-      numeroTurn: req.body.numeroTurn,
+app.post('/pqrs/agregar', (req, res) => {
+    const pqrs = {
+      nombre: req.body.nombre,
+      email: req.body.email,
+      descripcion: req.body.descripcion,
+      telefono: req.body.telefono,
+      documento: req.body.documento
     };
   
     
-    const query = `INSERT INTO turnomedico (tiempEst, numeroTurn) VALUES ('${turno.tiempEst}', '${turno.numeroTurn}')`;
+    const query = `INSERT INTO pqrs (descripcion, email , telefono, nombre, documento) VALUES ('${pqrs.nombre}', '${pqrs.email}', '${pqrs.descripcion}', '${pqrs.telefono}', '${pqrs.documento}')`;
   
     conexion.query(query, (error) => {
       if (error) {
         console.error(error.message);
-        return res.status(500).json({ error: 'Error al registra el turno' });
+        return res.status(500).json({ error: 'Error al agregar la PQRS' });
       }
   
-      res.json(`Se registro correctamente el turno`);
+      res.json(`Se agregó correctamente la PQRS`);
     });
   });
 
-app.put('/turno/actualizar/:id', (req, res) => {
+app.put('/pqrs/actualizar/:id', (req, res) => {
     const { id } = req.params;
-    const { tiempEst, numeroTurn } = req.body;
+    const { descripcion, email, telefono, nombre, documento } = req.body;
   
-    const query = `UPDATE turnomedico SET tiempEst='${tiempEst}', numeroTurn='${numeroTurn}' WHERE idturnoMedico='${id}';`;
+    const query = `UPDATE pqrs SET descripcion='${descripcion}', email='${email}', telefono='${telefono}', nombre='${nombre}', documento='${documento}' WHERE id_pqrs='${id}';`;
   
     conexion.query(query, (error) => {
       if (error) return console.error(error.message);
   
-      res.json(`Se actualizó correctamente el turno`);
+      res.json(`Se actualizó correctamente el usuario`);
     });
   });
   
 
-app.delete('/turno/borrar/:id', (req, res) => {
+app.delete('/pqrs/borrar/:id', (req, res) => {
     const { id } = req.params
 
-    const query = `DELETE FROM turnomedico WHERE idturnoMedico=${id};`
+    const query = `DELETE FROM pqrs WHERE id_pqrs=${id};`
     conexion.query(query, (error) => {
         if(error) console.error(error.message)
 
-        res.json(`Se eliminó correctamente el turno`)
+        res.json(`Se eliminó correctamente el usuario`)
     })
 })
+
+
+
+
+
+
+
