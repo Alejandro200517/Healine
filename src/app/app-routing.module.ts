@@ -10,7 +10,8 @@ import { ServiciosComponent } from './pages/homes/servicios/servicios.component'
 import { AcercaComponent } from './pages/homes/acerca/acerca.component';
 import { EspecialidadesComponent } from './pages/homes/especialidades/especialidades.component';
 
-
+import { EditarTurnoComponent } from './cruds/turno_medico/editar-turno/editar-turno.component';
+import { ListarTurnoComponent } from './cruds/turno_medico/listar-turno/listar-turno.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,10 @@ const routes: Routes = [
   { path:'roles', component: ListarRolesComponent },
   { path:'roles/editar/:id', component: EditarRolesComponent },
   { path:'roles/agregar', component: EditarRolesComponent },
+
+  { path:'turno', component: ListarRolesComponent },
+  { path:'turno/editar/:id', component: EditarRolesComponent },
+  { path:'turno/agregar', component: EditarTurnoComponent },
 ];
 
 @NgModule({

@@ -10,6 +10,11 @@ import { AppComponent } from './app.component';
 import { EditarRolesComponent } from './cruds/roles/editar-roles/editar-roles.component';
 import { ListarRolesComponent } from './cruds/roles/listar-roles/listar-roles.component';
 import { RolesService } from './shared/services/roles.service';
+
+import { EditarTurnoComponent } from './cruds/turno_medico/editar-turno/editar-turno.component';
+import { ListarTurnoComponent } from './cruds/turno_medico/listar-turno/listar-turno.component';
+import { TurnoService } from './shared/services/turno.service';
+
 import { RegistrarComponent } from './pages/homes/registrar/registrar.component';
 import { LoginComponent } from './pages/homes/login/login.component';
 import { IndexComponent } from './pages/homes/index/index.component';
@@ -23,6 +28,8 @@ import { EspecialidadesComponent } from './pages/homes/especialidades/especialid
     AppComponent,
     EditarRolesComponent,
     ListarRolesComponent,
+    EditarTurnoComponent,
+    ListarTurnoComponent,
     RegistrarComponent,
     LoginComponent,
     
@@ -40,7 +47,8 @@ import { EspecialidadesComponent } from './pages/homes/especialidades/especialid
     RouterModule
   ],
   providers: [
-    RolesService
+    RolesService,
+    TurnoService
   ],
   bootstrap: [AppComponent]
 })
