@@ -26,8 +26,8 @@ const routes: Routes = [
   { path:'roles/editar/:id', component: EditarRolesComponent },
   { path:'roles/agregar', component: EditarRolesComponent },
 
-  { path:'turno', component: ListarRolesComponent },
-  { path:'turno/editar/:id', component: EditarRolesComponent },
+  { path:'turno', component: ListarTurnoComponent },
+  { path:'turno/editar/:id', component: EditarTurnoComponent },
   { path:'turno/agregar', component: EditarTurnoComponent },
 ];
 
