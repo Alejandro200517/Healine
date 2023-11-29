@@ -15,8 +15,10 @@ import { EditarTurnoComponent } from './cruds/turno_medico/editar-turno/editar-t
 import { ListarTurnoComponent } from './cruds/turno_medico/listar-turno/listar-turno.component';
 import { TurnoService } from './shared/services/turno.service';
 
-import { RegistrarComponent } from './pages/homes/registrar/registrar.component';
-import { LoginComponent } from './pages/homes/login/login.component';
+import { RegistrarUsuarioComponent } from './pages/homes/registrar/registrar.component';
+import { RegistrarService } from './shared/services/registrar.service';
+
+
 import { IndexComponent } from './pages/homes/index/index.component';
 import { ServiciosComponent } from './pages/homes/servicios/servicios.component';
 import { AcercaComponent } from './pages/homes/acerca/acerca.component';
@@ -30,8 +32,7 @@ import { EspecialidadesComponent } from './pages/homes/especialidades/especialid
     ListarRolesComponent,
     EditarTurnoComponent,
     ListarTurnoComponent,
-    RegistrarComponent,
-    LoginComponent,
+    RegistrarUsuarioComponent
     
   ],
   imports: [
@@ -48,7 +49,8 @@ import { EspecialidadesComponent } from './pages/homes/especialidades/especialid
   ],
   providers: [
     RolesService,
-    TurnoService
+    TurnoService,
+    RegistrarService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,27 +1,40 @@
-// registrar.component.ts
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RegistrarService } from '../../../shared/services/registrar.service';
+import { RegistrarModel } from '../../../shared/models/registrar-model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrar',
   templateUrl: './registrar.component.html',
   styleUrls: ['./registrar.component.css']
 })
-export class RegistrarComponent implements OnInit {
-  registroForm!: FormGroup;
+export class RegistrarUsuarioComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  registrar = new RegistrarModel("","","","","","","","");
+
+  constructor(
+    private registrarService: RegistrarService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    this.registroForm = this.fb.group({
-      nombreUsuario: ['', Validators.required],
-      correo: ['', [Validators.required, Validators.email]],
-      contrasena: ['', [Validators.required, Validators.minLength(6)]]
-    });
   }
 
-  registrar() {
-    // Implementa la lógica de registro aquí
-    // Puedes acceder a los valores del formulario con this.registroForm.value
+  onSubmit() {
+    console.log('onSubmit');
+
+    this.registrarService.registrarUsuario(this.registrar).subscribe(
+      (data) => {
+        alert('Usuario registrado correctamente');
+        this.router.navigate(['/login']); 
+      },
+      (error) => {
+        if (error.status === 500) {
+          alert('Verifica El Documento');
+        } else {
+          console.error(error);
+        }
+      }
+    );
   }
 }

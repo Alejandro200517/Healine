@@ -6,42 +6,53 @@
       <div class="section-divisor"></div>
     </div>
 
-    <form [formGroup]="registroForm" (ngSubmit)="registrar()">
+    <form (ngSubmit)="onSubmit()" #registrarForm="ngForm">
       <h4>ㅤ</h4>
-      <div style="margin-right: 5px;">
-        <input class="selectLogin" name="Documento" id="Documento" type="text" placeholder="Documento" formControlName="Documento">
-      </div>
 
-      <div style="margin-right: 5px; margin-top: -5px;">
-        <input class="selectLogin" name="PrimerNombre" id="PrimerNombre" type="text" placeholder="1er Nombre" formControlName="PrimerNombre">
-      </div>
+      <fieldset class="form-group">
+        <div style="margin-right: 5px;">
+          <input class="selectLogin" name="Documento" id="Documento" type="number" placeholder="Documento (Max 10)" required [(ngModel)]="registrar.documento">
+        </div>
+      </fieldset>
+      <fieldset class="form-group">
+        <div style="margin-right: 5px;">
+          <input class="selectLogin" name="PrimerNombre" id="PrimerNombre" type="text" placeholder="1er Nombre" required [(ngModel)]="registrar.primerNombre">
+        </div>
+      </fieldset>
+      <fieldset class="form-group">
+        <div style="margin-right: 5px;">
+          <input class="selectLogin" name="SegundoNombre" id="SegundoNombre" type="text" placeholder="2do Nombre" [(ngModel)]="registrar.segundoNombre">
+        </div>
+      </fieldset>
+      <fieldset class="form-group">
+        <div style="margin-right: 5px;">
+          <input class="selectLogin" name="PrimerApellido" id="PrimerApellido" type="text" placeholder="1er Apellido" required [(ngModel)]="registrar.primerApellido">
+        </div>
+      </fieldset>
+      <fieldset class="form-group">
+        <div style="margin-right: 5px;">
+          <input class="selectLogin" name="SegundoApellido" id="SegundoApellido" type="text" placeholder="2do Apellido" [(ngModel)]="registrar.segundoApellido">
+        </div>
+      </fieldset>
 
-      <div style="margin-right: 5px; margin-top: -5px;">
-        <input class="selectLogin" name="SegundoNombre" id="SegundoNombre" type="text" placeholder="2do Nombre" formControlName="SegundoNombre">
-      </div>
-
-      <div style="margin-right: 5px; margin-top: -5px;">
-        <input class="selectLogin" name="PrimerApellido" id="PrimerApellido" type="text" placeholder="1er Apellido" formControlName="PrimerApellido">
-      </div>
-
-      <div style="margin-right: 5px;">
-        <input class="selectLogin" name="SegundoApellido" id="SegundoApellido" type="text" placeholder="2do Apellido" formControlName="SegundoApellido">
-      </div>
-
-      <div style="margin-right: 5px; margin-top: -5px;">
-        <input class="selectLogin" name="Email" id="Email" type="text" placeholder="Email" formControlName="Email">
-      </div>
-
-      <div style="margin-right: 5px; margin-top: -5px;">
-        <input class="selectLogin" name="Contraseña" id="Contraseña" type="password" placeholder="Contraseña" formControlName="Contraseña">
-      </div>
-
-      <div style="margin-right: 5px; margin-top: -5px;">
-        <input class="selectLogin" name="Numero" id="Numero" type="text" placeholder="Numero" formControlName="Numero">
-      </div>
+      <fieldset class="form-group">
+        <div style="margin-right: 5px; margin-top: -5px;">
+          <input class="selectLogin" name="Email" id="Email" type="email" placeholder="Email" required [(ngModel)]="registrar.email">
+        </div>
+      </fieldset>
+      <fieldset class="form-group">
+        <div style="margin-right: 5px; margin-top: -5px;">
+          <input class="selectLogin" name="Contrasena" id="Contrasena" type="password" placeholder="Contraseña" required [(ngModel)]="registrar.contrasena">
+        </div>
+      </fieldset>
+      <fieldset class="form-group">
+        <div style="margin-right: 5px; margin-top: -5px;">
+          <input class="selectLogin" name="Numero" id="Numero" type="number" placeholder="Número Telefónico" required [(ngModel)]="registrar.numero">
+        </div>
+      </fieldset>
 
       <div class="form-group mt-3">
-        <button type="submit" class="button button-contactForm boxed-btn" style="border-radius: 20px;">Registrarse</button>
+        <button type="submit" class="button button-contactForm boxed-btn" style="border-radius: 20px;" [disabled]="!registrarForm.form.valid">Registrarse</button>
       </div>
     </form>
   </div>
