@@ -8,6 +8,14 @@ import { AcercaComponent } from './pages/homes/acerca/acerca.component';
 import { EspecialidadesComponent } from './pages/homes/especialidades/especialidades.component';
 import { LoginComponent } from './pages/homes/login/login.component';
 
+import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
+import { AdminHome2Component } from './pages/admin/admin-home-2/admin-home-2.component';
+import { HerramientasComponent } from './pages/admin/herramientas/herramientas.component';
+import { IndexAdminComponent } from './pages/admin/index-admin/index-admin.component';
+import { ServiciosAdminComponent } from './pages/admin/servicios-admin/servicios-admin.component';
+import { AboutAdminComponent } from './pages/admin/about-admin/about-admin.component';
+import { EspecialidadesAdminComponent } from './pages/admin/especialidades-admin/especialidades-admin.component';
+
 
 import { EditarRolesComponent } from './cruds/roles/editar-roles/editar-roles.component';
 import { ListarRolesComponent } from './cruds/roles/listar-roles/listar-roles.component';
@@ -23,7 +31,15 @@ const routes: Routes = [
   { path: 'acerca', component: AcercaComponent },
   { path: 'especialidades', component: EspecialidadesComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'registrar/agregar', component: RegistrarUsuarioComponent },
 
+  { path:'admin-home', component: AdminHomeComponent },
+  { path:'admin-home-2', component: AdminHome2Component },
+  { path:'herramientas', component: HerramientasComponent },
+  { path:'index-admin', component: IndexAdminComponent },
+  { path:'servicios-admin', component: ServiciosAdminComponent },
+  { path:'acerca-admin', component: AboutAdminComponent },
+  { path:'especialidades-admin', component: EspecialidadesAdminComponent },
 
   { path:'roles', component: ListarRolesComponent },
   { path:'roles/editar/:id', component: EditarRolesComponent },
@@ -33,7 +49,7 @@ const routes: Routes = [
   { path:'turno/editar/:id', component: EditarTurnoComponent },
   { path:'turno/agregar', component: EditarTurnoComponent },
 
-  { path:'registrar/agregar', component: RegistrarUsuarioComponent },
+  
 ];
 
 @NgModule({

@@ -1050,6 +1050,7 @@ h3 {
 }
 
 
+
 .header-area .main-header-area .main-menu ul li .submenu li {
   display: block;
 }
@@ -6733,12 +6734,14 @@ h6 {
   width: 150px;
   font-size: 24px;
   background-color: #009DFF;
-  color: rgb(255, 255, 255);
+  color: #fff;
   border-radius: 13px;
   cursor: pointer;
   text-align: center;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   box-shadow: 2px 2px 3px #a7a7a7;
+  transition: 0.2s;
+  border: none;
 }
 
 .buttonLogin:hover{
@@ -7325,6 +7328,10 @@ h6 {
 .not-cuenta{
   color: #999999;
   text-shadow: 2px 2px 3px #a7a7a7;
+}
+
+.not-cuenta:hover{
+  color: #f9f9f9;
 }
 
 .boton-admin{
@@ -7939,6 +7946,50 @@ pre code {
   padding-left: 5px;
   margin-right: auto;
   margin-left: auto;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.welcome-container {
+  text-align: center;
+  background-color: #fefefe;
+  padding: 60px;
+  border-radius: 30px;
+  box-shadow: inset 0 0 18px rgba(0, 0, 0,2);
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 550;
+  color: #333333;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 400;
+  color: #666666;
+  margin-bottom: 0;
+}
+
+.subtle-link {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.subtle-link:hover {
+  color: #2980b9;
 }
 
 @media (min-width:576px) {
