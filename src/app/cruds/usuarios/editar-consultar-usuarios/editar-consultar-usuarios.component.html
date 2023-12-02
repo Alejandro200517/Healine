@@ -1,0 +1,52 @@
+<div style="margin-top: 10px; margin-left: 10px;">
+    <a href="/usuarios-home">
+        <button class="boton-admin" onclick="goBack()">↺ Atrás</button>
+    </a>
+    
+</div> 
+<div >
+    <h1 class="title1" style="font-size: 45px; color: #2c91d5; padding: 5px; text-shadow: 1px 1px 2px #000000;" >Editar Usuario</h1>
+</div>
+<div class="row no-gutters">
+    <div class="form-group">
+        <label class="labelCitaBuscar" for="text" style="font-size: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #101010;margin-left: 10%; margin-right: 10%;">Filtrar Por Correo</label> <br> 
+        <input placeholder = 'Email (ejemplo123@gmail.com)' type="text" class="form-control" [(ngModel)]="filtroCorreo" name="filtroCorreo" style="margin-left: 10%; margin-right: 10%; width: 80%;">
+    </div>
+     
+    <div class="col-xl-11" style="background-color: rgb(255, 255, 255); margin-left: 4%; margin-right: 4%;">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped" style="width: 100%; margin-top: 20px; font-weight: 600;">
+                <thead>
+                    <tr>
+                        <th class="text-center bg-primary text-white" style="border-radius: 10px 0 0 0; border-left: none;">Tipo de Documento</th>
+                        <th class="text-center bg-primary text-white">Documento</th>
+                        <th class="text-center bg-primary text-white">1er Nombre</th>
+                        <th class="text-center bg-primary text-white">2do Nombre</th>
+                        <th class="text-center bg-primary text-white">1er Apellido</th>
+                        <th class="text-center bg-primary text-white">2do Apellido</th>
+                        <th class="text-center bg-primary text-white">Email</th>
+                        <th class="text-center bg-primary text-white">Numero</th>
+                        <th class="text-center bg-primary text-white" style="border-radius: 0 10px 0 0; border-right: none;">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let usuario of filtrarUsuarios(usuarios | async) || []; let i = index" [class.odd]="i % 2 !== 0">
+                        <td>{{ usuario.tipo }}</td>
+                        <td>{{ usuario.documento }}</td>
+                        <td>{{ usuario.primerNombre }}</td>
+                        <td>{{ usuario.segundoNombre }}</td>
+                        <td>{{ usuario.primerApellido }}</td>
+                        <td>{{ usuario.segundoApellido }}</td>
+                        <td>{{ usuario.email }}</td>
+                        <td>{{ usuario.numero }}</td>
+                        <td class="text-center">
+                            <a [routerLink]="['/editar-usuarios/editar/', usuario.documento]"><img src='../../../../assets/images/editar.png' alt='Editar usuario' style='width: 19px; height: 19px;'></a>ㅤ
+                            <a (click)="borrarUsuarios(usuario.documento)" style="color: #fff;"><img src='../../../../assets/images/eliminar.png' alt='Eliminar usuario' style='width: 19px; height: 19px;'></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div>

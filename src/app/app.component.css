@@ -2485,11 +2485,22 @@ cursor: pointer;
 
 }
 
+
+
 @media (max-width: 767px) {
   
   .bradcam_area {
     padding: 120px 0;
   }
+}
+
+.borrarPqrs{
+  color: #bd2130;
+  font-weight: 600;
+}
+
+.borrarPqrs:hover{
+  color: #484848;
 }
 
 .bradcam_area h2 {
@@ -7347,6 +7358,25 @@ h6 {
 }
 
 .boton-admin:hover{
+  background-color: #fff;
+  border: 2px solid #009DFF;
+  color: #009DFF;
+}
+
+
+.boton-admin2{
+  background-color: #009DFF;
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 20px 20px 20px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  border: 2px solid #009DFF;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.boton-admin2:hover{
   background-color: #fff;
   border: 2px solid #009DFF;
   color: #009DFF;

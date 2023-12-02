@@ -6,9 +6,20 @@
       <div class="section-divisor"></div>
     </div>
 
-    <!--<form (ngSubmit)="onSubmit()" #registrarForm="ngForm">
+    <form (ngSubmit)="onSubmit()" #registrarForm="ngForm">
       <h4>ㅤ</h4>
-
+      
+      <fieldset class="form-group">
+        <div style="margin-right: 5px;">
+          <select class="selectLogin" required [(ngModel)]="registrar.tipo" name="tipo" id="tipo" style="font-size: 18px;">
+            <option value="" selected disabled>Selecciona Tipo De Documento</option>
+            <option value="CC">CC</option>
+            <option value="TI">TI</option>
+            <option value="Pasaporte">Pasaporte</option>
+            <option value="NIT">NIT</option>
+          </select>      
+        </div>
+      </fieldset>
       <fieldset class="form-group">
         <div style="margin-right: 5px;">
           <input class="selectLogin" name="Documento" id="Documento" type="number" placeholder="Documento (Max 10)" required [(ngModel)]="registrar.documento">
@@ -54,6 +65,6 @@
       <div class="form-group mt-3">
         <button type="submit" class="button button-contactForm boxed-btn" style="border-radius: 20px;" [disabled]="!registrarForm.form.valid">Registrarse</button>
       </div>
-    </form>-->
+    </form>
   </div>
 </div>

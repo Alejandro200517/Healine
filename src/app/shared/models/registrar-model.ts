@@ -1,6 +1,7 @@
 export class RegistrarModel {
 
     constructor(
+      public tipo: string,
       public documento: string,
       public primerNombre: string,
       public segundoNombre: string,

@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RegistrarUsuarioComponent implements OnInit {
 
-  registrar = new RegistrarModel("","","","","","","","");
+  registrar = new RegistrarModel('','','','','','','','','');
 
   constructor(
     private registrarService: RegistrarService,

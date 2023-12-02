@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+ 
 import { EditarRolesComponent } from './cruds/roles/editar-roles/editar-roles.component';
 import { ListarRolesComponent } from './cruds/roles/listar-roles/listar-roles.component';
 import { RolesService } from './shared/services/roles.service';
@@ -32,6 +33,15 @@ import { ServiciosAdminComponent } from './pages/admin/servicios-admin/servicios
 import { AboutAdminComponent } from './pages/admin/about-admin/about-admin.component';
 import { EspecialidadesAdminComponent } from './pages/admin/especialidades-admin/especialidades-admin.component';
 
+import { PqrsComponent } from './pages/homes/pqrs/pqrs.component';
+import { ListarPqrsComponent } from './pages/admin/pqrs-admin/listar-pqrs/listar-pqrs.component';
+import { EditarPqrsComponent } from './pages/admin/pqrs-admin/editar-pqrs/editar-pqrs.component';
+import { UsuariosHomeComponent } from './pages/admin/homes-herramientas/usuarios-home/usuarios-home.component';
+import { ConsultarUsuariosComponent } from './cruds/usuarios/consultar-usuarios/consultar-usuarios.component';
+import { RegistrarUsuariosComponent } from './cruds/usuarios/registrar-usuarios/registrar-usuarios.component';
+import { EditarConsultarUsuariosComponent } from './cruds/usuarios/editar-consultar-usuarios/editar-consultar-usuarios.component';
+import { EditarUsuariosComponent } from './cruds/usuarios/editar-usuarios/editar-usuarios.component';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +57,15 @@ import { EspecialidadesAdminComponent } from './pages/admin/especialidades-admin
     IndexAdminComponent,
     ServiciosAdminComponent,
     AboutAdminComponent,
-    EspecialidadesAdminComponent
+    EspecialidadesAdminComponent,
+    PqrsComponent,
+    ListarPqrsComponent,
+    EditarPqrsComponent,
+    UsuariosHomeComponent,
+    ConsultarUsuariosComponent,
+    RegistrarUsuariosComponent,
+    EditarConsultarUsuariosComponent,
+    EditarUsuariosComponent
     
   ],
   imports: [

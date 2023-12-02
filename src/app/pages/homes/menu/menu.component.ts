@@ -23,10 +23,10 @@ export class MenuComponent implements OnInit {
   }
 
   private shouldHideMenu(url: string): boolean {
-    return url.includes('admin-home') || url.includes('admin-home-2') || url.includes('herramientas');
+    return url.includes('admin-home') || url.includes('admin-home-2') || url.includes('herramientas') || url.includes('usuarios-home')|| url.includes('registrar-usuarios')|| url.includes('consultar-usuarios');
   }
 
   private shouldShowAdminMenu(url: string): boolean {
-    return url.includes('index-admin') || url.includes('servicios-admin') || url.includes('acerca-admin');
+    return url.includes('index-admin') || url.includes('servicios-admin') || url.includes('acerca-admin') || url.includes('especialidades-admin') || url.includes('pqrs-listar');
   }
 }
