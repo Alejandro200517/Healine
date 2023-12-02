@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RegistrarUsuariosComponent implements OnInit {
 
-  usuarios = new UsuariosModel('','','','','','','','','');
+  usuarios = new UsuariosModel('', Number(''), '', '', '', '', '', '', Number(''));
 
   constructor(
     private usuariosService: UsuariosService,

@@ -12,7 +12,7 @@ import { UsuariosService } from '../../../shared/services/usuarios.service';
 export class EditarUsuariosComponent implements OnInit {
 
   id = ''
-  usuarios = new UsuariosModel("","","","","","","","","");
+  usuarios = new UsuariosModel('', Number(''), '', '', '', '', '', '', Number(''));
 
   constructor(
     private usuariosService: UsuariosService,

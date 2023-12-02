@@ -11,6 +11,8 @@ import { PqrsService } from '../../../../shared/services/pqrs.service';
 export class ListarPqrsComponent implements OnInit {
   pqrs: Observable<PqrsModel[]> | undefined;
   filtroCorreo: string = '';
+  filtroEstado: string = '';
+
 
   constructor(private pqrsService: PqrsService) {}
 
@@ -31,16 +33,17 @@ export class ListarPqrsComponent implements OnInit {
       });
     }
   }
-
   filtrarPqrs(pqrs: PqrsModel[] | null): PqrsModel[] {
     if (!pqrs) {
       return [];
     }
   
-    // Filtra las PQRS basándose en el correo
-    return this.filtroCorreo
-      ? pqrs.filter(p => p.email.toLowerCase().includes(this.filtroCorreo.toLowerCase()))
-      : pqrs;
+    // Filtra las PQRS basándose en el correo y el estado
+    return pqrs.filter(p =>
+      p.email.toLowerCase().includes(this.filtroCorreo.toLowerCase()) &&
+      p.estado.toLowerCase().includes(this.filtroEstado.toLowerCase())
+    );
   }
+  
   
 }

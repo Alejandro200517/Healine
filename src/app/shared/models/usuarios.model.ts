@@ -1,14 +1,14 @@
 export class UsuariosModel {
   constructor(
     public tipo: string,
-    public documento: string,
+    public documento: number,
     public primerNombre: string,
     public segundoNombre: string,
     public primerApellido: string,
     public segundoApellido: string,
     public email: string,
     public contrasena: string,
-    public numero: string,
+    public numero: number,
   ) { }
   }
   

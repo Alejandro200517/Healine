@@ -11,6 +11,7 @@ import { UsuariosService } from '../../../shared/services/usuarios.service';
 export class ConsultarUsuariosComponent implements OnInit {
   usuarios: Observable<UsuariosModel[]> | undefined;
   filtroCorreo: string = '';
+  filtroDocumento: number = Number('');
 
   constructor(private usuariosService: UsuariosService) {}
 
@@ -37,9 +38,12 @@ export class ConsultarUsuariosComponent implements OnInit {
       return [];
     }
   
-    return this.filtroCorreo
-      ? usuarios.filter(p => p.email.toLowerCase().includes(this.filtroCorreo.toLowerCase()))
-      : usuarios;
+    return usuarios.filter(u => {
+      const correoCoincide = this.filtroCorreo.trim() === '' || u.email.toLowerCase().includes(this.filtroCorreo.toLowerCase());
+      const documentoCoincide = this.filtroDocumento === 0 || u.documento.toString().includes(this.filtroDocumento.toString());
+  
+      return correoCoincide && documentoCoincide;
+    });
   }
   
 }
