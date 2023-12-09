@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { RolesModel } from '../../../shared/models/roles.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RolesModel } from 'src/app/shared/models/roles.model';
 import { RolesService } from '../../../shared/services/roles.service';
-import { Route, Router, ActivatedRoute, ParamMap, Params } from '@angular/router';
 
 @Component({
   selector: 'app-editar-roles',
   templateUrl: './editar-roles.component.html',
-  styleUrls: ['./editar-roles.component.css']
+  styleUrls: ['../../../app.component.css']
 })
-export class EditarRolesComponent  implements OnInit {
-
-  id = ''
-  roles = new RolesModel("","","");
+export class EditarRolesComponent implements OnInit {
+  id = '';
+  roles = new RolesModel('', '');
 
   constructor(
     private rolesService: RolesService,
@@ -21,7 +20,6 @@ export class EditarRolesComponent  implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
-
     if (this.id) {
       console.log("EDITAR");
       this.rolesService.obtenerRol(this.id).subscribe(data => {
@@ -35,19 +33,36 @@ export class EditarRolesComponent  implements OnInit {
   }
 
   onSubmit() {
-    console.log('onSubmit');
-
-    if(this.roles.id_roles) {
-      this.rolesService.actualizarRoles(this.roles).subscribe(data => {
-        alert(data)
-        this.router.navigate(['/roles'])
-      })
+    if (this.id) {
+      // Si hay un ID, significa que estás editando, entonces utiliza el método de actualizar
+      this.rolesService.actualizarRoles(this.roles).subscribe(
+        (data) => {
+          alert('Rol actualizado correctamente');
+          this.router.navigate(['/editar-consultar-roles']);
+        },
+        (error) => {
+          if (error.status === 500) {
+            alert('Verifique los campos o el rol ya está registrado');
+          } else {
+            console.error(error);
+          }
+        }
+      );
     } else {
-      console.log('crear');
-      this.rolesService.agregarRoles(this.roles).subscribe(data => {
-        alert(data)
-        this.router.navigate(['/roles'])
-      })
+      // Si no hay un ID, significa que estás creando, utiliza el método de agregar
+      this.rolesService.agregarRoles(this.roles).subscribe(
+        (data) => {
+          alert('Rol registrado correctamente');
+          this.router.navigate(['/editar-consultar-roles']);
+        },
+        (error) => {
+          if (error.status === 500) {
+            alert('Verifique los campos o el rol ya está registrado');
+          } else {
+            console.error(error);
+          }
+        }
+      );
     }
   }
 }

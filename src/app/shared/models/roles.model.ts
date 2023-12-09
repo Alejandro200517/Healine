@@ -1,9 +1,7 @@
 export class RolesModel {
-
     constructor(
-      public id_roles: string,
-      public nombre: string,
-      public descripcion: string,
+      public id: string,
+      public nombreRol: string,
     ) { }
-  
-  }
+    }
+    

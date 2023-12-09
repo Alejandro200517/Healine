@@ -1,3 +1,4 @@
+// usuarios.model.ts
 export class UsuariosModel {
   constructor(
     public tipo: string,
@@ -9,6 +10,9 @@ export class UsuariosModel {
     public email: string,
     public contrasena: string,
     public numero: number,
+    public rol: string,
+    public sede: string,
+
   ) { }
   }
   

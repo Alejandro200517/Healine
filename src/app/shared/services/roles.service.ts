@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { RolesModel } from '../models/roles.model';
 
 @Injectable({
@@ -12,9 +13,9 @@ export class RolesService {
   constructor(private http: HttpClient) { }
 
   obtenerRoles() {
-    return this.http.get<RolesModel[]>(this.BASE_URL+'/roles');
+    return this.http.get<RolesModel[]>(`${this.BASE_URL}/roles`);
   }
-  
+
   obtenerRol(id: string) {
     return this.http.get<RolesModel[]>(`${this.BASE_URL}/roles/${id}`);
   }
@@ -24,10 +25,10 @@ export class RolesService {
   }
 
   actualizarRoles(roles: RolesModel) {
-    return this.http.put<string>(`${this.BASE_URL}/roles/actualizar/${roles.id_roles}`, roles);
+    return this.http.put<string>(`${this.BASE_URL}/roles/actualizar/${roles.id}`, roles);
   }
 
   borrarRoles(id: string) {
-    return this.http.delete<void>(`${this.BASE_URL}/roles/borrar/${id}`);
+    return this.http.delete<string>(`${this.BASE_URL}/roles/borrar/${id}`)
   }
 }

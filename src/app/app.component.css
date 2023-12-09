@@ -7363,6 +7363,27 @@ h6 {
   color: #009DFF;
 }
 
+.facturacion-pendiente {
+  color: orange;
+}
+
+.facturacion-pagada {
+  color: green;
+}
+
+.estado-pendiente {
+  color: orange;
+}
+
+.estado-cancelada {
+  color: red;
+}
+
+.estado-confirmada {
+  color: green;
+}
+
+
 
 .boton-admin2{
   background-color: #009DFF;

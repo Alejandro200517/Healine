@@ -30,6 +30,8 @@
                         <th class=" bg-primary text-white">2do Apellido</th>
                         <th class=" bg-primary text-white">Email</th>
                         <th class=" bg-primary text-white">Numero</th>
+                        <th class=" bg-primary text-white">Rol</th>
+                        <th class=" bg-primary text-white">Sede</th>
                         <th class=" bg-primary text-white" style="border-radius: 0 10px 0 0; border-right: none;">Acciones</th>
                     </tr>
                 </thead>
@@ -43,6 +45,9 @@
                         <td>{{ usuario.segundoApellido }}</td>
                         <td>{{ usuario.email }}</td>
                         <td>{{ usuario.numero }}</td>
+                        <td>{{ usuario.rol }}</td>
+                        <td>{{ usuario.sede }}</td>
+
                         <td class="text-center" >
                             <a [routerLink]="['/editar-usuarios/editar/', usuario.documento]">
                                 <img src='../../../../assets/images/editar.png' alt='Editar usuario' style='width: 19px; height: 19px;'>

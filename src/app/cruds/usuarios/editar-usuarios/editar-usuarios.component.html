@@ -26,7 +26,6 @@
                         <label class="labelCitaBuscar" for="documento" style="font-size: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #101010;">
                             Numero De Documento
                         </label>
-                        <!-- Utiliza un div o span para mostrar el número de documento -->
                         <div style="display: flex; align-items: center;">
                             <div style="flex-grow: 1; margin-right: 10px; font-size: 18px; font-weight: 500;">
                                 ㅤ{{ usuarios.documento }}
@@ -75,6 +74,23 @@
                             Numero
                         </label>
                         <input class="selectLogin" name="numero" id="numero" type="text" maxlength="10" placeholder="Nuemro Telefonico (Max 10)" required [(ngModel)]="usuarios.numero" style="display: block;margin: 0 auto;margin-bottom: 30px;padding: 8px;border-radius: 17px;width: 480px;color: rgb(14, 14, 14);background-color: rgb(255, 255, 255);padding: 12px; border: 1px solid #9e9e9e; border-radius: 15px; width: 100%; font-size: 20px;">
+                    </div>
+
+                    <div style="margin-right: 5px;">
+                        <div style="margin-right: 5px;">
+                            <select class="selectLogin" required [(ngModel)]="usuarios.rol" name="rol" id="rol" style="display: block;margin: 0 auto;margin-bottom: 30px;padding: 8px;border-radius: 17px;width: 480px;color: rgb(14, 14, 14);background-color: rgb(255, 255, 255);padding: 12px; border: 1px solid #9e9e9e; border-radius: 15px; width: 100%; font-size: 20px;">
+                                <option value="" selected disabled>Selecciona El Rol</option>
+                                <option *ngFor="let rol of rolesList" [ngValue]="rol.nombreRol">{{ rol.nombreRol }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="margin-right: 5px;">
+                        <div style="margin-right: 5px;">
+                            <select class="selectLogin" required [(ngModel)]="usuarios.sede" name="sede" id="sede" style="display: block;margin: 0 auto;margin-bottom: 30px;padding: 8px;border-radius: 17px;width: 480px;color: rgb(14, 14, 14);background-color: rgb(255, 255, 255);padding: 12px; border: 1px solid #9e9e9e; border-radius: 15px; width: 100%; font-size: 20px;">
+                                <option value="" selected disabled>Selecciona La Sede</option>
+                                <option *ngFor="let sede of sedesList" [ngValue]="sede.nombreSede">{{ sede.nombreSede }}</option>
+                            </select>
+                        </div>
                     </div>
         
                     <div class="form-group mt-3">

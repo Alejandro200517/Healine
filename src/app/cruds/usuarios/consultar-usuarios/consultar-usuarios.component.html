@@ -40,7 +40,8 @@
                         <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Primer Apellido</th>
                         <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Segundo Apellido</th>
                         <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Correo</th>
-                        <th class="bg-primary text-white" style="border: 1px solid #ccc; border-radius: 0px 25px 0px 0px; padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Numero</th>
+                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Numero</th>
+                        <th class="bg-primary text-white" style="border: 1px solid #ccc; border-radius: 0px 25px 0px 0px; padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Rol</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,6 +54,7 @@
                         <td>{{ usuario.segundoApellido }}</td>
                         <td>{{ usuario.email }}</td>
                         <td>{{ usuario.numero }}</td>
+                        <td>{{ usuario.rol }}</td>
                         <!-- Agregar más celdas según sea necesario -->
                         <!--<td>
                             <a [routerLink]="['/usuarios-editar/editar/', usuario.documento]" class="btn btn-primary">Editar</a>

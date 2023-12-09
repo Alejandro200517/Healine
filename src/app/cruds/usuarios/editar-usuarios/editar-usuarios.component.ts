@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UsuariosModel } from '../../../shared/models/usuarios.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuariosService } from '../../../shared/services/usuarios.service';
+import { RolesService } from '../../../shared/services/roles.service';
+import { SedesService } from '../../../shared/services/sedes.service'; 
 
 
 @Component({
@@ -12,12 +14,16 @@ import { UsuariosService } from '../../../shared/services/usuarios.service';
 export class EditarUsuariosComponent implements OnInit {
 
   id = ''
-  usuarios = new UsuariosModel('', Number(''), '', '', '', '', '', '', Number(''));
+  usuarios = new UsuariosModel('', Number(''), '', '', '', '', '', '', Number(''), '', '');
+  rolesList: any[] = [];
+  sedesList: any[] = [];
 
   constructor(
     private usuariosService: UsuariosService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private rolesService: RolesService,
+    private sedesService: SedesService
   ) { }
 
   ngOnInit() {
@@ -32,6 +38,25 @@ export class EditarUsuariosComponent implements OnInit {
     } else {
       console.log("CREAR");
     }
+
+    this.rolesService.obtenerRoles().subscribe(
+      (data) => {
+        this.rolesList = data;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+
+    // Obtén la lista de sedes al inicializar el componente
+    this.sedesService.obtenerSedes().subscribe(
+      (data) => {
+        this.sedesList = data;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
   onSubmit() {
@@ -43,11 +68,9 @@ export class EditarUsuariosComponent implements OnInit {
         this.router.navigate(['/editar-consultar-usuarios']);
       }, error => {
         console.log(error);
-        // Puedes manejar el error aquí, mostrar un mensaje al usuario, etc.
       });
     } else {
       console.log('crear');
-      // Aquí puedes agregar la lógica para crear un nuevo usuario si no hay documento.
     }
   }
   

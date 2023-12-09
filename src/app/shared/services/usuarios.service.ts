@@ -1,5 +1,7 @@
+// usuarios.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { UsuariosModel } from '../models/usuarios.model';
 
 @Injectable({
@@ -12,11 +14,16 @@ export class UsuariosService {
   constructor(private http: HttpClient) { }
 
   obtenerUsuarios() {
-    return this.http.get<UsuariosModel[]>(this.BASE_URL+'/usuarios');
+    return this.http.get<UsuariosModel[]>(`${this.BASE_URL}/usuarios`);
   }
 
   obtenerUsuario(id: string) {
     return this.http.get<UsuariosModel[]>(`${this.BASE_URL}/usuarios/${id}`);
+  }
+
+  // instruccion para agenda
+  obtenerUsuariosPorRol(rol: string): Observable<UsuariosModel[]> {
+    return this.http.get<UsuariosModel[]>(`${this.BASE_URL}/usuarios?rol=${rol}`);
   }
 
   agregarUsuarios(usuarios: UsuariosModel) {
@@ -26,7 +33,6 @@ export class UsuariosService {
   actualizarUsuarios(usuarios: UsuariosModel) {
     return this.http.put<string>(`${this.BASE_URL}/usuarios/actualizar/${usuarios.documento}`, usuarios);
   }
-  
 
   borrarUsuarios(id: string) {
     return this.http.delete<string>(`${this.BASE_URL}/usuarios/borrar/${id}`)

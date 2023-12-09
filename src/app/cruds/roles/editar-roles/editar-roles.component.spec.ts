@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditarPqrsComponent } from './editar-pqrs.component';
+import { EditarRolesComponent } from './editar-roles.component';
 
-describe('EditarPqrsComponent', () => {
-  let component: EditarPqrsComponent;
-  let fixture: ComponentFixture<EditarPqrsComponent>;
+describe('EditarRolesComponent', () => {
+  let component: EditarRolesComponent;
+  let fixture: ComponentFixture<EditarRolesComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [EditarPqrsComponent]
+      declarations: [EditarRolesComponent]
     });
-    fixture = TestBed.createComponent(EditarPqrsComponent);
+    fixture = TestBed.createComponent(EditarRolesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
