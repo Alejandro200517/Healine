@@ -21,6 +21,12 @@ require('./roles')(app, conexion);
 require('./turnos')(app, conexion);
 require('./pqrs')(app, conexion);
 require('./usuarios')(app, conexion);
+require('./agenda')(app, conexion);
+require('./sedes')(app, conexion);
+require('./historia')(app, conexion);
+require('./especialidades')(app, conexion);
+require('./citas')(app, conexion);
+
 
 
 app.listen(PUERTO, () => {

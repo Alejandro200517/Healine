@@ -1,15 +1,14 @@
-
 module.exports = function (app, conexion) {
-    
+
     app.get('/roles', (req, res) => {
         const query = `SELECT * FROM roles;`
         conexion.query(query, (error, resultado) => {
-            if(error) return console.error(error.message)
+            if (error) return console.error(error.message)
 
-            if(resultado.length > 0) {
+            if (resultado.length > 0) {
                 res.json(resultado)
             } else {
-                res.json(`No hay registros`)
+                res.json(`No hay registros de roles`)
             }
         })
     })
@@ -17,59 +16,60 @@ module.exports = function (app, conexion) {
     app.get('/roles/:id', (req, res) => {
         const { id } = req.params
 
-        const query = `SELECT * FROM roles WHERE id_roles=${id};`
+        const query = `SELECT * FROM roles WHERE id=${id};`
         conexion.query(query, (error, resultado) => {
-            if(error) return console.error(error.message)
+            if (error) return console.error(error.message)
 
-            if(resultado.length > 0) {
+            if (resultado.length > 0) {
                 res.json(resultado)
             } else {
-                res.json(`No hay registros`)
+                res.json(`No hay roles con ese ID`)
             }
         })
     })
 
     app.post('/roles/agregar', (req, res) => {
         const roles = {
-        nombre: req.body.nombre,
-        descripcion: req.body.descripcion,
+            nombreRol: req.body.nombreRol,
         };
-    
-        
-        const query = `INSERT INTO roles (nombre, descripcion) VALUES ('${roles.nombre}', '${roles.descripcion}')`;
-    
+
+        const query = `INSERT INTO roles (nombreRol) VALUES ('${roles.nombreRol}')`;
+
         conexion.query(query, (error) => {
-        if (error) {
-            console.error(error.message);
-            return res.status(500).json({ error: 'Error al registra el rol' });
-        }
-    
-        res.json(`Se registro correctamente el ROL`);
+            if (error) {
+                console.error(error.message);
+                return res.status(500).json({ error: 'Error al registrar EL ROL' });
+            }
+
+            res.json('Se registró correctamente el ROL');
         });
     });
 
     app.put('/roles/actualizar/:id', (req, res) => {
         const { id } = req.params;
-        const { descripcion, nombre } = req.body;
-    
-        const query = `UPDATE roles SET nombre='${nombre}', descripcion='${descripcion}' WHERE id_roles='${id}';`;
-    
+        const { nombreRol } = req.body;
+
+        const query = `
+            UPDATE roles SET nombreRol='${nombreRol}' WHERE id='${id}';`;
+
         conexion.query(query, (error) => {
-        if (error) return console.error(error.message);
-    
-        res.json(`Se actualizó correctamente el ROL`);
+            if (error) {
+                console.error(error.message);
+                return res.status(500).json({ error: 'Error interno del servidor' });
+            }
+
+            res.json(`Se actualizó correctamente el rol`);
         });
     });
-    
 
     app.delete('/roles/borrar/:id', (req, res) => {
         const { id } = req.params
 
-        const query = `DELETE FROM roles WHERE id_roles=${id};`
+        const query = `DELETE FROM roles WHERE id=${id};`
         conexion.query(query, (error) => {
-            if(error) console.error(error.message)
+            if (error) console.error(error.message)
 
-            res.json(`Se eliminó correctamente el ROL`)
+            res.json(`Se eliminó correctamente el rol`)
         })
     })
 }

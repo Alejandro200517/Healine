@@ -39,9 +39,12 @@ module.exports = function (app, conexion) {
             email: req.body.email,
             contrasena: req.body.contrasena,
             numero: req.body.numero,
+            rol: req.body.rol,
+            sede: req.body.sede,
+
         };
 
-        const query = `INSERT INTO usuarios (tipo, documento, primerNombre, segundoNombre, primerApellido, segundoApellido, email, contrasena, numero) VALUES ('${usuarios.tipo}', '${usuarios.documento}', '${usuarios.primerNombre}', '${usuarios.segundoNombre}', '${usuarios.primerApellido}', '${usuarios.segundoApellido}', '${usuarios.email}', '${usuarios.contrasena}', '${usuarios.numero}')`;
+        const query = `INSERT INTO usuarios (tipo, documento, primerNombre, segundoNombre, primerApellido, segundoApellido, email, contrasena, numero, rol, sede) VALUES ('${usuarios.tipo}', '${usuarios.documento}', '${usuarios.primerNombre}', '${usuarios.segundoNombre}', '${usuarios.primerApellido}', '${usuarios.segundoApellido}', '${usuarios.email}', '${usuarios.contrasena}', '${usuarios.numero}', '${usuarios.rol}', '${usuarios.sede}')`;
 
         conexion.query(query, (error) => {
             if (error) {
@@ -55,10 +58,10 @@ module.exports = function (app, conexion) {
 
     app.put('/usuarios/actualizar/:id', (req, res) => {
         const { id } = req.params;
-        const { tipo, documento, primerNombre, segundoNombre, primerApellido, segundoApellido, email, numero } = req.body;
+        const { tipo, documento, primerNombre, segundoNombre, primerApellido, segundoApellido, email, numero, rol, sede } = req.body;
 
         const query = `
-            UPDATE usuarios SET tipo='${tipo}', documento='${documento}', primerNombre='${primerNombre}', segundoNombre='${segundoNombre}', primerApellido='${primerApellido}', segundoApellido='${segundoApellido}', email='${email}', numero='${numero}' WHERE documento='${id}';`;
+            UPDATE usuarios SET tipo='${tipo}', documento='${documento}', primerNombre='${primerNombre}', segundoNombre='${segundoNombre}', primerApellido='${primerApellido}', segundoApellido='${segundoApellido}', email='${email}', numero='${numero}', rol='${rol}', sede='${sede}' WHERE documento='${id}';`;
 
         conexion.query(query, (error) => {
             if (error) {
