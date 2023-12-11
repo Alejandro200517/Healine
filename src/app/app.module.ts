@@ -10,8 +10,6 @@ import { AppComponent } from './app.component';
  
 import { TurnoService } from './shared/services/turno.service';
 
-import { RegistrarUsuarioComponent } from './pages/homes/registrar/registrar.component';
-import { RegistrarService } from './shared/services/registrar.service';
 
 
 import { IndexComponent } from './pages/homes/index/index.component';
@@ -91,7 +89,7 @@ import { ConsultarIncapacidadComponent } from './cruds/incapacidad/consultar-inc
 import { RegistrarIncapacidadComponent } from './cruds/incapacidad/registrar-incapacidad/registrar-incapacidad.component';
 import { EditarConsultarIncapacidadComponent } from './cruds/incapacidad/editar-consultar-incapacidad/editar-consultar-incapacidad.component';
 import { EditarIncapacidadComponent } from './cruds/incapacidad/editar-incapacidad/editar-incapacidad.component';
-
+import { UsersComponent } from './pages/homes/users/users.component';
 //import { HistoriaHomeComponent } from './pages/admin/homes-herramientas/historia-home/historia-home.component';
 //import { ConsultarHistoriaComponent } from './cruds/historia/consultar-historia/consultar-historia.component';
 //import { RegistrarHistoriaComponent } from './cruds/historia/registrar-historia/registrar-historia.component';
@@ -103,7 +101,6 @@ import { EditarIncapacidadComponent } from './cruds/incapacidad/editar-incapacid
 @NgModule({
   declarations: [
     AppComponent,
-    RegistrarUsuarioComponent,
     AdminHomeComponent,
     AdminHome2Component,
     HerramientasComponent,
@@ -164,6 +161,7 @@ import { EditarIncapacidadComponent } from './cruds/incapacidad/editar-incapacid
     RegistrarIncapacidadComponent,
     EditarConsultarIncapacidadComponent,
     EditarIncapacidadComponent,
+    UsersComponent,
     //HistoriaHomeComponent,
     //ConsultarHistoriaComponent,
     //RegistrarHistoriaComponent,
@@ -185,7 +183,6 @@ import { EditarIncapacidadComponent } from './cruds/incapacidad/editar-incapacid
   ],
   providers: [
     TurnoService,
-    RegistrarService,
     UsuariosService,
     AgendaService,
     SedesService,

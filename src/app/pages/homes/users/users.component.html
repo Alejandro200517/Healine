@@ -1,0 +1,73 @@
+<div>
+    <h1>ㅤ</h1>
+    <div class="blue-box">
+      <div>
+        <h1 class="title1">Registrarse</h1>
+        <div class="section-divisor"></div>
+      </div>
+  
+      <form (ngSubmit)="onSubmit()" #registrarForm="ngForm">
+        <h4>ㅤ</h4>
+
+
+        <fieldset class="form-group">
+            <div style="margin-right: 5px;">
+              <input class="selectLogin" name="Documento" id="Documento" type="number" placeholder="Documento (Max 10)" required [(ngModel)]="users.documento">
+            </div>
+          </fieldset>
+        
+        <fieldset class="form-group">
+          <div style="margin-right: 5px;">
+            <select class="selectLogin" required [(ngModel)]="users.tipoDoc" name="tipo" id="tipo" style="font-size: 18px;">
+              <option value="" selected disabled>Selecciona Tipo De Documento</option>
+              <option value="CC">CC</option>
+              <option value="TI">TI</option>
+              <option value="Pasaporte">Pasaporte</option>
+              <option value="NIT">NIT</option>
+            </select>      
+          </div>
+        </fieldset>
+        
+        <fieldset class="form-group">
+          <div style="margin-right: 5px;">
+            <input class="selectLogin" name="PrimerNombre" id="PrimerNombre" type="text" placeholder="1er Nombre" required [(ngModel)]="users.primerNombre">
+          </div>
+        </fieldset>
+        <fieldset class="form-group">
+          <div style="margin-right: 5px;">
+            <input class="selectLogin" name="SegundoNombre" id="SegundoNombre" type="text" placeholder="2do Nombre" [(ngModel)]="users.segundoNombre">
+          </div>
+        </fieldset>
+        <fieldset class="form-group">
+          <div style="margin-right: 5px;">
+            <input class="selectLogin" name="PrimerApellido" id="PrimerApellido" type="text" placeholder="1er Apellido" required [(ngModel)]="users.primerApellido">
+          </div>
+        </fieldset>
+        <fieldset class="form-group">
+          <div style="margin-right: 5px;">
+            <input class="selectLogin" name="SegundoApellido" id="SegundoApellido" type="text" placeholder="2do Apellido" [(ngModel)]="users.segundoApellido">
+          </div>
+        </fieldset>
+  
+        <fieldset class="form-group">
+          <div style="margin-right: 5px; margin-top: -5px;">
+            <input class="selectLogin" name="Email" id="Email" type="email" placeholder="Email" required [(ngModel)]="users.email">
+          </div>
+        </fieldset>
+        <fieldset class="form-group">
+          <div style="margin-right: 5px; margin-top: -5px;">
+            <input class="selectLogin" name="Contrasena" id="Contrasena" type="password" placeholder="Contraseña" required [(ngModel)]="users.password">
+          </div>
+        </fieldset>
+        <fieldset class="form-group">
+          <div style="margin-right: 5px; margin-top: -5px;">
+            <input class="selectLogin" name="Numero" id="Numero" type="number" placeholder="Número Telefónico" required [(ngModel)]="users.numero">
+          </div>
+        </fieldset>
+  
+        <div class="form-group mt-3">
+          <button type="submit" class="button button-contactForm boxed-btn" style="border-radius: 20px;" [disabled]="!registrarForm.form.valid">Registrarse</button>
+        </div>
+      </form>
+    </div>
+  </div>

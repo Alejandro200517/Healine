@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { RegistrarService } from '../../../shared/services/registrar.service';
-import { RegistrarModel } from '../../../shared/models/registrar-model';
+import { UsersService } from '../../../shared/services/users.service';
+import { UsersModel } from '../../../shared/models/users.model';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-registrar',
-  templateUrl: './registrar.component.html',
+  selector: 'app-users',
+  templateUrl: './users.component.html',
   styleUrls: ['../../../app.component.css']
 })
-export class RegistrarUsuarioComponent implements OnInit {
+export class UsersComponent implements OnInit {
 
-  registrar = new RegistrarModel('','','','','','','','','');
+  users = new UsersModel('','','','','','','','','','','');
 
   constructor(
-    private registrarService: RegistrarService,
+    private usersService: UsersService,
     private router: Router
   ) { }
 
@@ -23,7 +23,7 @@ export class RegistrarUsuarioComponent implements OnInit {
   onSubmit() {
     console.log('onSubmit');
 
-    this.registrarService.registrarUsuario(this.registrar).subscribe(
+    this.usersService.agregarUsers(this.users).subscribe(
       (data) => {
         alert('Usuario registrado correctamente');
         this.router.navigate(['/login']); 

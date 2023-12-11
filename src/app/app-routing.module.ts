@@ -8,9 +8,8 @@ import { ServiciosComponent } from './pages/homes/servicios/servicios.component'
 import { AcercaComponent } from './pages/homes/acerca/acerca.component';
 import { EspecialidadesComponent } from './pages/homes/especialidades/especialidades.component';
 import { LoginComponent } from './pages/homes/login/login.component';
-import { RegistrarUsuarioComponent } from './pages/homes/registrar/registrar.component';
 import { PqrsComponent } from './pages/homes/pqrs/pqrs.component';
-
+import { UsersComponent } from './pages/homes/users/users.component';
 
 // Pages Principales Admin
 import { IndexAdminComponent } from './pages/admin/index-admin/index-admin.component';
@@ -103,8 +102,9 @@ const routes: Routes = [
   { path: 'acerca', component: AcercaComponent },
   { path: 'especialidades', component: EspecialidadesComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'registrar/agregar', component: RegistrarUsuarioComponent },
   { path: 'pqrs', component: PqrsComponent },
+  { path: 'users/agregar', component: UsersComponent },
+
 
 
   
