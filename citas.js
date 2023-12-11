@@ -33,17 +33,18 @@ module.exports = function (app, conexion) {
             fecha: req.body.fecha,
             hora: req.body.hora,
             paciente: req.body.paciente,
-            medico: req.body.medico
-            // No incluyas facturacion y estado aquí
+            medico: req.body.medico,
+            especialidad: req.body.especialidad
         };
     
         const query = `
-            INSERT INTO citas (fecha, hora, paciente, medico, facturacion, estado)
+            INSERT INTO citas (fecha, hora, paciente, medico, especialidad, facturacion, estado )
             VALUES (
                 '${citas.fecha}',
                 '${citas.hora}',
                 '${citas.paciente}',
                 '${citas.medico}',
+                '${citas.especialidad}',
                 'pendiente',
                 'pendiente'
             );
