@@ -4,23 +4,28 @@ import { CitasService } from '../../../shared/services/citas.service';
 import { UsuariosModel } from 'src/app/shared/models/usuarios.model';
 import { UsuariosService } from '../../../shared/services/usuarios.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EspecialidadesService } from 'src/app/shared/services/especialidades.service';
+import { EspecialidadesModel } from 'src/app/shared/models/especialidades.model';
 
 
 @Component({
   selector: 'app-editar-citas',
   templateUrl: './editar-citas.component.html',
-  styleUrls: ['./editar-citas.component.css']
+  styleUrls: ['../../../app.component.css']
 })
 export class EditarCitasComponent implements OnInit {
   id = '';
-  citas = new CitasModel('', '', '', '', '', '', '');
+  citas = new CitasModel('', '', '', '', '', '', '', '');
   usuariosMedicos: UsuariosModel[] = [];
+  especialidades: EspecialidadesModel[] = []
 
   constructor(
     private citasService: CitasService,
+    private usuariosService: UsuariosService,
+    private especialidadesService: EspecialidadesService,
+    private router: Router,
     private route: ActivatedRoute,
-    private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
@@ -34,6 +39,24 @@ export class EditarCitasComponent implements OnInit {
     } else {
       console.log("CREAR");
     }
+
+    this.usuariosService.obtenerUsuarios().subscribe(
+      (data) => {
+        this.usuariosMedicos = data.filter(usuario => usuario.rol === 'Medico');
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+
+    this.especialidadesService.obtenerEspecialidades().subscribe(
+      (data) => {
+        this.especialidades = data;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
   onSubmit() {

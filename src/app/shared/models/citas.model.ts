@@ -5,6 +5,7 @@ export class CitasModel {
         public hora: string,
         public paciente: string,
         public medico: string,
+        public especialidad: string,
         public facturacion: string,
         public estado: string
     ) { }

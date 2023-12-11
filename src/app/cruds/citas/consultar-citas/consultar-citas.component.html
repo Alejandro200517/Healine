@@ -25,6 +25,7 @@
                         <th style="padding: 12px; text-align: center; background-color: #009DFF; color: #fff;">Hora</th>
                         <th style="padding: 12px; text-align: center; background-color: #009DFF; color: #fff;">Paciente</th>
                         <th style="padding: 12px; text-align: center; background-color: #009DFF; color: #fff;">Médico</th>
+                        <th style="padding: 12px; text-align: center; background-color: #009DFF; color: #fff;">Especialidad</th>
                         <th style="padding: 12px; text-align: center; background-color: #009DFF; color: #fff;">Facturacion</th>
                         <th style="padding: 12px; text-align: center; background-color: #009DFF; color: #fff; border-top-right-radius: 10px;">Estado</th>
                     </tr>
@@ -35,6 +36,7 @@
                         <td style="padding: 10px; text-align: center;">{{ cita.hora }}</td>
                         <td style="padding: 10px; text-align: center;">{{ cita.paciente }}</td>
                         <td style="padding: 10px; text-align: center;">{{ cita.medico }}</td>
+                        <td style="padding: 10px; text-align: center;">{{ cita.especialidad }}</td>
                         <td style="padding: 10px; text-align: center;" [ngClass]="{'facturacion-pendiente': cita.facturacion === 'pendiente', 'facturacion-pagada': cita.facturacion === 'pagada'}">{{ cita.facturacion }}</td>
                         <td style="padding: 10px; text-align: center;" [ngClass]="{'estado-pendiente': cita.estado === 'pendiente', 'estado-cancelada': cita.estado === 'cancelada', 'estado-confirmada': cita.estado === 'confirmada'}">{{ cita.estado }}</td>
 

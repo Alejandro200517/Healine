@@ -29,7 +29,7 @@
                             <label class="labelCitaBuscar" for="paciente" style="font-size: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #101010; ">
                                 Paciente
                             </label>
-                            <input class="selectLogin" name="paciente" id="paciente" type="text" placeholder = 'paciente' required [(ngModel)]="citas.paciente" style="display: block;margin: 0 auto;margin-bottom: 30px;padding: 8px;border-radius: 17px;width: 480px;color: rgb(14, 14, 14);background-color: rgb(255, 255, 255);padding: 12px; border: 1px solid #9e9e9e; border-radius: 15px; width: 100%; font-size: 20px;">
+                            <input class="selectLogin" name="paciente" id="paciente" type="text" placeholder = 'id paciente' required [(ngModel)]="citas.paciente" style="display: block;margin: 0 auto;margin-bottom: 30px;padding: 8px;border-radius: 17px;width: 480px;color: rgb(14, 14, 14);background-color: rgb(255, 255, 255);padding: 12px; border: 1px solid #9e9e9e; border-radius: 15px; width: 100%; font-size: 20px;">
                         </div>
 
                         <div style="margin-right: 5px; margin-top: -5px;">
@@ -39,6 +39,16 @@
                             <select required [(ngModel)]="citas.medico" name="medico" id="medico" class="selectLogin">
                                 <option *ngFor="let usuario of usuariosMedicos" [ngValue]="usuario.documento">
                                     {{ usuario.documento }} - {{ usuario.primerNombre }} {{ usuario.segundoNombre }} {{ usuario.primerApellido }} {{ usuario.segundoApellido }}
+                                </option>
+                            </select>
+                        </div>
+                        <div style="margin-right: 5px; margin-top: -5px;">
+                            <label class="labelCitaBuscar" for="especialidad" style="font-size: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #101010;">
+                                Especialidad
+                            </label>                            
+                            <select required [(ngModel)]="citas.especialidad" name="especialidad" id="especialidad" class="selectLogin">
+                                <option *ngFor="let especialidad of especialidades" [ngValue]="especialidad.id">
+                                    {{ especialidad.id }} - {{ especialidad.nombre }} 
                                 </option>
                             </select>
                         </div>

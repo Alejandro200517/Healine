@@ -29,14 +29,16 @@ import { UsuariosHomeComponent } from './pages/admin/homes-herramientas/usuarios
 import { AgendaHomeComponent } from './pages/admin/homes-herramientas/agenda-home/agenda-home.component';
 import { SedesHomeComponent } from './pages/admin/homes-herramientas/sedes-home/sedes-home.component';
 import { RolesHomeComponent } from './pages/admin/homes-herramientas/roles-home/roles-home.component';
-import { HistoriaHomeComponent } from './pages/admin/homes-herramientas/historia-home/historia-home.component';
+//import { HistoriaHomeComponent } from './pages/admin/homes-herramientas/historia-home/historia-home.component';
 import { EspecialidadesHomeComponent } from './pages/admin/homes-herramientas/especialidades-home/especialidades-home.component';
 import { CitasHomeComponent } from './pages/admin/homes-herramientas/citas-home/citas-home.component';
+import { FormulasHomeComponent } from './pages/admin/homes-herramientas/formulas-home/formulas-home.component';
+import { OrdenesHomeComponent } from './pages/admin/homes-herramientas/ordenes-home/ordenes-home.component';
+import { ExamenesHomeComponent } from './pages/admin/homes-herramientas/examenes-home/examenes-home.component';
+import { IncapacidadHomeComponent } from './pages/admin/homes-herramientas/incapacidad-home/incapacidad-home.component';
+
 
 // CRUDS Admin
-
-import { EditarTurnoComponent } from './cruds/turno_medico/editar-turno/editar-turno.component';
-import { ListarTurnoComponent } from './cruds/turno_medico/listar-turno/listar-turno.component';
 
 import { ConsultarUsuariosComponent } from './cruds/usuarios/consultar-usuarios/consultar-usuarios.component';
 import { RegistrarUsuariosComponent } from './cruds/usuarios/registrar-usuarios/registrar-usuarios.component';
@@ -73,6 +75,27 @@ import { RegistrarCitasComponent } from './cruds/citas/registrar-citas/registrar
 import { EditarConsultarCitasComponent } from './cruds/citas/editar-consultar-citas/editar-consultar-citas.component';
 import { EditarCitasComponent } from './cruds/citas/editar-citas/editar-citas.component';
 
+import { ConsultarFormulasComponent } from './cruds/formulas/consultar-formulas/consultar-formulas.component';
+import { RegistrarFormulasComponent } from './cruds/formulas/registrar-formulas/registrar-formulas.component';
+import { EditarConsultarFormulasComponent } from './cruds/formulas/editar-consultar-formulas/editar-consultar-formulas.component';
+import { EditarFormulasComponent } from './cruds/formulas/editar-formulas/editar-formulas.component';
+
+import { ConsultarOrdenesComponent } from './cruds/ordenes/consultar-ordenes/consultar-ordenes.component';
+import { RegistrarOrdenesComponent } from './cruds/ordenes/registrar-ordenes/registrar-ordenes.component';
+import { EditarConsultarOrdenesComponent } from './cruds/ordenes/editar-consultar-ordenes/editar-consultar-ordenes.component';
+import { EditarOrdenesComponent } from './cruds/ordenes/editar-ordenes/editar-ordenes.component';
+
+import { RegistrarExamenesComponent } from './cruds/examenes/registrar-examenes/registrar-examenes.component';
+import { ConsultarExamenesComponent } from './cruds/examenes/consultar-examenes/consultar-examenes.component';
+import { EditarConsultarExamenesComponent } from './cruds/examenes/editar-consultar-examenes/editar-consultar-examenes.component';
+import { EditarExamenesComponent } from './cruds/examenes/editar-examenes/editar-examenes.component';
+
+import { RegistrarIncapacidadComponent } from './cruds/incapacidad/registrar-incapacidad/registrar-incapacidad.component';
+import { ConsultarIncapacidadComponent } from './cruds/incapacidad/consultar-incapacidad/consultar-incapacidad.component';
+import { EditarConsultarIncapacidadComponent } from './cruds/incapacidad/editar-consultar-incapacidad/editar-consultar-incapacidad.component';
+import { EditarIncapacidadComponent } from './cruds/incapacidad/editar-incapacidad/editar-incapacidad.component';
+
+
 
 const routes: Routes = [
   { path: 'index', component: IndexComponent },
@@ -102,11 +125,11 @@ const routes: Routes = [
   { path:'roles-home', component: RolesHomeComponent },
   { path:'especialidades-home', component: EspecialidadesHomeComponent },
   { path:'citas-home', component: CitasHomeComponent },
-  
+  { path:'formulas-home', component: FormulasHomeComponent },
+  { path:'ordenes-home', component: OrdenesHomeComponent },
+  { path:'examenes-home', component: ExamenesHomeComponent },
+  { path:'incapacidad-home', component: IncapacidadHomeComponent },
 
-  { path:'turno', component: ListarTurnoComponent },
-  { path:'turno/editar/:id', component: EditarTurnoComponent },
-  { path:'turno/agregar', component: EditarTurnoComponent },
 
   { path:'consultar-usuarios', component: ConsultarUsuariosComponent },
   { path:'registrar-usuarios', component: RegistrarUsuariosComponent },
@@ -142,6 +165,26 @@ const routes: Routes = [
   { path:'registrar-citas', component: RegistrarCitasComponent },
   { path:'editar-consultar-citas', component: EditarConsultarCitasComponent },
   { path:'editar-citas/editar/:id', component: EditarCitasComponent },
+
+  { path:'consultar-formulas', component: ConsultarFormulasComponent },
+  { path:'registrar-formulas', component: RegistrarFormulasComponent },
+  { path:'editar-consultar-formulas', component: EditarConsultarFormulasComponent },
+  { path:'editar-formulas/editar/:id', component: EditarFormulasComponent },
+  
+  { path:'consultar-ordenes', component: ConsultarOrdenesComponent },
+  { path:'registrar-ordenes', component: RegistrarOrdenesComponent },
+  { path:'editar-consultar-ordenes', component: EditarConsultarOrdenesComponent },
+  { path:'editar-ordenes/editar/:id', component: EditarOrdenesComponent },
+
+  { path:'consultar-examenes', component: ConsultarExamenesComponent },
+  { path:'registrar-examenes', component: RegistrarExamenesComponent },
+  { path:'editar-consultar-examenes', component: EditarConsultarExamenesComponent },
+  { path:'editar-examenes/editar/:id', component: EditarExamenesComponent },
+
+  { path:'consultar-incapacidad', component: ConsultarIncapacidadComponent },
+  { path:'registrar-incapacidad', component: RegistrarIncapacidadComponent },
+  { path:'editar-consultar-incapacidad', component: EditarConsultarIncapacidadComponent },
+  { path:'editar-incapacidad/editar/:id', component: EditarIncapacidadComponent },
 ];
 
 @NgModule({

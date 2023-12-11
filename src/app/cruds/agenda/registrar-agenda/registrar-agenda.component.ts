@@ -23,7 +23,7 @@ export class RegistrarAgendaComponent implements OnInit {
   ngOnInit() {
     this.usuariosService.obtenerUsuarios().subscribe(
       (data) => {
-        this.usuariosMedicos = data.filter(usuario => usuario.rol === 'medico');
+        this.usuariosMedicos = data.filter(usuario => usuario.rol === 'Medico');
       },
       (error) => {
         console.error(error);

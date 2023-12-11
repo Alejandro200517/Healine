@@ -8,8 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
  
-import { EditarTurnoComponent } from './cruds/turno_medico/editar-turno/editar-turno.component';
-import { ListarTurnoComponent } from './cruds/turno_medico/listar-turno/listar-turno.component';
 import { TurnoService } from './shared/services/turno.service';
 
 import { RegistrarUsuarioComponent } from './pages/homes/registrar/registrar.component';
@@ -73,6 +71,26 @@ import { EditarConsultarCitasComponent } from './cruds/citas/editar-consultar-ci
 import { EditarCitasComponent } from './cruds/citas/editar-citas/editar-citas.component';
 
 import { CitasService } from './shared/services/citas.service';
+import { FormulasHomeComponent } from './pages/admin/homes-herramientas/formulas-home/formulas-home.component';
+import { ConsultarFormulasComponent } from './cruds/formulas/consultar-formulas/consultar-formulas.component';
+import { RegistrarFormulasComponent } from './cruds/formulas/registrar-formulas/registrar-formulas.component';
+import { EditarConsultarFormulasComponent } from './cruds/formulas/editar-consultar-formulas/editar-consultar-formulas.component';
+import { EditarFormulasComponent } from './cruds/formulas/editar-formulas/editar-formulas.component';
+import { OrdenesHomeComponent } from './pages/admin/homes-herramientas/ordenes-home/ordenes-home.component';
+import { ConsultarOrdenesComponent } from './cruds/ordenes/consultar-ordenes/consultar-ordenes.component';
+import { RegistrarOrdenesComponent } from './cruds/ordenes/registrar-ordenes/registrar-ordenes.component';
+import { EditarConsultarOrdenesComponent } from './cruds/ordenes/editar-consultar-ordenes/editar-consultar-ordenes.component';
+import { EditarOrdenesComponent } from './cruds/ordenes/editar-ordenes/editar-ordenes.component';
+import { ExamenesHomeComponent } from './pages/admin/homes-herramientas/examenes-home/examenes-home.component';
+import { ConsultarExamenesComponent } from './cruds/examenes/consultar-examenes/consultar-examenes.component';
+import { RegistrarExamenesComponent } from './cruds/examenes/registrar-examenes/registrar-examenes.component';
+import { EditarConsultarExamenesComponent } from './cruds/examenes/editar-consultar-examenes/editar-consultar-examenes.component';
+import { EditarExamenesComponent } from './cruds/examenes/editar-examenes/editar-examenes.component';
+import { IncapacidadHomeComponent } from './pages/admin/homes-herramientas/incapacidad-home/incapacidad-home.component';
+import { ConsultarIncapacidadComponent } from './cruds/incapacidad/consultar-incapacidad/consultar-incapacidad.component';
+import { RegistrarIncapacidadComponent } from './cruds/incapacidad/registrar-incapacidad/registrar-incapacidad.component';
+import { EditarConsultarIncapacidadComponent } from './cruds/incapacidad/editar-consultar-incapacidad/editar-consultar-incapacidad.component';
+import { EditarIncapacidadComponent } from './cruds/incapacidad/editar-incapacidad/editar-incapacidad.component';
 
 //import { HistoriaHomeComponent } from './pages/admin/homes-herramientas/historia-home/historia-home.component';
 //import { ConsultarHistoriaComponent } from './cruds/historia/consultar-historia/consultar-historia.component';
@@ -85,8 +103,6 @@ import { CitasService } from './shared/services/citas.service';
 @NgModule({
   declarations: [
     AppComponent,
-    EditarTurnoComponent,
-    ListarTurnoComponent,
     RegistrarUsuarioComponent,
     AdminHomeComponent,
     AdminHome2Component,
@@ -128,6 +144,26 @@ import { CitasService } from './shared/services/citas.service';
     RegistrarCitasComponent,
     EditarConsultarCitasComponent,
     EditarCitasComponent,
+    FormulasHomeComponent,
+    ConsultarFormulasComponent,
+    RegistrarFormulasComponent,
+    EditarConsultarFormulasComponent,
+    EditarFormulasComponent,
+    OrdenesHomeComponent,
+    ConsultarOrdenesComponent,
+    RegistrarOrdenesComponent,
+    EditarConsultarOrdenesComponent,
+    EditarOrdenesComponent,
+    ExamenesHomeComponent,
+    ConsultarExamenesComponent,
+    RegistrarExamenesComponent,
+    EditarConsultarExamenesComponent,
+    EditarExamenesComponent,
+    IncapacidadHomeComponent,
+    ConsultarIncapacidadComponent,
+    RegistrarIncapacidadComponent,
+    EditarConsultarIncapacidadComponent,
+    EditarIncapacidadComponent,
     //HistoriaHomeComponent,
     //ConsultarHistoriaComponent,
     //RegistrarHistoriaComponent,

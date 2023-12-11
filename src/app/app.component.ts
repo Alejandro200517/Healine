@@ -64,6 +64,30 @@ export class AppComponent {
     url.includes('editar-consultar-citas') ||
     url.includes('editar-citas') ||
 
+    url.includes('formulas-home') ||
+    url.includes('registrar-formulas') ||
+    url.includes('consultar-formulas') ||
+    url.includes('editar-consultar-formulas') ||
+    url.includes('editar-formulas') ||
+
+    url.includes('ordenes-home') ||
+    url.includes('registrar-ordenes') ||
+    url.includes('consultar-ordenes') ||
+    url.includes('editar-consultar-ordenes') ||
+    url.includes('editar-ordenes') ||
+    
+    url.includes('examenes-home') ||
+    url.includes('registrar-examenes') ||
+    url.includes('consultar-examenes') ||
+    url.includes('editar-consultar-examenes') ||
+    url.includes('editar-examenes') ||
+
+    url.includes('incapacidad-home') ||
+    url.includes('registrar-incapacidad') ||
+    url.includes('consultar-incapacidad') ||
+    url.includes('editar-consultar-incapacidad') ||
+    url.includes('editar-incapacidad') ||
+
     this.shouldShowAdminMenu(url);
   }
 
