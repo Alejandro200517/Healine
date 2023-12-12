@@ -30,6 +30,9 @@ require('./formulas')(app, conexion);
 require('./ordenes')(app, conexion);
 require('./examenes')(app, conexion);
 require('./incapacidad')(app, conexion);
+require('./userRoute')(app, conexion);
+
+
 
 
 
