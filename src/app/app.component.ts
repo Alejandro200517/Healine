@@ -25,14 +25,15 @@ export class AppComponent {
   //Dejar esto: || this.shouldShowAdminMenu(url)
   private shouldHideMenu(url: string): boolean {
     return url.includes('admin-home') || 
+    url.includes('user-home') || 
     url.includes('admin-home-2') || 
     url.includes('herramientas')|| 
     
     url.includes('usuarios-home')|| 
-    url.includes('registrar-usuarios')|| 
-    url.includes('consultar-usuarios') || 
-    url.includes('editar-consultar-usuarios') || 
-    url.includes('editar-usuarios') || 
+    url.includes('registrar-users')|| 
+    url.includes('consultar-users') || 
+    url.includes('editar-consultar-users') || 
+    url.includes('editar-users') || 
 
     url.includes('agenda-home') ||
     url.includes('registrar-agenda') ||

@@ -11,6 +11,9 @@ import { LoginComponent } from './pages/homes/login/login.component';
 import { PqrsComponent } from './pages/homes/pqrs/pqrs.component';
 import { UsersComponent } from './pages/homes/users/users.component';
 
+import { UserHomeComponent } from './pages/user-home/user-home.component';
+
+
 // Pages Principales Admin
 import { IndexAdminComponent } from './pages/admin/index-admin/index-admin.component';
 import { ServiciosAdminComponent } from './pages/admin/servicios-admin/servicios-admin.component';
@@ -39,10 +42,10 @@ import { IncapacidadHomeComponent } from './pages/admin/homes-herramientas/incap
 
 // CRUDS Admin
 
-import { ConsultarUsuariosComponent } from './cruds/usuarios/consultar-usuarios/consultar-usuarios.component';
-import { RegistrarUsuariosComponent } from './cruds/usuarios/registrar-usuarios/registrar-usuarios.component';
-import { EditarConsultarUsuariosComponent } from './cruds/usuarios/editar-consultar-usuarios/editar-consultar-usuarios.component';
-import { EditarUsuariosComponent } from './cruds/usuarios/editar-usuarios/editar-usuarios.component';
+import { ConsultarUsersComponent } from './cruds/users/consultar-users/consultar-users.component';
+import { EditarConsultarUsersComponent } from './cruds/users/editar-consultar-users/editar-consultar-users.component';
+import { EditarUsersComponent } from './cruds/users/editar-users/editar-users.component';
+import { RegistrarUsersComponent } from './cruds/users/registrar-users/registrar-users.component';
 
 import { ConsultarAgendaComponent } from './cruds/agenda/consultar-agenda/consultar-agenda.component';
 import { RegistrarAgendaComponent } from './cruds/agenda/registrar-agenda/registrar-agenda.component';
@@ -106,6 +109,8 @@ const routes: Routes = [
   { path: 'users/agregar', component: UsersComponent },
 
 
+  { path: 'user-home', component: UserHomeComponent },
+  
 
   
   { path:'index-admin', component: IndexAdminComponent },
@@ -131,10 +136,10 @@ const routes: Routes = [
   { path:'incapacidad-home', component: IncapacidadHomeComponent },
 
 
-  { path:'consultar-usuarios', component: ConsultarUsuariosComponent },
-  { path:'registrar-usuarios', component: RegistrarUsuariosComponent },
-  { path:'editar-consultar-usuarios', component: EditarConsultarUsuariosComponent },
-  { path:'editar-usuarios/editar/:id', component: EditarUsuariosComponent },
+  { path:'consultar-users', component: ConsultarUsersComponent },
+  { path:'registrar-users', component: RegistrarUsersComponent },
+  { path:'editar-consultar-users', component: EditarConsultarUsersComponent },
+  { path:'editar-users/editar/:id', component: EditarUsersComponent },
 
   { path:'consultar-agenda', component: ConsultarAgendaComponent },
   { path:'registrar-agenda', component: RegistrarAgendaComponent },

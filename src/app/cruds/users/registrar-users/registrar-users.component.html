@@ -1,4 +1,3 @@
-<!-- registrar-usuarios.component.html -->
 <div style="margin-top: 10px; margin-left: 10%;">
     <a href="/usuarios-home">
         <button class="boton-admin2" onclick="goBack()">↺ Atrás</button>
@@ -61,10 +60,14 @@
                 <div style="margin-right: 5px;">
                     <select class="selectLogin" required [(ngModel)]="users.rol" name="rol" id="rol" style="display: block;margin: 0 auto;margin-bottom: 30px;padding: 8px;border-radius: 17px;width: 480px;color: rgb(14, 14, 14);background-color: rgb(255, 255, 255);padding: 12px; border: 1px solid #9e9e9e; border-radius: 15px; width: 100%; font-size: 20px;">
                         <option value="" selected disabled>Selecciona El Rol</option>
-                        <option *ngFor="let rol of rolesList" [ngValue]="rol.nombreRol">{{ rol.nombreRol }}</option>
+                        <option *ngFor="let rol of rolesList" [ngValue]="rol.nombreRol">
+                            {{ rol.nombreRol }}
+                        </option>
+                    
                     </select>
                 </div>
             </div>
+            
             <div style="margin-right: 5px;">
                 <div style="margin-right: 5px;">
                     <select class="selectLogin" required [(ngModel)]="users.sede" name="sede" id="sede" style="display: block;margin: 0 auto;margin-bottom: 30px;padding: 8px;border-radius: 17px;width: 480px;color: rgb(14, 14, 14);background-color: rgb(255, 255, 255);padding: 12px; border: 1px solid #9e9e9e; border-radius: 15px; width: 100%; font-size: 20px;">

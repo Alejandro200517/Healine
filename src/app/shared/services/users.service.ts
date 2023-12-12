@@ -31,4 +31,10 @@ export class UsersService {
   borrarUsers(id: string) {
     return this.http.delete<string>(`${this.BASE_URL}/users/borrar/${id}`);
   }
+
+  login(correo: string, contrasena: string): Observable<any> {
+    const loginData = { correo, contrasena };
+    return this.http.post<any>(`${this.BASE_URL}/login`, loginData);
+  }
+
 }

@@ -6,8 +6,8 @@ import { SedesService } from '../../../shared/services/sedes.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-registrar-usuarios',
-  templateUrl: './registrar-usuarios.component.html',
+  selector: 'app-registrar-users',
+  templateUrl: './registrar-users.component.html',
   styleUrls: ['../../../app.component.css']
 })
 export class RegistrarUsersComponent implements OnInit {

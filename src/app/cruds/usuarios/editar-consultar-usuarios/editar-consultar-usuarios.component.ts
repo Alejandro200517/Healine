@@ -8,6 +8,7 @@ import { UsuariosService } from '../../../shared/services/usuarios.service';
   templateUrl: './editar-consultar-usuarios.component.html',
   styleUrls: ['../../../app.component.css']
 })
+
 export class EditarConsultarUsuariosComponent implements OnInit {
   usuarios: Observable<UsuariosModel[]> | undefined;
   filtroCorreo: string = '';

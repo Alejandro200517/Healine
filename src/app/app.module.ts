@@ -30,17 +30,13 @@ import { ListarPqrsComponent } from './pages/admin/pqrs-admin/listar-pqrs/listar
 import { EditarPqrsComponent } from './pages/admin/pqrs-admin/editar-pqrs/editar-pqrs.component';
 
 import { UsuariosHomeComponent } from './pages/admin/homes-herramientas/usuarios-home/usuarios-home.component';
-import { ConsultarUsuariosComponent } from './cruds/usuarios/consultar-usuarios/consultar-usuarios.component';
-import { RegistrarUsuariosComponent } from './cruds/usuarios/registrar-usuarios/registrar-usuarios.component';
-import { EditarConsultarUsuariosComponent } from './cruds/usuarios/editar-consultar-usuarios/editar-consultar-usuarios.component';
-import { EditarUsuariosComponent } from './cruds/usuarios/editar-usuarios/editar-usuarios.component';
 
 import { AgendaHomeComponent } from './pages/admin/homes-herramientas/agenda-home/agenda-home.component';
 import { ConsultarAgendaComponent } from './cruds/agenda/consultar-agenda/consultar-agenda.component';
 import { RegistrarAgendaComponent } from './cruds/agenda/registrar-agenda/registrar-agenda.component';
 import { EditarConsultarAgendaComponent } from './cruds/agenda/editar-consultar-agenda/editar-consultar-agenda.component';
 import { EditarAgendaComponent } from './cruds/agenda/editar-agenda/editar-agenda.component';
-import { UsuariosService } from './shared/services/usuarios.service';
+import { UsersService } from './shared/services/users.service';
 import { AgendaService } from './shared/services/agenda.service';
 
 
@@ -89,7 +85,13 @@ import { ConsultarIncapacidadComponent } from './cruds/incapacidad/consultar-inc
 import { RegistrarIncapacidadComponent } from './cruds/incapacidad/registrar-incapacidad/registrar-incapacidad.component';
 import { EditarConsultarIncapacidadComponent } from './cruds/incapacidad/editar-consultar-incapacidad/editar-consultar-incapacidad.component';
 import { EditarIncapacidadComponent } from './cruds/incapacidad/editar-incapacidad/editar-incapacidad.component';
-import { UsersComponent } from './pages/homes/users/users.component';
+import { UsersComponent } from './pages/homes/users/users.component'; 
+import { LoginComponent } from './pages/homes/login/login.component';
+import { ConsultarUsersComponent } from './cruds/users/consultar-users/consultar-users.component';
+import { RegistrarUsersComponent } from './cruds/users/registrar-users/registrar-users.component';
+import { EditarConsultarUsersComponent } from './cruds/users/editar-consultar-users/editar-consultar-users.component';
+import { EditarUsersComponent } from './cruds/users/editar-users/editar-users.component';
+import { UserHomeComponent } from './pages/user-home/user-home.component';
 //import { HistoriaHomeComponent } from './pages/admin/homes-herramientas/historia-home/historia-home.component';
 //import { ConsultarHistoriaComponent } from './cruds/historia/consultar-historia/consultar-historia.component';
 //import { RegistrarHistoriaComponent } from './cruds/historia/registrar-historia/registrar-historia.component';
@@ -112,10 +114,7 @@ import { UsersComponent } from './pages/homes/users/users.component';
     ListarPqrsComponent,
     EditarPqrsComponent,
     UsuariosHomeComponent,
-    ConsultarUsuariosComponent,
-    RegistrarUsuariosComponent,
-    EditarConsultarUsuariosComponent,
-    EditarUsuariosComponent,
+    RegistrarUsersComponent,
     AgendaHomeComponent,
     ConsultarAgendaComponent,
     RegistrarAgendaComponent,
@@ -162,6 +161,12 @@ import { UsersComponent } from './pages/homes/users/users.component';
     EditarConsultarIncapacidadComponent,
     EditarIncapacidadComponent,
     UsersComponent,
+    LoginComponent,
+    ConsultarUsersComponent,
+    RegistrarUsersComponent,
+    EditarConsultarUsersComponent,
+    EditarUsersComponent,
+    UserHomeComponent,
     //HistoriaHomeComponent,
     //ConsultarHistoriaComponent,
     //RegistrarHistoriaComponent,
@@ -179,15 +184,17 @@ import { UsersComponent } from './pages/homes/users/users.component';
     ServiciosComponent,
     AcercaComponent,
     EspecialidadesComponent,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   providers: [
     TurnoService,
-    UsuariosService,
+    UsersService,
     AgendaService,
     SedesService,
     RolesService,
-    CitasService
+    CitasService,
+    ReactiveFormsModule
     //HistoriaService
 
   ],

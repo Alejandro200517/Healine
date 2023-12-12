@@ -4,14 +4,15 @@ import { Observable } from 'rxjs';
 import { UsersService } from '../../../shared/services/users.service';
 
 @Component({
-  selector: 'app-consultar-usuarios',
-  templateUrl: './consultar-usuarios.component.html',
+  selector: 'app-editar-consultar-users',
+  templateUrl: './editar-consultar-users.component.html',
   styleUrls: ['../../../app.component.css']
 })
-export class ConsultarUsuariosComponent implements OnInit {
+export class EditarConsultarUsersComponent implements OnInit {
   users: Observable<UsersModel[]> | undefined;
   filtroCorreo: string = '';
   filtroDocumento: number = Number('');
+
 
   constructor(private usersService: UsersService) {}
 
