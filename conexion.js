@@ -5,7 +5,8 @@ const conexion = mysql.createConnection({
     host: 'localhost',
     database: 'healine',
     user: 'root',
-    password: ''
+    password: '',
+    port: '3306' // Cambien el puerto segun el mysql de xampp
 });
 
 conexion.connect(error => {

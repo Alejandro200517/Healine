@@ -30,18 +30,16 @@ module.exports = function (app, conexion) {
 
     app.post('/pqrs/agregar', (req, res) => {
         const pqrs = {
-        tipo: req.body.tipo,
-        email: req.body.email,
-        descripcion: req.body.descripcion,
-        telefono: req.body.telefono,
-        documento: req.body.documento,
-        estado: req.body.estado
-        
-
+            tipo: req.body.tipo,
+            descripcion: req.body.descripcion,
+            email: req.body.email,
+            telefono: req.body.telefono,
+            documento: req.body.documento,
+            estado: req.body.estado,            
         };
-    
-        const query = `INSERT INTO pqrs (email, descripcion, telefono, documento, tipo, estado) VALUES ('${pqrs.email}', '${pqrs.descripcion}', '${pqrs.telefono}', '${pqrs.documento}', '${pqrs.tipo}', '${pqrs.estado}')`;
-    
+
+        const query = `INSERT INTO pqrs (tipo, descripcion, email, telefono, documento, estado) VALUES ('${pqrs.tipo}', '${pqrs.descripcion}', '${pqrs.email}', '${pqrs.telefono}', '${pqrs.documento}', 'Pendiente')`;
+
         conexion.query(query, (error) => {
         if (error) {
             console.error(error.message);

@@ -16,22 +16,22 @@ app.use(bodyParser.json());
 
 const PUERTO = 3000;
 
-require('./registrar')(app, conexion);
-require('./roles')(app, conexion);
-require('./turnos')(app, conexion);
-require('./pqrs')(app, conexion);
-require('./usuarios')(app, conexion);
-require('./agenda')(app, conexion);
-require('./sedes')(app, conexion);
-require('./historia')(app, conexion);
-require('./especialidades')(app, conexion);
-require('./citas')(app, conexion);
-require('./formulas')(app, conexion);
-require('./ordenes')(app, conexion);
-require('./examenes')(app, conexion);
-require('./incapacidad')(app, conexion);
-require('./userRoute')(app, conexion);
 
+// API Administrador
+require('./Adminstrador/roles')(app, conexion);
+require('./Adminstrador/turnos')(app, conexion);
+require('./Adminstrador/pqrs')(app, conexion);
+require('./Adminstrador/registro-login')(app, conexion);
+require('./Adminstrador/agenda')(app, conexion);
+require('./Adminstrador/sedes')(app, conexion);
+require('./Adminstrador/historia')(app, conexion);
+require('./Adminstrador/especialidades')(app, conexion);
+require('./Adminstrador/citas')(app, conexion);
+require('./Adminstrador/formulas')(app, conexion);
+require('./Adminstrador/ordenes')(app, conexion);
+require('./Adminstrador/examenes')(app, conexion);
+require('./Adminstrador/incapacidad')(app, conexion);
+require('./Adminstrador/users')(app, conexion);
 
 
 
