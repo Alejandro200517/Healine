@@ -2,8 +2,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { IncapacidadModel } from 'src/app/shared/models/incapacidad.model';
 import { IncapacidadService } from '../../../shared/services/incapacidad.service';
-import { UsuariosModel } from 'src/app/shared/models/usuarios.model';
-import { UsuariosService } from '../../../shared/services/usuarios.service';
+import { UsersModel } from 'src/app/shared/models/users.model';
+import { UsersService } from '../../../shared/services/users.service';
 
 @Component({
   selector: 'app-editar-incapacidad',
@@ -13,13 +13,13 @@ import { UsuariosService } from '../../../shared/services/usuarios.service';
 export class EditarIncapacidadComponent implements OnInit {
   id = '';
   incapacidad = new IncapacidadModel('', '', '', '', '', '');
-  usuariosPacientes: UsuariosModel[] = [];
-  usuariosMedicos: UsuariosModel[] = [];
+  usersPacientes: UsersModel[] = [];
+  usersMedicos: UsersModel[] = [];
 
   constructor(
     private incapacidadService: IncapacidadService,
     private route: ActivatedRoute,
-    private usuariosService: UsuariosService,
+    private usersService: UsersService,
     private router: Router
   ) { }
 
@@ -36,18 +36,18 @@ export class EditarIncapacidadComponent implements OnInit {
       console.log("CREAR");
     }
 
-    this.usuariosService.obtenerUsuarios().subscribe(
+    this.usersService.obtenerUsers().subscribe(
       (data) => {
-        this.usuariosPacientes = data.filter(usuario => usuario.rol === 'Paciente');
+        this.usersPacientes = data.filter(user => user.rol === 'Paciente');
       },
       (error) => {
         console.error(error);
       }
     );
 
-    this.usuariosService.obtenerUsuarios().subscribe(
+    this.usersService.obtenerUsers().subscribe(
       (data) => {
-        this.usuariosMedicos = data.filter(usuario => usuario.rol === 'Medico');
+        this.usersMedicos = data.filter(user => user.rol === 'Medico');
       },
       (error) => {
         console.error(error);

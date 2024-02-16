@@ -55,6 +55,14 @@
             </div>
 
             <div style="margin-right: 5px;">
+                <select class="selectLogin" required [(ngModel)]="users.status" name="status" id="status"  style="display: block;margin: 0 auto;margin-bottom: 30px;padding: 8px;border-radius: 17px;width: 480px;color: rgb(14, 14, 14);background-color: rgb(255, 255, 255);padding: 12px; border: 1px solid #9e9e9e; border-radius: 15px; width: 100%; font-size: 20px;">
+                    <option value="" selected disabled>Selecciona El Estado Del Usuario</option>
+                    <option value="True">Activo</option>
+                    <option value="False">Inactivo</option>
+                </select>
+            </div>
+
+            <div style="margin-right: 5px;">
                 <div style="margin-right: 5px;">
                     <select class="selectLogin" required [(ngModel)]="users.rol" name="rol" id="rol" style="display: block;margin: 0 auto;margin-bottom: 30px;padding: 8px;border-radius: 17px;width: 480px;color: rgb(14, 14, 14);background-color: rgb(255, 255, 255);padding: 12px; border: 1px solid #9e9e9e; border-radius: 15px; width: 100%; font-size: 20px;">
                         <option value="" selected disabled>Selecciona El Rol</option>

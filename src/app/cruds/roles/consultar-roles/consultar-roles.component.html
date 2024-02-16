@@ -25,25 +25,27 @@
             </form>
         </div>
     </div>
-</div>
+</div>  
 
-<div class="row no-gutters" style=" margin: 140px; margin-top: -50px;">
-    <div>
-        <div class="table-responsive" >
-            <table class="table table-striped table-responsive" style="width: 100%; margin-top: 20px; font-weight: 600;">
-                <thead>
-                    <tr>
-                        <th class="bg-primary text-white" style="border-radius: 15px 0 0 0; padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">ID</th>
-                        <th class="bg-primary text-white" style="border-radius: 0 15px 0 0;padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Nombre</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let rol of filtrarRoles(roles) || []; let i = index" [class.odd]="i % 2 !== 0">
-                        <td>{{ rol.id }}</td>
-                        <td>{{ rol.nombreRol }}</td>
-                    </tr>
-                </tbody>
-            </table>
+<div >
+    <div class="row no-gutters" style=" margin: 5%; margin-top: -50px;">
+        <div>
+            <div class="table-responsive" >
+                <table class="table table-striped" style="width: 100%; margin-top: 20px; font-weight: 600;">
+                    <thead>
+                        <tr>
+                            <th class="bg-primary text-white" style="border-radius: 15px 0 0 0; padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">ID</th>
+                            <th class="bg-primary text-white" style="border-radius: 0 15px 0 0;padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Nombre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let rol of filtrarRoles(roles) || []; let i = index" [class.odd]="i % 2 !== 0">
+                            <td>{{ rol.id }}</td>
+                            <td>{{ rol.nombreRol }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

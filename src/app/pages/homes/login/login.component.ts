@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UsersService } from '../../../shared/services/users.service';
+import { RegistrarLoginService } from '../../../shared/services/registrarlogin.service';
+
 
 @Component({
   selector: 'app-login',
@@ -11,26 +12,45 @@ import { UsersService } from '../../../shared/services/users.service';
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private userService: UsersService, private router: Router) {
+  constructor(private fb: FormBuilder, private registrarloginService: RegistrarLoginService, private router: Router) {
     this.loginForm = this.fb.group({
-      correo: ['', Validators.required],
-      contrasena: ['', Validators.required]
+      email: ['', Validators.required],
+      password: ['', Validators.required]
     });
   }
 
   login() {
     if (this.loginForm.valid) {
-      const correo = this.loginForm.get('correo')?.value;
-      const contrasena = this.loginForm.get('contrasena')?.value;
+      const email = this.loginForm.get('email')?.value;
+      const password = this.loginForm.get('password')?.value;
   
-      if (correo && contrasena) { // Verifica que los valores no son nulos
-        this.userService.login(correo, contrasena).subscribe(
+      if (email && password) {
+        this.registrarloginService.login(email, password).subscribe(
           (response) => {
-            // Maneja la respuesta del servidor, por ejemplo, redirige a /admin-home si el rol es Administrador
-            if (response.rol === 'Administrador') {
-              this.router.navigate(['/admin-home']);
+            console.log(response);
+  
+            if (response && response.usuario && response.usuario.rol) {
+              const rol = response.usuario.rol;
+  
+              switch (rol) {
+                case 'Administrador':
+                  this.router.navigate(['/admin-home']);
+                  break;
+                case 'User':
+                  this.router.navigate(['/user-home']);
+                  break;
+                case 'Paciente':
+                  this.router.navigate(['/paciente-home']);
+                  break;
+                case 'Medico':
+                  this.router.navigate(['/medico-home']);
+                  break;
+                default:
+                  console.error('Rol de usuario no reconocido:', rol);
+                  break;
+              }
             } else {
-              this.router.navigate(['/user-home']);
+              console.error('Respuesta de inicio de sesión inválida:', response);
             }
           },
           (error) => {
@@ -40,5 +60,6 @@ export class LoginComponent {
       }
     }
   }
+  
   
 }

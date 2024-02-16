@@ -73,5 +73,4 @@ export class EditarUsersComponent implements OnInit {
       console.log('crear');
     }
   }
-  
-  }
+}

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { PqrsModel } from '../models/pqrs.model';
 
 @Injectable({
@@ -11,23 +12,23 @@ export class PqrsService {
 
   constructor(private http: HttpClient) { }
 
-  obtenerPqrs() {
-    return this.http.get<PqrsModel[]>(this.BASE_URL+'/pqrs');
+  obtenerPqrs(): Observable<PqrsModel[]> {
+    return this.http.get<PqrsModel[]>(`${this.BASE_URL}/pqrs`);
   }
 
-  obtenerPqr(id: string) {
+  obtenerPqr(id: string): Observable<PqrsModel[]> {
     return this.http.get<PqrsModel[]>(`${this.BASE_URL}/pqrs/${id}`);
   }
 
-  agregarPqrs(pqrs: PqrsModel) {
+  agregarPqrs(pqrs: PqrsModel): Observable<string> {
     return this.http.post<string>(`${this.BASE_URL}/pqrs/agregar`, pqrs);
   }
 
-  actualizarPqrs(pqrs: PqrsModel) {
-    return this.http.put<string>(`${this.BASE_URL}/pqrs/actualizar/${pqrs.id_pqrs}`, pqrs)
+  actualizarPqrs(pqrs: PqrsModel): Observable<string> {
+    return this.http.put<string>(`${this.BASE_URL}/pqrs/actualizar/${pqrs.id_pqrs}`, pqrs);
   }
 
-  borrarPqrs(id: string) {
-    return this.http.delete<string>(`${this.BASE_URL}/pqrs/borrar/${id}`)
+  borrarPqrs(id: string): Observable<string> {
+    return this.http.delete<string>(`${this.BASE_URL}/pqrs/borrar/${id}`);
   }
 }

@@ -91,7 +91,9 @@ import { ConsultarUsersComponent } from './cruds/users/consultar-users/consultar
 import { RegistrarUsersComponent } from './cruds/users/registrar-users/registrar-users.component';
 import { EditarConsultarUsersComponent } from './cruds/users/editar-consultar-users/editar-consultar-users.component';
 import { EditarUsersComponent } from './cruds/users/editar-users/editar-users.component';
-import { UserHomeComponent } from './pages/user-home/user-home.component';
+import { UserHomeComponent } from './pages/homes/user-home/user-home.component';
+import { PacienteHomeComponent } from './pages/paciente/paciente-home/paciente-home.component';
+import { MedicoHomeComponent } from './pages/medico/medico-home/medico-home.component';
 //import { HistoriaHomeComponent } from './pages/admin/homes-herramientas/historia-home/historia-home.component';
 //import { ConsultarHistoriaComponent } from './cruds/historia/consultar-historia/consultar-historia.component';
 //import { RegistrarHistoriaComponent } from './cruds/historia/registrar-historia/registrar-historia.component';
@@ -167,6 +169,8 @@ import { UserHomeComponent } from './pages/user-home/user-home.component';
     EditarConsultarUsersComponent,
     EditarUsersComponent,
     UserHomeComponent,
+    PacienteHomeComponent,
+    MedicoHomeComponent,
     //HistoriaHomeComponent,
     //ConsultarHistoriaComponent,
     //RegistrarHistoriaComponent,

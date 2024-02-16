@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { OrdenesModel } from 'src/app/shared/models/ordenes.model';
 import { OrdenesService } from '../../../shared/services/ordenes.service';
 import { Router } from '@angular/router';
-import { UsuariosModel } from 'src/app/shared/models/usuarios.model';
-import { UsuariosService } from '../../../shared/services/usuarios.service';
+import { UsersModel } from 'src/app/shared/models/users.model';
+import { UsersService } from '../../../shared/services/users.service';
 import { FormulasModel } from 'src/app/shared/models/formulas.model';
 import { FormulasService } from '../../../shared/services/formulas.service';
 
@@ -14,20 +14,20 @@ import { FormulasService } from '../../../shared/services/formulas.service';
 })
 export class RegistrarOrdenesComponent implements OnInit {
   ordenes = new OrdenesModel('', '', '', '', '');
-  usuariosPacientes: UsuariosModel[] = [];
+  usersPacientes: UsersModel[] = [];
   formulas: FormulasModel[] = [];
 
   constructor(
     private ordenesService: OrdenesService,
-    private usuariosService: UsuariosService,
+    private usersService: UsersService,
     private formulasService: FormulasService, // Agregamos el servicio de fórmulas
     private router: Router
   ) {}
 
   ngOnInit() {
-    this.usuariosService.obtenerUsuarios().subscribe(
+    this.usersService.obtenerUsers().subscribe(
       (data) => {
-        this.usuariosPacientes = data.filter(usuario => usuario.rol === 'Paciente');
+        this.usersPacientes = data.filter(user => user.rol === 'Paciente');
       },
       (error) => {
         console.error(error);

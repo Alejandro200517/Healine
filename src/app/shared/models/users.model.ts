@@ -9,9 +9,9 @@
         public email: string,
         public password: string,
         public numero: string,
-        public status: string = 'true',
-        public rol: string = 'user', 
-        public sede: string = 'pendiente'
+        public status: string,
+        public rol: string, 
+        public sede: string
 
     
         ) { }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AgendaModel } from 'src/app/shared/models/agenda.model';
 import { AgendaService } from '../../../shared/services/agenda.service';
-import { UsuariosModel } from 'src/app/shared/models/usuarios.model';
-import { UsuariosService } from '../../../shared/services/usuarios.service';
+import { UsersModel } from 'src/app/shared/models/users.model';
+import { UsersService } from '../../../shared/services/users.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,18 +12,18 @@ import { Router } from '@angular/router';
 })
 export class RegistrarAgendaComponent implements OnInit {
   agenda = new AgendaModel(0, '', '', '', 0, '');
-  usuariosMedicos: UsuariosModel[] = [];
+  usersMedicos: UsersModel[] = [];
 
   constructor(
     private agendaService: AgendaService,
-    private usuariosService: UsuariosService,
+    private usersService: UsersService,
     private router: Router
   ) {}
 
   ngOnInit() {
-    this.usuariosService.obtenerUsuarios().subscribe(
+    this.usersService.obtenerUsers().subscribe(
       (data) => {
-        this.usuariosMedicos = data.filter(usuario => usuario.rol === 'Medico');
+        this.usersMedicos = data.filter(user => user.rol === 'Medico');
       },
       (error) => {
         console.error(error);

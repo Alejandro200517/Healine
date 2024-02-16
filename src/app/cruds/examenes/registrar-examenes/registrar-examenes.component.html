@@ -23,8 +23,8 @@
             <div class="examen-info">
                 <label for="paciente" style="font-weight: bold; margin-right: 10px; color: #000;">Paciente:</label>
                 <select required [(ngModel)]="examenes.paciente" name="paciente" id="paciente" class="selectLogin">
-                    <option *ngFor="let usuario of usuariosPacientes" [ngValue]="usuario.documento">
-                        {{ usuario.documento }} /// {{ usuario.primerNombre }} {{ usuario.segundoNombre }} {{ usuario.primerApellido }} {{ usuario.segundoApellido }}
+                    <option *ngFor="let user of usersPacientes" [ngValue]="user.documento">
+                        {{ user.documento }} /// {{ user.primerNombre }} {{ user.segundoNombre }} {{ user.primerApellido }} {{ user.segundoApellido }}
                     </option>
                 </select>             
             </div>

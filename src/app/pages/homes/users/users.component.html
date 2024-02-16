@@ -8,17 +8,18 @@
   
       <form (ngSubmit)="onSubmit()" #registrarForm="ngForm">
         <h4>ㅤ</h4>
+        
 
 
         <fieldset class="form-group">
-            <div style="margin-right: 5px;">
-              <input class="selectLogin" name="Documento" id="Documento" type="number" placeholder="Documento (Max 10)" required [(ngModel)]="users.documento">
+            <div style="border: 1px solid #ccc; border-radius: 20px; padding: 5px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);">
+              <input class="placeholderUsers" style="padding: 18px; border: none; width: 100%; font-size: 14px; margin-top: 5px; " name="Documento" id="Documento" type="number" placeholder="Documento (Max 10)" required [(ngModel)]="users.documento">
             </div>
           </fieldset>
         
         <fieldset class="form-group">
-          <div style="margin-right: 5px;">
-            <select class="selectLogin" required [(ngModel)]="users.tipoDoc" name="tipo" id="tipo" style="font-size: 18px;">
+          <div style="border: 1px solid #ccc; border-radius: 20px; padding: 5px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);">
+            <select class="placeholderUsers" style="padding: 18px; border: none; width: 100%; font-size: 14px; margin-top: 5px; font-size: 20px; color: #cacaca;"  required [(ngModel)]="users.tipoDoc" name="tipo" id="tipo" >
               <option value="" selected disabled>Selecciona Tipo De Documento</option>
               <option value="CC">CC</option>
               <option value="TI">TI</option>
@@ -29,39 +30,44 @@
         </fieldset>
         
         <fieldset class="form-group">
-          <div style="margin-right: 5px;">
-            <input class="selectLogin" name="PrimerNombre" id="PrimerNombre" type="text" placeholder="1er Nombre" required [(ngModel)]="users.primerNombre">
+          <div style="border: 1px solid #ccc; border-radius: 20px; padding: 5px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);">
+            <input class="placeholderUsers" style="padding: 18px; border: none; width: 100%; font-size: 14px; margin-top: 5px; " name="PrimerNombre" id="PrimerNombre" type="text" placeholder="1er Nombre" required [(ngModel)]="users.primerNombre">
           </div>
         </fieldset>
+
         <fieldset class="form-group">
-          <div style="margin-right: 5px;">
-            <input class="selectLogin" name="SegundoNombre" id="SegundoNombre" type="text" placeholder="2do Nombre" [(ngModel)]="users.segundoNombre">
+          <div style="border: 1px solid #ccc; border-radius: 20px; padding: 5px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);">
+            <input class="placeholderUsers" style="padding: 18px; border: none; width: 100%; font-size: 14px; margin-top: 5px; " name="SegundoNombre" id="SegundoNombre" type="text" placeholder="2do Nombre" [(ngModel)]="users.segundoNombre">
           </div>
         </fieldset>
+
         <fieldset class="form-group">
-          <div style="margin-right: 5px;">
-            <input class="selectLogin" name="PrimerApellido" id="PrimerApellido" type="text" placeholder="1er Apellido" required [(ngModel)]="users.primerApellido">
+          <div style="border: 1px solid #ccc; border-radius: 20px; padding: 5px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);">
+            <input class="placeholderUsers" style="padding: 18px; border: none; width: 100%; font-size: 14px; margin-top: 5px; " name="PrimerApellido" id="PrimerApellido" type="text" placeholder="1er Apellido" required [(ngModel)]="users.primerApellido">
           </div>
         </fieldset>
+
         <fieldset class="form-group">
-          <div style="margin-right: 5px;">
-            <input class="selectLogin" name="SegundoApellido" id="SegundoApellido" type="text" placeholder="2do Apellido" [(ngModel)]="users.segundoApellido">
+          <div style="border: 1px solid #ccc; border-radius: 20px; padding: 5px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);">
+            <input class="placeholderUsers" style="padding: 18px; border: none; width: 100%; font-size: 14px; margin-top: 5px; " name="SegundoApellido" id="SegundoApellido" type="text" placeholder="2do Apellido" [(ngModel)]="users.segundoApellido">
           </div>
         </fieldset>
   
         <fieldset class="form-group">
-          <div style="margin-right: 5px; margin-top: -5px;">
-            <input class="selectLogin" name="Email" id="Email" type="email" placeholder="Email" required [(ngModel)]="users.email">
+          <div style="border: 1px solid #ccc; border-radius: 20px; padding: 5px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);">
+            <input class="placeholderUsers" style="padding: 18px; border: none; width: 100%; font-size: 14px; margin-top: 5px; " name="Email" id="Email" type="email" placeholder="Email" required [(ngModel)]="users.email">
           </div>
         </fieldset>
+
         <fieldset class="form-group">
-          <div style="margin-right: 5px; margin-top: -5px;">
-            <input class="selectLogin" name="Contrasena" id="Contrasena" type="password" placeholder="Contraseña" required [(ngModel)]="users.password">
+          <div style="border: 1px solid #ccc; border-radius: 20px; padding: 5px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);">
+            <input class="placeholderUsers" style="padding: 18px; border: none; width: 100%; font-size: 14px; margin-top: 5px; " name="Contrasena" id="Contrasena" type="password" placeholder="Contraseña" required [(ngModel)]="users.password">
           </div>
         </fieldset>
+
         <fieldset class="form-group">
-          <div style="margin-right: 5px; margin-top: -5px;">
-            <input class="selectLogin" name="Numero" id="Numero" type="number" placeholder="Número Telefónico" required [(ngModel)]="users.numero">
+          <div style="border: 1px solid #ccc; border-radius: 20px; padding: 5px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);">
+            <input class="placeholderUsers" style="padding: 18px; border: none; width: 100%; font-size: 14px; margin-top: 5px; " name="Numero" id="Numero" type="number" placeholder="Número Telefónico" required [(ngModel)]="users.numero">
           </div>
         </fieldset>
   

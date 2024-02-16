@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IncapacidadModel } from 'src/app/shared/models/incapacidad.model';
 import { IncapacidadService } from '../../../shared/services/incapacidad.service';
-import { UsuariosModel } from 'src/app/shared/models/usuarios.model';
-import { UsuariosService } from '../../../shared/services/usuarios.service';
+import { UsersModel } from 'src/app/shared/models/users.model';
+import { UsersService } from '../../../shared/services/users.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,29 +12,29 @@ import { Router } from '@angular/router';
 })
 export class RegistrarIncapacidadComponent implements OnInit {
   incapacidad = new IncapacidadModel('', '', '', '', '', '');
-  usuariosMedicos: UsuariosModel[] = [];
-  usuariosPacientes: UsuariosModel[] = [];
+  usersMedicos: UsersModel[] = [];
+  usersPacientes: UsersModel[] = [];
 
 
   constructor(
     private incapacidadService: IncapacidadService,
-    private usuariosService: UsuariosService,
+    private usersService: UsersService,
     private router: Router
   ) {}
 
   ngOnInit() {
-    this.usuariosService.obtenerUsuarios().subscribe(
+    this.usersService.obtenerUsers().subscribe(
       (data) => {
-        this.usuariosMedicos = data.filter(usuario => usuario.rol === 'Medico');
+        this.usersMedicos = data.filter(user => user.rol === 'Medico');
       },
       (error) => {
         console.error(error);
       }
     );
 
-    this.usuariosService.obtenerUsuarios().subscribe(
+    this.usersService.obtenerUsers().subscribe(
       (data) => {
-        this.usuariosPacientes = data.filter(usuario => usuario.rol === 'Paciente');
+        this.usersPacientes = data.filter(user => user.rol === 'Paciente');
       },
       (error) => {
         console.error(error);

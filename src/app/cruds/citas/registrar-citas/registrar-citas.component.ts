@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CitasModel } from 'src/app/shared/models/citas.model';
 import { CitasService } from '../../../shared/services/citas.service';
-import { UsuariosModel } from 'src/app/shared/models/usuarios.model';
-import { UsuariosService } from '../../../shared/services/usuarios.service';
+import { UsersModel } from 'src/app/shared/models/users.model';
+import { UsersService } from '../../../shared/services/users.service';
 import { EspecialidadesService } from 'src/app/shared/services/especialidades.service';
 import { EspecialidadesModel } from 'src/app/shared/models/especialidades.model';
 import { Router } from '@angular/router';
@@ -14,20 +14,20 @@ import { Router } from '@angular/router';
 })
 export class RegistrarCitasComponent implements OnInit {
   citas = new CitasModel('', '', '', '', '', '', '', '');
-  usuariosMedicos: UsuariosModel[] = [];
+  usersMedicos: UsersModel[] = [];
   especialidades: EspecialidadesModel[] = []
 
   constructor(
     private citasService: CitasService,
-    private usuariosService: UsuariosService,
+    private usersService: UsersService,
     private especialidadesService: EspecialidadesService,
     private router: Router
   ) {}
 
   ngOnInit() {
-    this.usuariosService.obtenerUsuarios().subscribe(
+    this.usersService.obtenerUsers().subscribe(
       (data) => {
-        this.usuariosMedicos = data.filter(usuario => usuario.rol === 'Medico');
+        this.usersMedicos = data.filter(users => users.rol === 'Medico');
       },
       (error) => {
         console.error(error);

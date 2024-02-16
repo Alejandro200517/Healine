@@ -20,9 +20,9 @@ export class CitasService {
     return this.http.get<CitasModel[]>(`${this.BASE_URL}/citas/${id}`);
   }
   
-    agregarCitas(citas: CitasModel) {
-        return this.http.post<string>(`${this.BASE_URL}/citas/agregar`, citas);
-    }
+  agregarCitas(citas: CitasModel) {
+    return this.http.post<string>(`${this.BASE_URL}/citas/agregar`, citas);
+  }
 
   actualizarCitas(citas: CitasModel) {
     return this.http.put<string>(`${this.BASE_URL}/citas/actualizar/${citas.id}`, citas);

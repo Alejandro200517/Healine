@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CitasModel } from 'src/app/shared/models/citas.model';
 import { CitasService } from '../../../shared/services/citas.service';
-import { UsuariosModel } from 'src/app/shared/models/usuarios.model';
-import { UsuariosService } from '../../../shared/services/usuarios.service';
+import { UsersModel } from 'src/app/shared/models/users.model';
+import { UsersService } from '../../../shared/services/users.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EspecialidadesService } from 'src/app/shared/services/especialidades.service';
 import { EspecialidadesModel } from 'src/app/shared/models/especialidades.model';
@@ -16,12 +16,12 @@ import { EspecialidadesModel } from 'src/app/shared/models/especialidades.model'
 export class EditarCitasComponent implements OnInit {
   id = '';
   citas = new CitasModel('', '', '', '', '', '', '', '');
-  usuariosMedicos: UsuariosModel[] = [];
+  usersMedicos: UsersModel[] = [];
   especialidades: EspecialidadesModel[] = []
 
   constructor(
     private citasService: CitasService,
-    private usuariosService: UsuariosService,
+    private usersService: UsersService,
     private especialidadesService: EspecialidadesService,
     private router: Router,
     private route: ActivatedRoute,
@@ -40,9 +40,9 @@ export class EditarCitasComponent implements OnInit {
       console.log("CREAR");
     }
 
-    this.usuariosService.obtenerUsuarios().subscribe(
+    this.usersService.obtenerUsers().subscribe(
       (data) => {
-        this.usuariosMedicos = data.filter(usuario => usuario.rol === 'Medico');
+        this.usersMedicos = data.filter(user => user.rol === 'Medico');
       },
       (error) => {
         console.error(error);

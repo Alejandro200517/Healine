@@ -89,6 +89,10 @@ export class AppComponent {
     url.includes('editar-consultar-incapacidad') ||
     url.includes('editar-incapacidad') ||
 
+    url.includes('paciente-home') ||
+    url.includes('medico-home') ||
+
+
     this.shouldShowAdminMenu(url);
   }
 

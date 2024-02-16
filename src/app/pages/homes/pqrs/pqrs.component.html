@@ -1,4 +1,5 @@
 <div class="bradcam_area breadcam_bg_5 bradcam_overlay" style="background-image: url(../../../../assets/images/bradcam8.jpg);">
+    <!-- Bradcam content -->
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
@@ -13,22 +14,20 @@
     </div>
 </div>
 
-
-
 <section class="contact-section"> 
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 class="contact-title" style="font-size: 30px;">Cuentanos</h2>
+                <h2 class="contact-title" style="font-size: 30px;">Cuéntanos</h2>
             </div>
             <div class="col-lg-8">
-                <form class="form-contact contact_form" id="contactForm" (ngSubmit)="onSubmit()" novalidate="novalidate">
+                <form class="form-contact contact_form" id="contactForm" #pqrsForm="ngForm" (ngSubmit)="onSubmit()">
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
-                                <select class="form-control" required [(ngModel)]="pqrs.tipo" name="tipo" id="tipo" style="font-size: 18px;">
+                                <select class="form-control" name="tipo" id="tipo" style="font-size: 18px;" [(ngModel)]="pqrs.tipo" required>
                                     <option value="" selected disabled>Selecciona un tema</option>
-                                    <option value="Peticion">Peticion</option>
+                                    <option value="Peticion">Petición</option>
                                     <option value="Queja">Queja</option>
                                     <option value="Reclamo">Reclamo</option>
                                     <option value="Sugerencia">Sugerencia</option>
@@ -38,55 +37,57 @@
                         
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control w-100" required [(ngModel)]="pqrs.descripcion" name="descripcion" id="descripcion" cols="30" rows="9" placeholder="Introduce la descripción" ></textarea>
+                                <textarea class="form-control w-100" name="descripcion" id="descripcion" cols="30" rows="9" placeholder="Introduce la descripción" [(ngModel)]="pqrs.descripcion" required></textarea>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <input class="form-control valid" required [(ngModel)]="pqrs.email" name="email" id="email" type="email" placeholder="Introduce tu Email">
+                                <input class="form-control valid" name="email" id="email" type="email" placeholder="Introduce tu Email" [(ngModel)]="pqrs.email" required>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <input class="form-control valid" required [(ngModel)]="pqrs.telefono" name="telefono" id="telefono" type="number" placeholder="Introduce tu teléfono">
+                                <input class="form-control valid" name="telefono" id="telefono" type="number" placeholder="Introduce tu teléfono" [(ngModel)]="pqrs.telefono" required>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <input class="form-control valid" required [(ngModel)]="pqrs.documento" name="documento" id="documento" type="number" placeholder="Introduce tu documento">
+                                <input class="form-control valid" name="documento" id="documento" type="number" placeholder="Introduce tu documento" [(ngModel)]="pqrs.documento" required>
                             </div>
                         </div>
+
                         
-                    </div>
-                    <input type="hidden" name="estado" value="pendiente">
-                
+                    </div>                
                     
                     <div class="form-group mt-3">
-                        <button type="submit" class="button button-contactForm boxed-btn">Enviar</button>
+                        <button type="submit" class="button button-contactForm boxed-btn" [disabled]="!pqrsForm.form.valid">Enviar</button>
                     </div>
                 </form>
-                
             </div>
+            <!-- Contact Info -->
             <div class="col-lg-3 offset-lg-1">
+                <!-- Contact Info Content -->
                 <div class="media contact-info">
                     <span class="contact-info__icon"><i class="ti-home"></i></span>
-                    <a href=""><img style="width: 32px; margin: 20px;height: 35px;border-radius: 60px; margin-top: 3px;" src="../../../../assets/images/ubi.png" alt=""></a>
+                    <!-- Contact Info Details -->
                     <div class="media-body">
-                        <h3>Colombia - Bogota</h3>
+                        <h3>Colombia - Bogotá</h3>
                         <p>Cll 111 n 11 - 11</p>
                     </div>
                 </div>
+                <!-- More Contact Info -->
                 <div class="media contact-info">
                     <span class="contact-info__icon"><i class="ti-tablet"></i></span>
-                    <a href=""><img style="width: 32px; margin: 20px;height: 35px;border-radius: 60px; margin-top: 3px;" src="../../../../assets/images/tele2.png" alt=""></a>
+                    <!-- Contact Info Details -->
                     <div class="media-body">
-                        <h3>+ 57 123 456 789</h3>
+                        <h3>+57 123 456 789</h3>
                         <p>De Lunes A Domingo De 6am A 11pm</p>
                     </div>
                 </div>
+                <!-- More Contact Info -->
                 <div class="media contact-info">
                     <span class="contact-info__icon"><i class="ti-email"></i></span>
-                    <a href=""><img style="width: 32px; margin: 20px;height: 35px;border-radius: 60px; margin-top: 3px;" src="../../../../assets/images/mail2.png" alt=""></a>
+                    <!-- Contact Info Details -->
                     <div class="media-body">
                         <h3>NovaEPS@gmail.com</h3>
                         <p>Envíenos su consulta en cualquier momento!</p>

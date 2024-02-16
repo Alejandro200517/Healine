@@ -1,0 +1,40 @@
+<br><br><br><br><br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <form class="form-inline">
+        <div class="form-group">
+        </div>
+        <div class="form-group">
+          <a class="btn btn-primary" [routerLink]="['/roles/agregar']">+</a>
+        </div>
+      </form>
+      <br>
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div><strong>ID</strong></div>
+            <div><strong>Nombre</strong></div>
+            <div><strong>Descripcion</strong></div>
+          </div>
+          <hr>
+          <div *ngFor="let roles of roles | async" class="row">
+            <div><i>{{ roles.id_roles }}</i></div>
+            <div><i>{{ roles.nombre }}</i></div>
+            <div><i>{{ roles.descripcion }}</i></div>
+
+            <div>
+              <div class="form-group">
+                <a class="btn btn-info" [routerLink]="['/roles/editar/', roles.id_roles]">Editar</a>
+              </div>
+              <div class="form-group">
+                <a class="btn btn-danger" (click)="borrarRoles(roles.id_roles)">Borrar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

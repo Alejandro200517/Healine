@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ExamenesModel } from 'src/app/shared/models/examenes.model';
 import { ExamenesService } from '../../../shared/services/examenes.service';
 import { Router } from '@angular/router';
-import { UsuariosModel } from 'src/app/shared/models/usuarios.model';
-import { UsuariosService } from '../../../shared/services/usuarios.service';
+import { UsersModel } from 'src/app/shared/models/users.model';
+import { UsersService } from '../../../shared/services/users.service';
 import { CitasModel } from 'src/app/shared/models/citas.model';
 import { CitasService } from '../../../shared/services/citas.service';
 
@@ -14,20 +14,20 @@ import { CitasService } from '../../../shared/services/citas.service';
 })
 export class RegistrarExamenesComponent implements OnInit {
   examenes = new ExamenesModel('', '', '', '', '', '');
-  usuariosPacientes: UsuariosModel[] = [];
+  usersPacientes: UsersModel[] = [];
   citas: CitasModel[] = [];
 
   constructor(
     private examenesService: ExamenesService,
-    private usuariosService: UsuariosService,
+    private usersService: UsersService,
     private citasService: CitasService, // Agregamos el servicio de fórmulas
     private router: Router
   ) {}
 
   ngOnInit() {
-    this.usuariosService.obtenerUsuarios().subscribe(
+    this.usersService.obtenerUsers().subscribe(
       (data) => {
-        this.usuariosPacientes = data.filter(usuario => usuario.rol === 'Paciente');
+        this.usersPacientes = data.filter(user => user.rol === 'Paciente');
       },
       (error) => {
         console.error(error);

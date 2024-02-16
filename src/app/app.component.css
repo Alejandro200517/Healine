@@ -7552,6 +7552,17 @@ blockquote {
   margin: 0 0 1rem
 }
 
+.placeholderUsers::placeholder{
+  font-size: 20px;
+}
+
+select.placeholderUsers option {
+  font-size: 20px; /* Tamaño de letra */
+  color: #333; /* Color de la letra */
+}
+
+
+
 dfn {
   font-style: italic
 }

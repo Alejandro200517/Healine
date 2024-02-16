@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { PqrsModel } from '../../../shared/models/pqrs.model';
 import { PqrsService } from '../../../shared/services/pqrs.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-pqrs',
@@ -8,40 +10,31 @@ import { PqrsService } from '../../../shared/services/pqrs.service';
   styleUrls: ['../../../app.component.css']
 })
 export class PqrsComponent {
-  pqrs = new PqrsModel('', '', '', '', '', '', '');
+  pqrs = new PqrsModel('', '', '', '', '', '', ''); 
 
-  constructor(private pqrsService: PqrsService) {}
+  constructor(
+    private pqrsService: PqrsService,
+    private router: Router
+  ) { }
 
   onSubmit() {
-    // Validar que todos los campos estén llenos
-    if (this.areFieldsFilled()) {
-      // Enviar la PQRS solo si todos los campos están llenos
-      this.pqrsService.agregarPqrs(this.pqrs).subscribe(
-        () => {
-          // Mostrar alerta de PQRS registrada
-          window.alert('PQRS registrada correctamente');
-
-          // Recargar la página actual
+    console.log('onSubmit');
+  
+    this.pqrsService.agregarPqrs(this.pqrs).subscribe(
+      (data) => {
+        alert('PQRS registrada correctamente');
+        this.router.navigate(['/pqrs']).then(() => {
           location.reload();
-        },
-        (error) => {
-          console.error('Error al agregar PQRS', error);
+        });
+      },
+      (error) => {
+        if (error.status === 500) {
+          alert('Error al registrar la PQRS. Verifica los datos ingresados.');
+        } else {
+          console.error(error);
         }
-      );
-    } else {
-      // Mostrar alerta si hay campos vacíos
-      window.alert('Por favor, complete todos los campos antes de enviar la PQRS.');
-    }
-  }
-
-  private areFieldsFilled(): boolean {
-    // Validar que todos los campos estén llenos
-    return (
-      this.pqrs.tipo.trim() !== '' &&
-      this.pqrs.descripcion.trim() !== '' &&
-      this.pqrs.email.trim() !== '' &&
-      this.pqrs.telefono.trim() !== '' &&
-      this.pqrs.documento.trim() !== ''
+      }
     );
   }
+  
 }
