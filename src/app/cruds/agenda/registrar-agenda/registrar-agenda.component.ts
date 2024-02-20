@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['../../../app.component.css']
 })
 export class RegistrarAgendaComponent implements OnInit {
-  agenda = new AgendaModel(0, '', '', '', 0, '');
+  agenda = new AgendaModel(0, '', '', '', '', '');
   usersMedicos: UsersModel[] = [];
 
   constructor(

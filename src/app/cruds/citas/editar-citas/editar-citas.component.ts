@@ -17,6 +17,7 @@ export class EditarCitasComponent implements OnInit {
   id = '';
   citas = new CitasModel('', '', '', '', '', '', '', '');
   usersMedicos: UsersModel[] = [];
+  usersPacientes: UsersModel[] = [];
   especialidades: EspecialidadesModel[] = []
 
   constructor(
@@ -43,6 +44,7 @@ export class EditarCitasComponent implements OnInit {
     this.usersService.obtenerUsers().subscribe(
       (data) => {
         this.usersMedicos = data.filter(user => user.rol === 'Medico');
+        this.usersPacientes = data.filter(user => user.rol === 'Paciente');
       },
       (error) => {
         console.error(error);
@@ -60,13 +62,19 @@ export class EditarCitasComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("Médico seleccionado:", this.citas.medico); // Añade esta línea para depuración
+    console.log("Médico seleccionado:", this.citas.medico); 
+    console.log("Paciente seleccionado:", this.citas.paciente); 
+
 
     if (!this.citas.medico) {
-      // Si no se ha seleccionado ningún médico, muestra una alerta
       alert('Seleccione un médico');
       return;
     }
+    if (!this.citas.paciente) {
+      alert('Seleccione un paciente');
+      return;
+    }
+
 
     if (this.id) {
       // Si hay un ID, significa que estás editando, entonces utiliza el método de actualizar

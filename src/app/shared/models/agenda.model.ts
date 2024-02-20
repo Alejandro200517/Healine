@@ -5,7 +5,7 @@ export class AgendaModel {
     public fecha: string,
     public hora_inicio: string,
     public hora_fin: string,
-    public medico: number,
+    public medico: string,
     public descripcion: string,
   ) { }
 }

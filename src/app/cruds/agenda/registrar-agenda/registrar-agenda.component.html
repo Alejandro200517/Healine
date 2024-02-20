@@ -41,10 +41,11 @@
                                 Médico
                             </label>                            
                             <select required [(ngModel)]="agenda.medico" name="medico" id="medico" class="selectLogin">
-                                <option *ngFor="let user of usersMedicos" [ngValue]="user.documento">
-                                    {{ user.documento }} - {{ user.primerNombre }} {{ user.segundoNombre }} {{ user.primerApellido }} {{ user.segundoApellido }}
+                                <option *ngFor="let user of usersMedicos" [ngValue]="user.documento + ' ' + user.primerNombre + ' ' + (user.segundoNombre ? user.segundoNombre + ' ' : '') + user.primerApellido + ' ' + (user.segundoApellido ? user.segundoApellido : '')">
+                                    {{ user.documento }} - {{ user.primerNombre }} {{ user.segundoNombre ? user.segundoNombre + ' ' : '' }}{{ user.primerApellido }} {{ user.segundoApellido ? user.segundoApellido : '' }}
                                 </option>
                             </select>
+                            
                         </div>
                         
 

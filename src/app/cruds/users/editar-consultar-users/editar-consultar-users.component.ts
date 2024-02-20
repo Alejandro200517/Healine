@@ -12,6 +12,7 @@ export class EditarConsultarUsersComponent implements OnInit {
   users: Observable<UsersModel[]> | undefined;
   filtroCorreo: string = '';
   filtroDocumento: number = Number('');
+  filtroNombre: string = '';
 
 
   constructor(private usersService: UsersService) {}
@@ -36,14 +37,22 @@ export class EditarConsultarUsersComponent implements OnInit {
 
   filtrarUsers(users: UsersModel[] | null): UsersModel[] {
     if (!users) {
-      return [];
+        return [];
     }
-  
+
     return users.filter(u => {
-      const correoCoincide = this.filtroCorreo.trim() === '' || u.email.toLowerCase().includes(this.filtroCorreo.toLowerCase());
-      const documentoCoincide = this.filtroDocumento === 0 || u.documento.toString().includes(this.filtroDocumento.toString());
-  
-      return correoCoincide && documentoCoincide;
+        const nombreCompleto = `${u.primerNombre} ${u.segundoNombre} ${u.primerApellido} ${u.segundoApellido}`;
+        const nombreCoincide =
+            this.filtroNombre.trim() === '' ||
+            nombreCompleto.toLowerCase().includes(this.filtroNombre.toLowerCase());
+        const correoCoincide =
+            this.filtroCorreo.trim() === '' ||
+            u.email.toLowerCase().includes(this.filtroCorreo.toLowerCase());
+        const documentoCoincide =
+            this.filtroDocumento === 0 ||
+            u.documento.toString().includes(this.filtroDocumento.toString());
+
+        return nombreCoincide && correoCoincide && documentoCoincide;
     });
   }
   

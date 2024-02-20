@@ -15,6 +15,8 @@ export class EditarConsultarIncapacidadComponent implements OnInit {
   incapacida: Observable<IncapacidadModel[]> | undefined;
   incapacidad: IncapacidadModel[] = [];
   filtroPaciente: string = '';
+  filtroMedico: string = '';
+
 
   constructor(private incapacidadService: IncapacidadService, private router: Router) {}
 
@@ -49,9 +51,10 @@ export class EditarConsultarIncapacidadComponent implements OnInit {
     }
   
     return incapacidad.filter(s => {
-      const nombreIncapacidaCoincide = this.filtroPaciente === '' || s.paciente.toLowerCase().includes(this.filtroPaciente.toLowerCase());
-  
-      return nombreIncapacidaCoincide;
+      const pacienteIncapacidadCoincide = this.filtroPaciente === '' || s.paciente.toLowerCase().includes(this.filtroPaciente.toLowerCase());
+      const medicoIncapacidadCoincide = this.filtroMedico === '' || s.medico.toLowerCase().includes(this.filtroMedico.toLowerCase());
+
+      return pacienteIncapacidadCoincide && medicoIncapacidadCoincide;
     });
   }
 }

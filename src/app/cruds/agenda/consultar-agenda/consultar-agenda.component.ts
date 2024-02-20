@@ -13,7 +13,7 @@ export class ConsultarAgendaComponent implements OnInit {
 
   agenda: Observable<AgendaModel[]> | undefined;
   agendas: AgendaModel[] = [];
-  filtroMedico: number = Number('');
+  filtroMedico: String = "";
 
   constructor(private agendaService: AgendaService) {}
 
@@ -44,13 +44,15 @@ export class ConsultarAgendaComponent implements OnInit {
 
   filtrarAgendas(agenda: AgendaModel[] | undefined | null): AgendaModel[] {
     if (!agenda) {
-      return [];
+        return [];
     }
-  
+
     return agenda.filter(u => {
-      const medicoCoincide = this.filtroMedico === 0 || u.medico.toString().includes(this.filtroMedico.toString());
-  
-      return medicoCoincide;
+        const idCoincide = u.id.toString().includes(this.filtroMedico.toString());
+        const nombreMedicoCoincide = u.medico.toLowerCase().includes(this.filtroMedico.toLowerCase());
+
+        return idCoincide || nombreMedicoCoincide;
     });
-  }
+}
+
 }

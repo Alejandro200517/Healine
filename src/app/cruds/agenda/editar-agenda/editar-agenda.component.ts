@@ -10,7 +10,7 @@ import { AgendaService } from '../../../shared/services/agenda.service';
 })
 export class EditarAgendaComponent implements OnInit {
   id = '';
-  agenda = new AgendaModel(0, '', '', '', 0, '');
+  agenda = new AgendaModel(0, '', '', '', '', '');
 
   constructor(
     private agendaService: AgendaService,

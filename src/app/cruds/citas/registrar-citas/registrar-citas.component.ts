@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 export class RegistrarCitasComponent implements OnInit {
   citas = new CitasModel('', '', '', '', '', '', '', '');
   usersMedicos: UsersModel[] = [];
+  usersPacientes: UsersModel[] = [];
   especialidades: EspecialidadesModel[] = []
 
   constructor(
@@ -28,6 +29,8 @@ export class RegistrarCitasComponent implements OnInit {
     this.usersService.obtenerUsers().subscribe(
       (data) => {
         this.usersMedicos = data.filter(users => users.rol === 'Medico');
+        this.usersPacientes = data.filter(users => users.rol === 'Paciente');
+
       },
       (error) => {
         console.error(error);
@@ -46,11 +49,15 @@ export class RegistrarCitasComponent implements OnInit {
   
 
   onSubmit() {
-    console.log("Médico seleccionado:", this.citas.medico); // Añade esta línea para depuración
+    console.log("Médico seleccionado:", this.citas.medico); 
+    console.log("Paciente seleccionado:", this.citas.paciente); 
     
     if (!this.citas.medico) {
-      // Si no se ha seleccionado ningún médico, muestra una alerta
       alert('Seleccione un médico');
+      return;
+    }
+    if (!this.citas.paciente) {
+      alert('Seleccione un paciente');
       return;
     }
 

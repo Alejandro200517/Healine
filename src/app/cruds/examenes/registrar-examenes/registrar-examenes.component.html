@@ -14,7 +14,7 @@
                 <label for="paciente" style="font-weight: bold; margin-right: 10px; color: #000;">Cita:</label>
                 <select required [(ngModel)]="examenes.cita" name="formula" id="formula" class="selectLogin">
                     <option *ngFor="let cita of citas" [ngValue]="cita.id">
-                        {{ cita.id }} /// {{ cita.paciente }} /// {{ cita.fecha }}
+                        {{ cita.hora }} - {{ cita.fecha }} - {{ cita.paciente }}
                     </option>
                 </select>
             </div>
@@ -23,7 +23,7 @@
             <div class="examen-info">
                 <label for="paciente" style="font-weight: bold; margin-right: 10px; color: #000;">Paciente:</label>
                 <select required [(ngModel)]="examenes.paciente" name="paciente" id="paciente" class="selectLogin">
-                    <option *ngFor="let user of usersPacientes" [ngValue]="user.documento">
+                    <option *ngFor="let user of usersPacientes" [ngValue]="user.documento + ' ' + user.primerNombre + ' ' + (user.segundoNombre ? user.segundoNombre + ' ' : '') + user.primerApellido + ' ' + (user.segundoApellido ? user.segundoApellido : '')">
                         {{ user.documento }} /// {{ user.primerNombre }} {{ user.segundoNombre }} {{ user.primerApellido }} {{ user.segundoApellido }}
                     </option>
                 </select>             

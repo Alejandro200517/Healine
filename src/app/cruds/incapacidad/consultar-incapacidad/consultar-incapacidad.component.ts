@@ -3,7 +3,6 @@ import { IncapacidadModel } from 'src/app/shared/models/incapacidad.model';
 import { IncapacidadService } from '../../../shared/services/incapacidad.service';
 import { Observable } from 'rxjs';
 
-
 @Component({
   selector: 'app-consultar-incapacidad',
   templateUrl: './consultar-incapacidad.component.html',
@@ -14,6 +13,7 @@ export class ConsultarIncapacidadComponent implements OnInit {
   incapacida: Observable<IncapacidadModel[]> | undefined;
   incapacidad: IncapacidadModel[] = [];
   filtroPaciente: string = '';
+  filtroMedico: string = '';
 
   constructor(private incapacidadService: IncapacidadService) {}
 
@@ -48,9 +48,10 @@ export class ConsultarIncapacidadComponent implements OnInit {
     }
   
     return incapacidad.filter(s => {
-      const nombreIncapacidaCoincide = this.filtroPaciente === '' || s.paciente.toLowerCase().includes(this.filtroPaciente.toLowerCase());
-  
-      return nombreIncapacidaCoincide;
+      const pacienteIncapacidadCoincide = this.filtroPaciente === '' || s.paciente.toLowerCase().includes(this.filtroPaciente.toLowerCase());
+      const medicoIncapacidadCoincide = this.filtroMedico === '' || s.medico.toLowerCase().includes(this.filtroMedico.toLowerCase());
+
+      return pacienteIncapacidadCoincide && medicoIncapacidadCoincide;
     });
   }
 }

@@ -35,14 +35,14 @@ export class EditarConsultarCitasComponent implements OnInit {
 
   filtrarCitas(citas: CitasModel[] | null): CitasModel[] {
     if (!citas) {
-      return [];
+        return [];
     }
-  
+
     return citas.filter(u => {
-      const medicoCoincide = this.filtroMedico.trim() === '' || u.medico.toLowerCase().includes(this.filtroMedico.toLowerCase());
-  
-      return medicoCoincide;
+        const medicoCoincide = typeof u.medico === 'string' && (this.filtroMedico.trim() === '' || u.medico.toLowerCase().includes(this.filtroMedico.toLowerCase()));
+
+        return medicoCoincide;
     });
-  }
+}
   
 }

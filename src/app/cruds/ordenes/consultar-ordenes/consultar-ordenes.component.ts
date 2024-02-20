@@ -47,10 +47,12 @@ export class ConsultarOrdenesComponent implements OnInit {
       return [];
     }
   
-    return ordenes.filter(s => {
-      const nombreOrdenCoincide = this.filtroPaciente === '' || s.paciente.toLowerCase().includes(this.filtroPaciente.toLowerCase());
+    return ordenes.filter(o => {
+      const idCoincide = o.id.toString().includes(this.filtroPaciente.toString());
+      const nombrePacienteCoincide = o.paciente.toLowerCase().includes(this.filtroPaciente.toLowerCase());
   
-      return nombreOrdenCoincide;
+      return idCoincide || nombrePacienteCoincide;
     });
   }
+  
 }

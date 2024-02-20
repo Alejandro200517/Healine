@@ -29,26 +29,30 @@
                             <label class="labelCitaBuscar" for="paciente" style="font-size: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #101010; ">
                                 Paciente
                             </label>
-                            <input class="selectLogin" name="paciente" id="paciente" type="text" placeholder = 'Documento Paciente' required [(ngModel)]="citas.paciente" style="display: block;margin: 0 auto;margin-bottom: 30px;padding: 8px;border-radius: 17px;width: 480px;color: rgb(14, 14, 14);background-color: rgb(255, 255, 255);padding: 12px; border: 1px solid #9e9e9e; border-radius: 15px; width: 100%; font-size: 20px;">
+                            <select required [(ngModel)]="citas.paciente" name="paciente" id="paciente" class="selectLogin">
+                                <option *ngFor="let user of usersPacientes" [ngValue]="user.documento + ' ' + user.primerNombre + ' ' + (user.segundoNombre ? user.segundoNombre + ' ' : '') + user.primerApellido + ' ' + (user.segundoApellido ? user.segundoApellido : '')">
+                                    {{ user.documento }} - {{ user.primerNombre }} {{ user.segundoNombre }} {{ user.primerApellido }} {{ user.segundoApellido }}
+                                </option>
+                            </select>
                         </div>
+                        
 
                         <div style="margin-right: 5px; margin-top: -5px;">
                             <label class="labelCitaBuscar" for="medico" style="font-size: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #101010;">
                                 Médico
                             </label>                            
                             <select required [(ngModel)]="citas.medico" name="medico" id="medico" class="selectLogin">
-                                <option *ngFor="let user of usersMedicos" [ngValue]="user.documento">
+                                <option *ngFor="let user of usersMedicos" [ngValue]="user.documento + ' ' + user.primerNombre + ' ' + (user.segundoNombre ? user.segundoNombre + ' ' : '') + user.primerApellido + ' ' + (user.segundoApellido ? user.segundoApellido : '')">
                                     {{ user.documento }} - {{ user.primerNombre }} {{ user.segundoNombre }} {{ user.primerApellido }} {{ user.segundoApellido }}
                                 </option>
                             </select>
                         </div>
-
                         <div style="margin-right: 5px; margin-top: -5px;">
                             <label class="labelCitaBuscar" for="especialidad" style="font-size: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #101010;">
                                 Especialidad
                             </label>                            
                             <select required [(ngModel)]="citas.especialidad" name="especialidad" id="especialidad" class="selectLogin">
-                                <option *ngFor="let especialidad of especialidades" [ngValue]="especialidad.id">
+                                <option *ngFor="let especialidad of especialidades" [ngValue]="especialidad.nombre">
                                     {{ especialidad.id }} - {{ especialidad.nombre }} 
                                 </option>
                             </select>
