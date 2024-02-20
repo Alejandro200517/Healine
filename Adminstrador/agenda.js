@@ -30,11 +30,11 @@ module.exports = function (app, conexion) {
 
     app.post('/agenda/agregar', (req, res) => {
         const agenda = {
-        fecha: req.body.fecha,
-        hora_inicio: req.body.hora_inicio,
-        hora_fin: req.body.hora_fin,
-        medico: req.body.medico,
-        descripcion: req.body.descripcion,
+            fecha: req.body.fecha,
+            hora_inicio: req.body.hora_inicio,
+            hora_fin: req.body.hora_fin,
+            medico: req.body.medico, 
+            descripcion: req.body.descripcion,
         };
     
         const query = `INSERT INTO agenda (fecha, hora_inicio, hora_fin, medico, descripcion) VALUES ('${agenda.fecha}', '${agenda.hora_inicio}', '${agenda.hora_fin}', '${agenda.medico}', '${agenda.descripcion}')`;
