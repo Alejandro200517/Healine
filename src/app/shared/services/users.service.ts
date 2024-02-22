@@ -22,14 +22,16 @@ export class UsersService {
 
   agregarUsers(users: UsersModel): Observable<string> {
     return this.http.post<string>(`${this.BASE_URL}/users/agregar`, users);
-  }
+}
+
 
   actualizarUsers(users: UsersModel): Observable<string> {
     return this.http.put<string>(`${this.BASE_URL}/users/actualizar/${users.documento}`, users);
   }
 
   borrarUsers(id: string): Observable<string> {
-    return this.http.delete<string>(`${this.BASE_URL}/users/borrar/${id}`);
+    return this.http.put<string>(`${this.BASE_URL}/users/inactivar/${id}`, {});
   }
+  
 
 }

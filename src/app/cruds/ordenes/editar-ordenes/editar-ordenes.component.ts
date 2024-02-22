@@ -17,6 +17,8 @@ export class EditarOrdenesComponent implements OnInit {
   ordenes = new OrdenesModel('', '', '', '', '');
   usersPacientes: UsersModel[] = [];
   formulas: FormulasModel[] = [];
+  isFormSubmitted: boolean = false;
+
 
   constructor(
     private ordenesService: OrdenesService,
@@ -59,6 +61,10 @@ export class EditarOrdenesComponent implements OnInit {
   }
 
   onSubmit() {
+    if (!this.isFormFilled()) {
+      alert('Por favor, complete todos los campos obligatorios.');
+      return;
+    }
     if (this.id) {
       this.ordenesService.actualizarOrdenes(this.ordenes).subscribe(
         (data) => {
@@ -88,5 +94,9 @@ export class EditarOrdenesComponent implements OnInit {
         }
       );
     }
+  }
+  
+  isFormFilled(): boolean {
+    return !!this.ordenes.paciente && !!this.ordenes.formula && !!this.ordenes.diagnostico && !!this.ordenes.tratamiento;
   }
 }

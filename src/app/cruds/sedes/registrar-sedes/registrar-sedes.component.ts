@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class RegistrarSedesComponent implements OnInit {
 
   sedes = new SedesModel('', '', '', Number(''), '');
+  isFormSubmitted: boolean = false;
 
   constructor(
     private sedesService: SedesService,
@@ -22,6 +23,11 @@ export class RegistrarSedesComponent implements OnInit {
 
   onSubmit() {
     console.log('onSubmit');
+
+    if (!this.isFormFilled()) {
+      alert('Por favor, complete todos los campos obligatorios.');
+      return;
+    }
 
     this.sedesService.agregarSedes(this.sedes).subscribe(
       (data) => {
@@ -36,5 +42,8 @@ export class RegistrarSedesComponent implements OnInit {
         }
       }
     );
+  }
+  isFormFilled(): boolean {
+    return !!this.sedes.nombreSede && !!this.sedes.direccion && !!this.sedes.telefonoSede && !!this.sedes.tipoServicio;
   }
 }

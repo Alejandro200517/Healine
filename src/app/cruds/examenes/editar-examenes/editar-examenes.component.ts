@@ -17,6 +17,7 @@ export class EditarExamenesComponent implements OnInit {
   examenes = new ExamenesModel('', '', '', '', '', '');
   usersPacientes: UsersModel[] = [];
   citas: CitasModel[] = [];
+  isFormSubmitted: boolean = false;
 
   constructor(
     private examenesService: ExamenesService,
@@ -59,6 +60,12 @@ export class EditarExamenesComponent implements OnInit {
   }
 
   onSubmit() {
+
+    if (!this.isFormFilled()) {
+      alert('Por favor, complete todos los campos obligatorios.');
+      return;
+    }
+
     if (this.id) {
       this.examenesService.actualizarExamenes(this.examenes).subscribe(
         (data) => {
@@ -88,5 +95,8 @@ export class EditarExamenesComponent implements OnInit {
         }
       );
     }
+  }
+  isFormFilled(): boolean {
+    return !!this.examenes.cita && !!this.examenes.paciente && !!this.examenes.nombre && !!this.examenes.resultado && !!this.examenes.fecha;
   }
 }

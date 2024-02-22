@@ -11,6 +11,8 @@ import { CitasService } from '../../../shared/services/citas.service';
 export class EditarConsultarCitasComponent implements OnInit {
   citas: Observable<CitasModel[]> | undefined;
   filtroMedico: string = '';
+  filtroPaciente: string = '';
+
 
   constructor(private citasService: CitasService) {}
 
@@ -40,8 +42,9 @@ export class EditarConsultarCitasComponent implements OnInit {
 
     return citas.filter(u => {
         const medicoCoincide = typeof u.medico === 'string' && (this.filtroMedico.trim() === '' || u.medico.toLowerCase().includes(this.filtroMedico.toLowerCase()));
+        const pacienteCoincide = typeof u.paciente === 'string' && (this.filtroPaciente.trim() === '' || u.paciente.toLowerCase().includes(this.filtroPaciente.toLowerCase()));
 
-        return medicoCoincide;
+        return medicoCoincide && pacienteCoincide;
     });
 }
   

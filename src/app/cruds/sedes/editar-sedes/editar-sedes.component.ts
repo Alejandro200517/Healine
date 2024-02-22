@@ -11,6 +11,7 @@ import { SedesService } from '../../../shared/services/sedes.service';
 export class EditarSedesComponent implements OnInit {
   id = '';
   sedes = new SedesModel('', '', '', 0, '');
+  isFormSubmitted: boolean = false;
 
   constructor(
     private sedesService: SedesService,
@@ -33,6 +34,12 @@ export class EditarSedesComponent implements OnInit {
   }
 
   onSubmit() {
+    
+    if (!this.isFormFilled()) {
+      alert('Por favor, complete todos los campos obligatorios.');
+      return;
+    }
+
     if (this.id) {
       // Si hay un ID, significa que estás editando, entonces utiliza el método de actualizar
       this.sedesService.actualizarSedes(this.sedes).subscribe(
@@ -64,5 +71,8 @@ export class EditarSedesComponent implements OnInit {
         }
       );
     }
+  }
+  isFormFilled(): boolean {
+    return !!this.sedes.nombreSede && !!this.sedes.direccion && !!this.sedes.telefonoSede && !!this.sedes.tipoServicio;
   }
 }

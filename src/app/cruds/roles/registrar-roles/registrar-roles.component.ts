@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class RegistrarRolesComponent implements OnInit {
 
   roles = new RolesModel('', '');
+  isFormSubmitted: boolean = false;
 
   constructor(
     private rolesService: RolesService,
@@ -21,6 +22,12 @@ export class RegistrarRolesComponent implements OnInit {
   }
 
   onSubmit() {
+
+    if (!this.isFormFilled()) {
+      alert('Por favor, complete todos los campos obligatorios.');
+      return;
+    }
+
     console.log('onSubmit');
 
     this.rolesService.agregarRoles(this.roles).subscribe(
@@ -36,5 +43,8 @@ export class RegistrarRolesComponent implements OnInit {
         }
       }
     );
+  }
+  isFormFilled(): boolean {
+    return !!this.roles.nombreRol;
   }
 }

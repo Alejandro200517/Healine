@@ -11,6 +11,8 @@ import { FormulasService } from '../../../shared/services/formulas.service';
 export class EditarFormulasComponent implements OnInit {
   id = '';
   formulas = new FormulasModel('', '', '', '', '');
+  isFormSubmitted: boolean = false;
+
 
   constructor(
     private formulasService: FormulasService,
@@ -33,6 +35,10 @@ export class EditarFormulasComponent implements OnInit {
   }
 
   onSubmit() {
+    if (!this.isFormFilled()) {
+      alert('Por favor, complete todos los campos obligatorios.');
+      return;
+    }
     if (this.id) {
       this.formulasService.actualizarFormulas(this.formulas).subscribe(
         (data) => {
@@ -62,5 +68,8 @@ export class EditarFormulasComponent implements OnInit {
         }
       );
     }
+  }
+  isFormFilled(): boolean {
+    return !!this.formulas.nombreMedicamento && !!this.formulas.tratamiento && !!this.formulas.diagnostico && !!this.formulas.instrucciones;
   }
 }

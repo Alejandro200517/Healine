@@ -11,6 +11,7 @@ import { AgendaService } from '../../../shared/services/agenda.service';
 export class EditarAgendaComponent implements OnInit {
   id = '';
   agenda = new AgendaModel(0, '', '', '', '', '');
+  isFormSubmitted: boolean = false;
 
   constructor(
     private agendaService: AgendaService,
@@ -34,6 +35,11 @@ export class EditarAgendaComponent implements OnInit {
 
   onSubmit() {
     console.log("Médico seleccionado:", this.agenda.medico); 
+
+    if (!this.isFormFilled()) {
+      alert('Por favor, complete todos los campos obligatorios.');
+      return;
+    }
 
     if (!this.agenda.medico) {
       alert('Seleccione un médico');
@@ -70,4 +76,7 @@ export class EditarAgendaComponent implements OnInit {
       );
     }
   }
+  isFormFilled(): boolean {
+    return !!this.agenda.fecha && !!this.agenda.hora_inicio && !!this.agenda.hora_fin && !!this.agenda.descripcion;
+}
 }

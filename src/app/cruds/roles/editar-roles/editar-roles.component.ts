@@ -11,7 +11,8 @@ import { RolesService } from '../../../shared/services/roles.service';
 export class EditarRolesComponent implements OnInit {
   id = '';
   roles = new RolesModel('', '');
-
+  isFormSubmitted: boolean = false;
+  
   constructor(
     private rolesService: RolesService,
     private route: ActivatedRoute,
@@ -33,6 +34,12 @@ export class EditarRolesComponent implements OnInit {
   }
 
   onSubmit() {
+
+    if (!this.isFormFilled()) {
+      alert('Por favor, complete todos los campos obligatorios.');
+      return;
+    }  
+
     if (this.id) {
       // Si hay un ID, significa que estás editando, entonces utiliza el método de actualizar
       this.rolesService.actualizarRoles(this.roles).subscribe(
@@ -64,5 +71,8 @@ export class EditarRolesComponent implements OnInit {
         }
       );
     }
+  }
+  isFormFilled(): boolean {
+    return !!this.roles.nombreRol;
   }
 }

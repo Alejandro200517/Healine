@@ -7,7 +7,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EspecialidadesService } from 'src/app/shared/services/especialidades.service';
 import { EspecialidadesModel } from 'src/app/shared/models/especialidades.model';
 
-
 @Component({
   selector: 'app-editar-citas',
   templateUrl: './editar-citas.component.html',
@@ -19,6 +18,8 @@ export class EditarCitasComponent implements OnInit {
   usersMedicos: UsersModel[] = [];
   usersPacientes: UsersModel[] = [];
   especialidades: EspecialidadesModel[] = []
+  isFormSubmitted: boolean = false;
+
 
   constructor(
     private citasService: CitasService,
@@ -62,9 +63,15 @@ export class EditarCitasComponent implements OnInit {
   }
 
   onSubmit() {
+
+    if (!this.isFormFilled()) {
+      alert('Por favor, complete todos los campos obligatorios.');
+      return;
+    }
+
     console.log("Médico seleccionado:", this.citas.medico); 
     console.log("Paciente seleccionado:", this.citas.paciente); 
-
+    
 
     if (!this.citas.medico) {
       alert('Seleccione un médico');
@@ -75,12 +82,29 @@ export class EditarCitasComponent implements OnInit {
       return;
     }
 
+    // Validar la fecha de la cita
+    const hoy = new Date();
+    const fechaSeleccionada = new Date(this.citas.fecha);
+
+    const unMesAntes = new Date();
+    unMesAntes.setMonth(unMesAntes.getMonth() - 1);
+    if (fechaSeleccionada < unMesAntes) {
+      alert('La fecha de la cita no puede ser mayor a un mes antes del día actual');
+      return;
+    }
+
+    const unMesDespues = new Date();
+    unMesDespues.setMonth(unMesDespues.getMonth() + 1);
+    if (fechaSeleccionada > unMesDespues) {
+      alert('La fecha de la cita no puede ser mayor a un mes a partir del día actual');
+      return;
+    }
 
     if (this.id) {
       // Si hay un ID, significa que estás editando, entonces utiliza el método de actualizar
       this.citasService.actualizarCitas(this.citas).subscribe(
         (data) => {
-          alert('cita actualizada correctamente');
+          alert('Cita actualizada correctamente');
           this.router.navigate(['/editar-consultar-citas']);
         },
         (error) => {
@@ -95,17 +119,21 @@ export class EditarCitasComponent implements OnInit {
       // Si no hay un ID, significa que estás creando, utiliza el método de agregar
       this.citasService.agregarCitas(this.citas).subscribe(
         (data) => {
-          alert('cita registrada correctamente');
+          alert('Cita registrada correctamente');
           this.router.navigate(['/editar-consultar-citas']);
         },
         (error) => {
           if (error.status === 500) {
-            alert('Verifique los campos o la citas ya está registrada');
+            alert('Verifique los campos o la cita ya está registrada');
           } else {
             console.error(error);
           }
         }
       );
     }
+  }
+  
+  isFormFilled(): boolean {
+    return !!this.citas.fecha && !!this.citas.hora && !!this.citas.medico && !!this.citas.paciente && !!this.citas.especialidad;
   }
 }

@@ -45,6 +45,7 @@
                     <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Status</th>
                     <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Rol</th>
                     <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Sede</th>
+                    <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Especialidad</th>
                     <th class="bg-primary text-white" style="border: 1px solid #ccc; border-radius: 0px 25px 0px 0px; padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Acciones</th>
                 </tr>
             </thead>
@@ -57,6 +58,8 @@
                     <td>{{ user.numero }}</td>
                     <td>{{ user.status }}</td>
                     <td>{{ user.rol }}</td>
+                    <td>{{ user.especialidad }}</td>
+
                     <td>{{ user.sede }}</td>
                     <td class="text-center" >
                         <a [routerLink]="['/editar-users/editar/', user.documento]">

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class RegistrarEspecialidadesComponent implements OnInit {
 
   especialidades = new EspecialidadesModel('', '', '');
+  isFormSubmitted: boolean = false;
 
   constructor(
     private especialidadesService: EspecialidadesService,
@@ -22,6 +23,11 @@ export class RegistrarEspecialidadesComponent implements OnInit {
 
   onSubmit() {
     console.log('onSubmit');
+
+    if (!this.isFormValid()) {
+      alert('Por favor complete todos los campos obligatorios.');
+      return;
+    }
 
     this.especialidadesService.agregarEspecialidades(this.especialidades).subscribe(
       (data) => {
@@ -36,5 +42,15 @@ export class RegistrarEspecialidadesComponent implements OnInit {
         }
       }
     );
+  }
+
+  formatSalary(event: any) {
+    let salary = event.target.value.replace(/\D/g, "");
+    salary = salary.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    this.especialidades.salario = salary;
+  }
+
+  isFormValid(): boolean {
+    return !!this.especialidades.nombre && !!this.especialidades.salario;
   }
 }

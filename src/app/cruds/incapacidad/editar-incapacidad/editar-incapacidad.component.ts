@@ -4,6 +4,8 @@ import { IncapacidadModel } from 'src/app/shared/models/incapacidad.model';
 import { IncapacidadService } from '../../../shared/services/incapacidad.service';
 import { UsersModel } from 'src/app/shared/models/users.model';
 import { UsersService } from '../../../shared/services/users.service';
+import { CitasModel } from 'src/app/shared/models/citas.model';
+import { CitasService } from '../../../shared/services/citas.service';
 
 @Component({
   selector: 'app-editar-incapacidad',
@@ -15,11 +17,14 @@ export class EditarIncapacidadComponent implements OnInit {
   incapacidad = new IncapacidadModel('', '', '', '', '', '');
   usersPacientes: UsersModel[] = [];
   usersMedicos: UsersModel[] = [];
+  citas: CitasModel[] = []; 
+  isFormSubmitted: boolean = false;
 
   constructor(
     private incapacidadService: IncapacidadService,
     private route: ActivatedRoute,
     private usersService: UsersService,
+    private citasService: CitasService, // Inyecta el servicio de citas
     private router: Router
   ) { }
 
@@ -53,9 +58,23 @@ export class EditarIncapacidadComponent implements OnInit {
         console.error(error);
       }
     );
+    this.citasService.obtenerCitas().subscribe(
+      (data) => {
+        this.citas = data;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
   onSubmit() {
+
+    if (!this.isFormFilled()) {
+      alert('Por favor complete todos los campos obligatorios.');
+      return;
+    }
+
     if (this.id) {
       this.incapacidadService.actualizarIncapacidad(this.incapacidad).subscribe(
         (data) => {
@@ -85,5 +104,8 @@ export class EditarIncapacidadComponent implements OnInit {
         }
       );
     }
+  }
+  isFormFilled(): boolean {
+    return !!this.incapacidad.paciente && !!this.incapacidad.medico && !!this.incapacidad.fecha && !!this.incapacidad.tipo && !!this.incapacidad.detalles;
   }
 }

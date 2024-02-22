@@ -13,7 +13,7 @@
 
         <fieldset class="form-group">
             <div style="border: 1px solid #ccc; border-radius: 20px; padding: 5px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);">
-              <input class="placeholderUsers" style="padding: 18px; border: none; width: 100%; font-size: 14px; margin-top: 5px; " name="Documento" id="Documento" type="number" placeholder="Documento (Max 10)" required [(ngModel)]="users.documento">
+              <input class="placeholderUsers" style="padding: 18px; border: none; width: 100%; font-size: 14px; margin-top: 5px; " name="Documento" id="Documento" type="number" maxlength="10" placeholder="Documento (Max 10)" required [(ngModel)]="users.documento">
             </div>
           </fieldset>
         
@@ -67,7 +67,7 @@
 
         <fieldset class="form-group">
           <div style="border: 1px solid #ccc; border-radius: 20px; padding: 5px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);">
-            <input class="placeholderUsers" style="padding: 18px; border: none; width: 100%; font-size: 14px; margin-top: 5px; " name="Numero" id="Numero" type="number" placeholder="Número Telefónico" required [(ngModel)]="users.numero">
+            <input class="placeholderUsers" style="padding: 18px; border: none; width: 100%; font-size: 14px; margin-top: 5px; " name="Numero" id="Numero" type="number" maxlength="10" placeholder="Número Telefónico" required [(ngModel)]="users.numero">
           </div>
         </fieldset>
   

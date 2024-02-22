@@ -11,6 +11,7 @@ import { RegistrarLoginService } from '../../../shared/services/registrarlogin.s
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  showAlert: boolean = false; // Declarar la propiedad showAlert y asignarle un valor inicial
 
   constructor(private fb: FormBuilder, private registrarloginService: RegistrarLoginService, private router: Router) {
     this.loginForm = this.fb.group({
@@ -51,15 +52,19 @@ export class LoginComponent {
               }
             } else {
               console.error('Respuesta de inicio de sesión inválida:', response);
+              this.showAlert = true; 
             }
           },
           (error) => {
-            console.error('Error en el inicio de sesión:', error);
+            console.error('Error en el proceso de inicio de sesión:', error);
+            this.showAlert = true; 
           }
         );
+      } else {
+        this.showAlert = true; 
       }
+    } else {
+      this.showAlert = true; 
     }
   }
-  
-  
 }

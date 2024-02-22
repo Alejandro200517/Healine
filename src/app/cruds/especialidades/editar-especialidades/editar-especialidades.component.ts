@@ -11,6 +11,7 @@ import { EspecialidadesService } from '../../../shared/services/especialidades.s
 export class EditarEspecialidadesComponent implements OnInit {
   id = '';
   especialidades = new EspecialidadesModel('', '', '');
+  isFormSubmitted: boolean = false;
 
   constructor(
     private especialidadesService: EspecialidadesService,
@@ -33,6 +34,12 @@ export class EditarEspecialidadesComponent implements OnInit {
   }
 
   onSubmit() {
+
+    if (!this.isFormValid()) {
+      alert('Por favor complete todos los campos obligatorios.');
+      return;
+    }
+
     if (this.id) {
       this.especialidadesService.actualizarEspecialidades(this.especialidades).subscribe(
         (data) => {
@@ -62,5 +69,15 @@ export class EditarEspecialidadesComponent implements OnInit {
         }
       );
     }
+  }
+  
+  formatSalary(event: any) {
+    let salary = event.target.value.replace(/\D/g, "");
+    salary = salary.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    this.especialidades.salario = salary;
+  }
+  
+  isFormValid(): boolean {
+    return !!this.especialidades.nombre && !!this.especialidades.salario;
   }
 }

@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
 export class RegistrarAgendaComponent implements OnInit {
   agenda = new AgendaModel(0, '', '', '', '', '');
   usersMedicos: UsersModel[] = [];
+  isFormSubmitted: boolean = false;
+
 
   constructor(
     private agendaService: AgendaService,
@@ -32,11 +34,30 @@ export class RegistrarAgendaComponent implements OnInit {
   }
   
   onSubmit() {
-    console.log("Médico seleccionado:", this.agenda.medico); // Añade esta línea para depuración
-    
+
+    if (!this.isFormFilled()) {
+      alert('Por favor, complete todos los campos obligatorios.');
+      return;
+    }
+
     if (!this.agenda.medico) {
-      // Si no se ha seleccionado ningún médico, muestra una alerta
       alert('Seleccione un médico');
+      return;
+    }
+
+    const hoy = new Date();
+    const fechaSeleccionada = new Date(this.agenda.fecha);
+
+    if (fechaSeleccionada < hoy) {
+      alert('La fecha de la agenda no puede ser menor que el día actual');
+      return;
+    }
+
+    const unMesDespues = new Date();
+    unMesDespues.setMonth(unMesDespues.getMonth() + 1);
+
+    if (fechaSeleccionada > unMesDespues) {
+      alert('La fecha de la agenda no puede ser mayor a un mes a partir del día actual');
       return;
     }
 
@@ -54,4 +75,8 @@ export class RegistrarAgendaComponent implements OnInit {
       }
     );
   }
+
+  isFormFilled(): boolean {
+    return !!this.agenda.fecha && !!this.agenda.hora_inicio && !!this.agenda.hora_fin && !!this.agenda.descripcion;
+}
 }

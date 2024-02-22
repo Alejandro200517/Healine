@@ -4,6 +4,8 @@ import { IncapacidadService } from '../../../shared/services/incapacidad.service
 import { UsersModel } from 'src/app/shared/models/users.model';
 import { UsersService } from '../../../shared/services/users.service';
 import { Router } from '@angular/router';
+import { CitasModel } from 'src/app/shared/models/citas.model'; // Importa el modelo de citas
+import { CitasService } from '../../../shared/services/citas.service'; // Importa el servicio de citas
 
 @Component({
   selector: 'app-registrar-incapacidad',
@@ -14,11 +16,13 @@ export class RegistrarIncapacidadComponent implements OnInit {
   incapacidad = new IncapacidadModel('', '', '', '', '', '');
   usersMedicos: UsersModel[] = [];
   usersPacientes: UsersModel[] = [];
-
+  citas: CitasModel[] = []; 
+  isFormSubmitted: boolean = false;
 
   constructor(
     private incapacidadService: IncapacidadService,
     private usersService: UsersService,
+    private citasService: CitasService, // Inyecta el servicio de citas
     private router: Router
   ) {}
 
@@ -40,12 +44,26 @@ export class RegistrarIncapacidadComponent implements OnInit {
         console.error(error);
       }
     );
+
+    // Obtener las citas disponibles al inicializar el componente
+    this.citasService.obtenerCitas().subscribe(
+      (data) => {
+        this.citas = data;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
-  
 
   onSubmit() {
-    console.log("Médico seleccionado:", this.incapacidad.medico); // Añade esta línea para depuración
+    console.log("Médico seleccionado:", this.incapacidad.medico);
     
+    if (!this.isFormFilled()) {
+      alert('Por favor complete todos los campos obligatorios.');
+      return;
+    }
+
     if (!this.incapacidad.medico) {
       // Si no se ha seleccionado ningún médico, muestra una alerta
       alert('Seleccione un médico');
@@ -65,5 +83,8 @@ export class RegistrarIncapacidadComponent implements OnInit {
         }
       }
     );
+  }
+  isFormFilled(): boolean {
+    return !!this.incapacidad.paciente && !!this.incapacidad.medico && !!this.incapacidad.fecha && !!this.incapacidad.tipo && !!this.incapacidad.detalles;
   }
 }

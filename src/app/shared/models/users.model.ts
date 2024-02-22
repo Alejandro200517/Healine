@@ -1,4 +1,4 @@
-    export class UsersModel {
+export class UsersModel {
         constructor(
         public documento: string,
         public tipoDoc: string,
@@ -11,9 +11,8 @@
         public numero: string,
         public status: string,
         public rol: string, 
+        public especialidad: string, 
         public sede: string
-
-    
-        ) { }
-        }
+    ) { }
+}
         

@@ -16,15 +16,22 @@ export class RegistrarExamenesComponent implements OnInit {
   examenes = new ExamenesModel('', '', '', '', '', '');
   usersPacientes: UsersModel[] = [];
   citas: CitasModel[] = [];
+  isFormSubmitted: boolean = false;
+
 
   constructor(
     private examenesService: ExamenesService,
     private usersService: UsersService,
-    private citasService: CitasService, // Agregamos el servicio de fórmulas
+    private citasService: CitasService,
     private router: Router
   ) {}
 
   ngOnInit() {
+    // Establecer la fecha de hoy como la fecha por defecto
+    const hoy = new Date();
+    const formatoFecha = hoy.toISOString().split('T')[0];
+    this.examenes.fecha = formatoFecha;
+
     this.usersService.obtenerUsers().subscribe(
       (data) => {
         this.usersPacientes = data.filter(user => user.rol === 'Paciente');
@@ -45,20 +52,39 @@ export class RegistrarExamenesComponent implements OnInit {
   }
 
   onSubmit() {
+    if (!this.isFormFilled()) {
+      alert('Por favor, complete todos los campos obligatorios.');
+      return;
+    }
     console.log('onSubmit');
 
+    const ahora = new Date();
+
+    const fechaSeleccionada = new Date(this.examenes.fecha);
+
+    const fechaActual = new Date(ahora.getFullYear(), ahora.getMonth(), ahora.getDate());
+    const fechaExamen = new Date(fechaSeleccionada.getFullYear(), fechaSeleccionada.getMonth(), fechaSeleccionada.getDate());
+
+    if (fechaExamen.getTime() !== fechaActual.getTime()) {
+        alert('La fecha del examen debe ser la de hoy');
+        return;
+    }
+
     this.examenesService.agregarExamenes(this.examenes).subscribe(
-      (data) => {
-        alert('examen registrado correctamente');
-        this.router.navigate(['/examenes-home']); 
-      },
-      (error) => {
-        if (error.status === 500) {
-          alert('Verifique los campos o la examen ya está registrado');
-        } else {
-          console.error(error);
+        (data) => {
+            alert('Examen registrado correctamente');
+            this.router.navigate(['/examenes-home']);
+        },
+        (error) => {
+            if (error.status === 500) {
+                alert('Verifique los campos o el examen ya está registrado');
+            } else {
+                console.error(error);
+            }
         }
-      }
     );
+  }
+  isFormFilled(): boolean {
+    return !!this.examenes.cita && !!this.examenes.paciente && !!this.examenes.nombre && !!this.examenes.resultado && !!this.examenes.fecha;
   }
 }

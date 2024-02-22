@@ -22,7 +22,20 @@ export class UsersComponent implements OnInit {
 
   onSubmit() {
     console.log('onSubmit');
-  
+
+    const regex = /^[a-zA-Z\s]*$/;
+    if (!regex.test(this.users.primerNombre) || !regex.test(this.users.segundoNombre) ||
+        !regex.test(this.users.primerApellido) || !regex.test(this.users.segundoApellido)) {
+      alert('Los nombres y apellidos no deben contener caracteres especiales ni números.');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(this.users.email)) {
+      alert('El correo electrónico ingresado no es válido.');
+      return;
+    }
+
     this.registrarloginService.agregarUsuarios(this.users).subscribe(
       (data) => {
         alert('Usuario registrado correctamente');
@@ -39,5 +52,4 @@ export class UsersComponent implements OnInit {
       }
     );
   }
-  
 }

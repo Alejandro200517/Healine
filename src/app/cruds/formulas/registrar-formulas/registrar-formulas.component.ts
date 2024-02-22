@@ -3,7 +3,6 @@ import { FormulasModel } from 'src/app/shared/models/formulas.model';
 import { FormulasService } from '../../../shared/services/formulas.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-registrar-formulas',
   templateUrl: './registrar-formulas.component.html',
@@ -12,6 +11,7 @@ import { Router } from '@angular/router';
 export class RegistrarFormulasComponent implements OnInit {
 
   formulas = new FormulasModel('', '', '', '', '');
+  isFormSubmitted: boolean = false;
 
   constructor(
     private formulasService: FormulasService,
@@ -22,6 +22,11 @@ export class RegistrarFormulasComponent implements OnInit {
   }
 
   onSubmit() {
+    if (!this.isFormFilled()) {
+      alert('Por favor, complete todos los campos obligatorios.');
+      return;
+    }
+
     console.log('onSubmit');
 
     this.formulasService.agregarFormulas(this.formulas).subscribe(
@@ -37,5 +42,9 @@ export class RegistrarFormulasComponent implements OnInit {
         }
       }
     );
+  }
+
+  isFormFilled(): boolean {
+    return !!this.formulas.nombreMedicamento && !!this.formulas.tratamiento && !!this.formulas.diagnostico && !!this.formulas.instrucciones;
   }
 }

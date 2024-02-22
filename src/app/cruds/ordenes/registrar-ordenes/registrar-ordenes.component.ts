@@ -16,11 +16,12 @@ export class RegistrarOrdenesComponent implements OnInit {
   ordenes = new OrdenesModel('', '', '', '', '');
   usersPacientes: UsersModel[] = [];
   formulas: FormulasModel[] = [];
+  isFormSubmitted: boolean = false;
 
   constructor(
     private ordenesService: OrdenesService,
     private usersService: UsersService,
-    private formulasService: FormulasService, // Agregamos el servicio de fórmulas
+    private formulasService: FormulasService, 
     private router: Router
   ) {}
 
@@ -45,6 +46,11 @@ export class RegistrarOrdenesComponent implements OnInit {
   }
 
   onSubmit() {
+    if (!this.isFormFilled()) {
+      alert('Por favor, complete todos los campos obligatorios.');
+      return;
+    }
+
     console.log('onSubmit');
 
     this.ordenesService.agregarOrdenes(this.ordenes).subscribe(
@@ -60,5 +66,9 @@ export class RegistrarOrdenesComponent implements OnInit {
         }
       }
     );
+  }
+
+  isFormFilled(): boolean {
+    return !!this.ordenes.paciente && !!this.ordenes.formula && !!this.ordenes.diagnostico && !!this.ordenes.tratamiento;
   }
 }
