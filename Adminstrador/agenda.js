@@ -51,10 +51,10 @@ module.exports = function (app, conexion) {
 
     app.put('/agenda/actualizar/:id', (req, res) => {
         const { id } = req.params;
-        const { fecha, hora_inicio, hora_fin, medico, descripcion } = req.body;
+        const { fecha, hora_inicio, hora_fin, descripcion } = req.body;
 
         const query = `
-            UPDATE agenda SET fecha='${fecha}', hora_inicio='${hora_inicio}', hora_fin='${hora_fin}', medico='${medico}', descripcion='${descripcion}' WHERE id='${id}';`;
+            UPDATE agenda SET fecha='${fecha}', hora_inicio='${hora_inicio}', hora_fin='${hora_fin}', descripcion='${descripcion}' WHERE id='${id}';`;
 
         conexion.query(query, (error) => {
             if (error) {
