@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-02-2024 a las 09:43:59
+-- Tiempo de generación: 22-02-2024 a las 04:41:10
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -41,10 +41,8 @@ CREATE TABLE `agenda` (
 --
 
 INSERT INTO `agenda` (`id`, `fecha`, `hora_inicio`, `hora_fin`, `medico`, `descripcion`) VALUES
-(50, '2023-12-29', '11:04:00', '14:22:00', '21212121', '++++++++++'),
-(52, '0111-11-11', '11:11:00', '14:22:00', '7784594', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi, dolorum!'),
-(54, '3333-03-31', '14:22:00', '11:11:00', '212121215', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi, dolorum!'),
-(55, '2023-12-12', '07:00:00', '15:00:00', '1126447331', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi, dolorum!');
+(79, '2024-02-22', '19:15:00', '03:15:00', '1126447331 Alejandro Ardila Llano', 'La agenda médica del Dr. Alejandro Ardila está configurada para atender pacientes de lunes a viernes, de 7:15 a.m. a 3:15 p.m. Cada día se divide en intervalos de tiempo específicos para consultas médicas, exámenes, procedimientos y tiempo libre para almuerzo y descanso. Durante este horario, el Dr. Pérez se dedica por completo a la atención de sus pacientes, asegurándose de brindarles el mejor cuidado médico posible. Además, la agenda está diseñada para permitir la flexibilidad necesaria para atender emergencias y ajustar horarios según las necesidades de los pacientes.'),
+(80, '2024-02-24', '14:00:00', '22:00:00', '1126447331 Alejandro Ardila Llano', ' La agenda médica del Dr. Juan Pérez se extiende de lunes a viernes, de 2:00 p.m. a 10:00 p.m. Este horario permite atender a pacientes en la tarde y noche, ofreciendo flexibilidad a aquellos que trabajan durante el día y necesitan citas médicas fuera del horario laboral tradicional. Durante este período, el Dr. Pérez se dedica a realizar consultas, diagnósticos, tratamientos y seguimientos, asegurando que cada paciente reciba la atención médica adecuada. Además, este horario permite adaptarse a las necesidades de los pacientes y brindarles un servicio médico integral.');
 
 -- --------------------------------------------------------
 
@@ -68,9 +66,8 @@ CREATE TABLE `citas` (
 --
 
 INSERT INTO `citas` (`id`, `fecha`, `hora`, `paciente`, `medico`, `especialidad`, `facturacion`, `estado`) VALUES
-(17, '2023-12-12', '07:00:00', '456789456', '1126447331', '8', 'pagada', 'confirmada'),
-(18, '2023-12-12', '10:00:00', '123456789', '1126447331', '8', 'pendiente', 'confirmada'),
-(19, '2024-12-12', '07:00:00', '112212121', '30406555', '5', 'pendiente', 'confirmada');
+(27, '2024-02-23', '07:00:00', '2147483647 Maria Isabel Lopez Lopez', '1126447331 Alejandro Ardila Llano', 'Neurología', 'pagada', 'confirmada'),
+(28, '2024-02-25', '06:45:00', '2147483647 Jose Luis Martinez Garcia', '987654321 Juan Carlos Perez Gomez', 'Cirugía General', 'pendiente', 'cancelada');
 
 -- --------------------------------------------------------
 
@@ -89,10 +86,12 @@ CREATE TABLE `especialidades` (
 --
 
 INSERT INTO `especialidades` (`id`, `nombre`, `salario`) VALUES
-(5, 'Cirugía General', '7800000'),
-(6, 'Psicologia', '6500000'),
-(7, 'Enfermera', '2500000'),
-(8, 'Medicina General', '5100000');
+(11, 'Dermatología', '6.500.000'),
+(12, 'Ginecología', '8.200.000'),
+(13, 'Cirugía General', '10.000.000'),
+(14, 'Cardiología', '9.500.000'),
+(15, 'Pediatría', '7.800.000'),
+(16, 'Neurología', '11.300.000');
 
 -- --------------------------------------------------------
 
@@ -114,8 +113,8 @@ CREATE TABLE `examenes` (
 --
 
 INSERT INTO `examenes` (`id`, `cita`, `paciente`, `nombre`, `resultado`, `fecha`) VALUES
-(3, '18', '987654321', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, fuga.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, fuga.\n', '2023-12-12'),
-(4, '17', '456789456', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, fuga.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, fuga.\n', '2023-12-12');
+(11, '27 2024-02-23T05:00:00.000Z', '2147483647 Maria Isabel Lopez Lopez', 'Prueba de Glucosa en Ayunas', '120 mg/dL (dentro del rango normal)', '2024-02-22'),
+(12, '28 2024-02-25T05:00:00.000Z', '2147483647 Jose Luis Martinez Garcia', 'Prueba de Sensibilidad Bacteriana', ' Sensibilidad de la bacteria a Amoxicilina', '2024-02-22');
 
 -- --------------------------------------------------------
 
@@ -136,9 +135,11 @@ CREATE TABLE `formulas` (
 --
 
 INSERT INTO `formulas` (`id`, `nombreMedicamento`, `tratamiento`, `diagnostico`, `instrucciones`) VALUES
-(3, 'Lumbalis', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, explicabo.\n', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, explicabo.\n', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, explicabo.\n'),
-(4, 'Pzer', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, explicabo.\n', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, explicabo.\n', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, explicabo.\n'),
-(5, 'Inis', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, explicabo.\n', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, explicabo.\n', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, explicabo.\n');
+(7, 'Ibuprofeno', 'Reducción del dolor y la inflamación.', 'Dolor leve a moderado, inflamación asociada con lesiones musculoesqueléticas.', 'Tomar 1 tableta de 400 mg cada 6 horas con alimentos, no exceder 3,200 mg en 24 horas.'),
+(8, 'Amoxicilina', 'Infecciones bacterianas.', 'Infección de garganta bacteriana confirmada por cultivo de frotis faríngeo.', 'Tomar 500 mg cada 8 horas durante 10 días. Siempre tome la dosis completa, incluso si se siente mejor antes.'),
+(9, 'Atorvastatina', 'Control del colesterol.', 'Hipercolesterolemia primaria.', 'Tomar 20 mg una vez al día por la noche. Acompañar con una dieta baja en colesterol.'),
+(10, 'Insulina glargina', 'Control de la diabetes.', 'Diabetes tipo 1.', 'Administre 10 unidades subcutáneas antes de la cena. Ajuste la dosis según las indicaciones del médico.'),
+(11, 'Omeprazol', 'Reflujo gastroesofágico.', 'Esofagitis por reflujo confirmada por endoscopia.', 'Tomar 20 mg una vez al día antes del desayuno durante 4 semanas. Si los síntomas persisten, consulte a su médico.');
 
 -- --------------------------------------------------------
 
@@ -160,8 +161,8 @@ CREATE TABLE `incapacidad` (
 --
 
 INSERT INTO `incapacidad` (`id`, `paciente`, `medico`, `fecha`, `tipo`, `detalles`) VALUES
-(2, '987654321', '1126447331', '2023-12-12', 'enfermedad', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, fuga.\n'),
-(3, '456789456', '1126447331', '2023-12-12', 'maternidad', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, fuga.\n');
+(7, '2147483647 Jose Luis Martinez Garcia', '987654321 Juan Carlos Perez Gomez', '2024-02-25', 'enfermedad', 'Fecha de inicio de la incapacidad: 02/21/2024\nFecha de finalización de la incapacidad: 03/11/2024'),
+(8, '2147483647 Maria Isabel Lopez Lopez', '1126447331 Alejandro Ardila Llano', '2024-02-23', 'enfermedad', 'Fecha de inicio de la incapacidad: 02/22/2024\nFecha de finalización de la incapacidad: 08/22/2024\nTratamiento prescrito: Insulina (o medicación oral, si corresponde) según la dosis y horario indicados por el médico, control estricto de la glucemia, dieta equilibrada y ejercicio regular.');
 
 -- --------------------------------------------------------
 
@@ -182,7 +183,8 @@ CREATE TABLE `ordenes` (
 --
 
 INSERT INTO `ordenes` (`id`, `paciente`, `formula`, `diagnostico`, `tratamiento`) VALUES
-(4, '987654321', '3', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, fuga.\n', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, fuga.\n');
+(8, '2147483647 Maria Isabel Lopez Lopez', '10 Insulina glargina', 'Diabetes mellitus tipo 1.', 'Inyectar 30 unidades subcutáneas antes de acostarse.\nFórmula Médica: Loratadina 10mg'),
+(9, '2147483647 Jose Luis Martinez Garcia', '8 Amoxicilina', ' Infección bacteriana en las vías respiratorias.', 'Tomar 1 cápsula cada 8 horas durante 7 días.');
 
 -- --------------------------------------------------------
 
@@ -226,10 +228,11 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `nombreRol`) VALUES
-(2, 'Secretaria'),
-(3, 'Administrador'),
-(7, 'Paciente'),
-(8, 'Medico');
+(10, 'Administrador'),
+(11, 'Medico'),
+(12, 'Paciente'),
+(13, 'Secretaria'),
+(14, 'User');
 
 -- --------------------------------------------------------
 
@@ -250,7 +253,10 @@ CREATE TABLE `sedes` (
 --
 
 INSERT INTO `sedes` (`id`, `nombreSede`, `direccion`, `telefonoSede`, `tipoServicio`) VALUES
-(8, 'Suba', 'Cll 115 N45', '3125175148', 'Centro De Salud');
+(9, 'Hospital Universitario San Ignacio', 'Cra. 7 #40-62', '1234567890', 'Hospital'),
+(10, 'Clínica de Marly', 'Av. Carrera 9 # 9-03', '0987654321', 'Clínica'),
+(11, 'Hospital Militar Central', 'Cra. 49 #50-00', '1122334455', 'Hospital'),
+(12, 'Centro de Salud Santa Clara', 'Transversal 6 #12-35', '5544332211', 'Centro De Salud');
 
 -- --------------------------------------------------------
 
@@ -290,6 +296,7 @@ CREATE TABLE `users` (
   `numero` varchar(100) DEFAULT NULL,
   `status` varchar(100) DEFAULT NULL,
   `rol` varchar(100) DEFAULT NULL,
+  `especialidad` varchar(250) NOT NULL,
   `sede` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -297,9 +304,14 @@ CREATE TABLE `users` (
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`documento`, `tipoDoc`, `primerNombre`, `segundoNombre`, `primerApellido`, `segundoApellido`, `email`, `password`, `numero`, `status`, `rol`, `sede`) VALUES
-(1126447331, 'CC', 'Alejandro', 'Alejandro', 'Ardila', 'Llano', 'aardila257@gmail.com', '$2b$10$qzBeHf8eQsKmgEAFDh2/QeI4c0rftUpg6iHlSh9NUhZsrf7kHb3/S', '3125175148', 'True', 'Administrador', 'Suba'),
-(123456789, 'NIT', 'Healine', 'Healine', 'Healine', 'Healine', 'healine@gmail.com', '$2b$10$8kOXv9OJHaC9eX/EwLSrLenQmuUeLARscSUw7bu33L2pt/Ubetp8q', '123456789', 'False', 'Administrador', 'Suba');
+INSERT INTO `users` (`documento`, `tipoDoc`, `primerNombre`, `segundoNombre`, `primerApellido`, `segundoApellido`, `email`, `password`, `numero`, `status`, `rol`, `especialidad`, `sede`) VALUES
+(123456789, 'NIT', 'Healine', '', 'Healine', 'Healine', 'healine@gmail.com', '$2b$10$etLsNUTmzbPbRCquX4b/hefNOuI2TrcjG8K3rsbUwydjSYc8msM.m', '1234567890', 'True', 'Administrador', '', ''),
+(1126447331, 'CC', 'Alejandro', '', 'Ardila', 'Llano', 'aardila257@gmail.com', '$2b$10$J7kzo3.FSJrA5d9DMh3FM.RhDQVmVDxGfwlD.WwIWGGNMUlyK4Uqm', '3125175148', 'True', 'Medico', 'Neurología', 'Hospital Universitario San Ignacio'),
+(987654321, 'CC', 'Juan', 'Carlos', 'Perez', 'Gomez', 'juancarlos.perez@example.com', '$2b$10$EJtZ706zgMXe19JzWZppk.m8gnQToLpL.NfIevhBE/QcRCY99hh56', '1234567890', 'True', 'Medico', 'Cirugía General', 'Hospital Militar Central'),
+(2147483647, 'CC', 'Maria', 'Isabel', 'Lopez', 'Lopez', 'mariaisabel.lopez@example.com', '$2b$10$WYtL2i2SG2OPXMEvDW1Rv.aoxwiyqBKSuaAUIwwMPJXtBI9lFbq2q', '0987654321', 'True', 'Paciente', '', 'Clínica de Marly'),
+(2147483647, 'Pasaporte', 'Jose', 'Luis', 'Martinez', 'Garcia', 'joseluis.martinez@example.com', '$2b$10$YMBn.L148f6xaSviRYJbr.wHt9gwEqY0gxQ7blnqmA5HefoIG111W', '4567890123', 'True', 'Paciente', '', 'Centro de Salud Santa Clara'),
+(2147483647, 'CC', 'Ana', 'Maria', 'Perez', 'Gomez', 'anamaria.perez@example.com', '$2b$10$eGX7lFpSKtPanEr.x31SEOBl5.qpAZ3gc9I5UNWcaOx5u2uGW4PRq', '7418529630', 'True', 'Secretaria', '', 'Hospital Universitario San Ignacio'),
+(2147483647, 'CC', 'Luisa', 'Fernanda', 'Rodriguez', 'Sanchez', 'luisafernanda.rodriguez@example.com', '$2b$10$J5OkxtsZGnUZ3PlFK/Ghqu0yuj7bWo9hb5PKhd.WFNizupkzgVF0i', '3692581470', 'True', 'Secretaria', '', 'Hospital Militar Central');
 
 --
 -- Índices para tablas volcadas
@@ -379,43 +391,43 @@ ALTER TABLE `turnomedico`
 -- AUTO_INCREMENT de la tabla `agenda`
 --
 ALTER TABLE `agenda`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `especialidades`
 --
 ALTER TABLE `especialidades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `examenes`
 --
 ALTER TABLE `examenes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `formulas`
 --
 ALTER TABLE `formulas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `incapacidad`
 --
 ALTER TABLE `incapacidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `ordenes`
 --
 ALTER TABLE `ordenes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `pqrs`
@@ -427,13 +439,13 @@ ALTER TABLE `pqrs`
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `sedes`
 --
 ALTER TABLE `sedes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `turnomedico`
