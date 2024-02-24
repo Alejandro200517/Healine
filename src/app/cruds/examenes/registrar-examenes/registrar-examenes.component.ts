@@ -65,10 +65,7 @@ export class RegistrarExamenesComponent implements OnInit {
     const fechaActual = new Date(ahora.getFullYear(), ahora.getMonth(), ahora.getDate());
     const fechaExamen = new Date(fechaSeleccionada.getFullYear(), fechaSeleccionada.getMonth(), fechaSeleccionada.getDate());
 
-    if (fechaExamen.getTime() !== fechaActual.getTime()) {
-        alert('La fecha del examen debe ser la de hoy');
-        return;
-    }
+    
 
     this.examenesService.agregarExamenes(this.examenes).subscribe(
         (data) => {

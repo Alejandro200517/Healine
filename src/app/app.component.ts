@@ -35,6 +35,9 @@ export class AppComponent {
     url.includes('editar-consultar-users') || 
     url.includes('editar-users') || 
 
+    url.includes('consultar-historial') || 
+    url.includes('historial-medico') || 
+
     url.includes('agenda-home') ||
     url.includes('registrar-agenda') ||
     url.includes('consultar-agenda') ||

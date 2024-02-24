@@ -7363,6 +7363,14 @@ h6 {
   color: #009DFF;
 }
 
+.BotonBuscar{
+  border: 1px solid #111;
+}
+.BotonBuscar:hover{
+  background-color: #fff;
+  border: 1px solid #0062cc;
+}
+
 .facturacion-pendiente {
   color: orange;
 }

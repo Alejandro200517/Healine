@@ -33,6 +33,8 @@ import { EditarConsultarUsersComponent } from './cruds/users/editar-consultar-us
 import { EditarUsersComponent } from './cruds/users/editar-users/editar-users.component';
 import { RegistrarUsersComponent } from './cruds/users/registrar-users/registrar-users.component';
 
+import { ConsultarHistorialComponent } from './cruds/historial/consultar-historial/consultar-historial.component';
+
 import { AgendaHomeComponent } from './pages/admin/homes-herramientas/agenda-home/agenda-home.component';
 import { ConsultarAgendaComponent } from './cruds/agenda/consultar-agenda/consultar-agenda.component';
 import { RegistrarAgendaComponent } from './cruds/agenda/registrar-agenda/registrar-agenda.component';
@@ -142,6 +144,8 @@ const routes: Routes = [
   { path:'registrar-users', component: RegistrarUsersComponent },
   { path:'editar-consultar-users', component: EditarConsultarUsersComponent },
   { path:'editar-users/editar/:id', component: EditarUsersComponent },
+
+  { path:'consultar-historial', component: ConsultarHistorialComponent },
 
   { path:'consultar-agenda', component: ConsultarAgendaComponent },
   { path:'registrar-agenda', component: RegistrarAgendaComponent },
