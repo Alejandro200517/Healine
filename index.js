@@ -32,6 +32,7 @@ require('./Adminstrador/ordenes')(app, conexion);
 require('./Adminstrador/examenes')(app, conexion);
 require('./Adminstrador/incapacidad')(app, conexion);
 require('./Adminstrador/users')(app, conexion);
+require('./Adminstrador/historial')(app, conexion);
 
 
 
