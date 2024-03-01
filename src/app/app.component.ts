@@ -25,6 +25,9 @@ export class AppComponent {
   //Dejar esto: || this.shouldShowAdminMenu(url)
   private shouldHideMenu(url: string): boolean {
     return url.includes('admin-home') || 
+    url.includes('login') ||
+    url.includes('users/agregar') ||
+    
     url.includes('user-home') || 
     url.includes('admin-home-2') || 
     url.includes('herramientas')|| 
@@ -92,10 +95,11 @@ export class AppComponent {
     url.includes('editar-consultar-incapacidad') ||
     url.includes('editar-incapacidad') ||
 
-    url.includes('paciente-home') ||
     url.includes('medico-home') ||
 
-
+    url.includes('paciente-home') ||
+    url.includes('secretaria-home') ||
+    
     this.shouldShowAdminMenu(url);
   }
 

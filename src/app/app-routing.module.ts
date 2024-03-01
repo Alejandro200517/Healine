@@ -96,11 +96,11 @@ import { EditarConsultarIncapacidadComponent } from './cruds/incapacidad/editar-
 import { EditarIncapacidadComponent } from './cruds/incapacidad/editar-incapacidad/editar-incapacidad.component';
 import { IncapacidadHomeComponent } from './pages/admin/homes-herramientas/incapacidad-home/incapacidad-home.component';
 
-
-// °°°°°°°°°°°°°°°°°°°°°°
-
-import { PacienteHomeComponent } from './pages/paciente/paciente-home/paciente-home.component';
+//Pages Principales Medico
 import { MedicoHomeComponent } from './pages/medico/medico-home/medico-home.component';
+import { MedicoHome2Component } from './pages/medico/medico-home-2/medico-home-2.component';
+// °°°°°°°°°°°°°°°°°°°°°°
+import { PacienteHomeComponent } from './pages/paciente/paciente-home/paciente-home.component';
 
 
 
@@ -197,10 +197,13 @@ const routes: Routes = [
   { path:'editar-consultar-incapacidad', component: EditarConsultarIncapacidadComponent },
   { path:'editar-incapacidad/editar/:id', component: EditarIncapacidadComponent },
 
+  // Pages Medico
+  { path:'medico-home', component: MedicoHomeComponent },
+  { path:'medico-home-2', component: MedicoHome2Component },
 
   //°°°°°°°°°°°°°°°°°°°°°°
-  { path:'paciente-home', component: PacienteHomeComponent },
-  { path:'medico-home', component: MedicoHomeComponent },
+  
+  { path:'paciente-home', component: PacienteHomeComponent},
 
 
 ];

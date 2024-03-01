@@ -1,39 +1,57 @@
-<h2 class="title1">Iniciar Sesión</h2>
-<div class="section-divisor"></div>
-
-<div class="blue-box2" style="border-radius: 0 0 10px 10px; box-shadow: 4px 4px 4px 2px rgb(142, 142, 142); margin-top: -21.5px; background-color: transparent;">
-
-  <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <div *ngIf="showAlert" class="alert alert-danger" role="alert">
-      Los datos ingresados no son válidos. Por favor, verifica e intenta nuevamente.
-    </div>
-    
-    <div style="border: 1px solid #ccc; border-radius: 20px; padding: 10px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);">
-      <label class="labelCitaBuscar" for="email" style="font-size: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #969696;">
-        Ingrese Su Correo Electronico
-      </label>
-      <input type="text" id="email" formControlName="email" placeholder="Email" class="placeholderUsers" style="padding: 18px; border: none; width: 100%; font-size: 14px; margin-top: 5px; ">
-    </div>
+<div class="color-fond">
+  <div>
     <br>
-    <div style="border: 1px solid #ccc; border-radius: 20px; padding: 10px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);">
-      <label class="labelCitaBuscar" for="password" style="font-size: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #969696;">
-        Ingrese Su Password
-      </label>
-      <input type="password" id="password" formControlName="password" placeholder="Password" class="placeholderUsers" style="padding: 18px; border: none; width: 100%; font-size: 14px; margin-top: 5px; ">
+    <a style="margin-left: 25%;">
+        <button class="boton-admin" (click)="goBack()">↺ Atrás</button>
+    </a>
+    <a href="/index">
+      <img src="../../../../assets/images/home2.png" alt="" style="width: 30px; margin-top: -15px; margin-left: 10px;">
+    </a>
+  </div>
+  <br><br><br>
+  <div class="container" id="container">
+    <div class="form-container sign-in-container" style="border: 1px solid #cacaca;">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <h1 style="color: #777777;">Iniciar Sesión</h1>
+        <div class="social-container">
+          <a href="#" class="social">
+            <img src="../../../../assets/images/facebook.png" alt="" style="width: 100%;">
+          </a>
+          <a href="#" class="social">
+            <img src="../../../../assets/images/google.png" alt="" style="width: 100%;">
+          </a>
+          <a href="#" class="social">
+            <img src="../../../../assets/images/linkedin.png" alt="" style="width: 100%;">
+          </a>
+        </div>
+        <br>
+        <div style="border: 1px solid #ccc; border-radius: 20px; padding: 10px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); width: 105%;">
+          <input  type="text" id="email" formControlName="email" placeholder="Email"/>
+        </div>
+        <br>
+        <div style="border: 1px solid #ccc; border-radius: 20px; padding: 10px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); width: 105%;">
+          <input type="password" id="password" formControlName="password" placeholder="Contraseña"/>
+        </div>
+        <br>
+        <h2>
+          <a class="not-cuenta" style="text-decoration: none;" href="/users/agregar">¿Aún No Tienes Cuenta?</a>
+        </h2>
+        <button class="botonnn" type="submit">Iniciar sesión</button>
+      </form>
     </div>
-    <br>
-    <div class="ContBoton">
-      <button type="submit" class="buttonLogin">
-        <a style="text-decoration: none; color: #e3e3e3;">Ingresar</a>
-      </button>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-right">
+          <h1>Hola!!!</h1>
+          <p>Crear tu cuenta</p>
+          <div class="ContBoton">
+            <a style="text-decoration: none;" href="/users/agregar" class="buttonLogin3" class="botonnn2">Regístrate</a>
+          </div>      
+        </div>
+      </div>
     </div>
-    <h4>ㅤ</h4>
-    <h2 class="not-cuenta">
-      <a style="text-decoration: none;" href="/users/agregar">¿Aún No Tienes Cuenta?</a>
-    </h2>
-    <div class="ContBoton">
-      <a style="text-decoration: none;" href="/users/agregar" class="buttonLogin3">Regístrate</a>
-    </div>
-    <h4>ㅤ</h4>
-  </form>
+  </div>
+  <div>
+    <br><br><br><br><br><br>
+  </div>
 </div>

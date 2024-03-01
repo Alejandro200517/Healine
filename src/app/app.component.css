@@ -2855,12 +2855,6 @@ cursor: pointer;
   top: 0;
 }
 
-.History1{
-}
-.History2{
-}
-
-
 .testmonial_area .owl-carousel .owl-nav div {
   left: 340px;
 }
@@ -2871,16 +2865,6 @@ cursor: pointer;
   left: auto;
 }
 
-
-.testmonial_bg_1 {
-}
-
-
-.testmonial_bg_2 {
-}
-
-.testmonial_bg_3 {
-}
 
 .testmonial_bg_4 {
   background: linear-gradient(to bottom, #ffffff, #1d7ca1);
@@ -6773,21 +6757,22 @@ h6 {
 }
 
 .buttonLogin3 {
-  padding: 9px;
+  padding: 7px;
   width: 150px;
-  font-size: 24px;
-  background-color: #a7a7a7;
+  font-size: 20px;
+  background-color: #ffffff;
   color: rgb(255, 255, 255);
   border-radius: 13px;
   cursor: pointer;
   text-align: center;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  box-shadow: 2px 2px 3px #a7a7a7;
+  border: none;
+  color: #004085;
 }
 
 .buttonLogin3:hover{
-  background-color: #fff;
-  color: #a7a7a7;
+  background-color: #004085;
+  color: #fff;
 }
 
 
@@ -7337,7 +7322,7 @@ h6 {
 }
 
 .not-cuenta{
-  color: #999999;
+  color: #777777;
   text-shadow: 2px 2px 3px #a7a7a7;
 }
 
@@ -16762,4 +16747,39 @@ a.text-dark:hover {
   .table-bordered th {
       border: 1px solid #ddd!important
   }
+}
+
+
+
+.sidebar {
+  width: 125px;
+  padding: 20px; 
+  min-height: 100vh; 
+  text-align: center;
+  background: linear-gradient(to right #2980b9, #fff); 
+}
+
+  
+  .menu {
+  display: flex;
+  flex-direction: column;
+  }
+  
+  .menu-item {
+  padding: 10px;
+  margin-bottom: 3px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.9s;
+  }
+  
+  .menu-item:hover {
+  background-color: #fff;
+  }
+  
+  
+.titleMedico {
+  font-size: 16px; 
+  font-weight: bold; 
+  color: #fff;
 }

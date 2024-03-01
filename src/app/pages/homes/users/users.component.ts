@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RegistrarLoginService } from '../../../shared/services/registrarlogin.service';
 import { RegistrarLoginModel } from '../../../shared/models/registrarlogin.model';
 import { Router } from '@angular/router';
@@ -6,23 +6,30 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['../../../app.component.css']
+  styleUrls: ['users.component.css']
 })
-export class UsersComponent implements OnInit {
-
+export class UsersComponent {
+  showAdditionalFields: boolean = false;
   users = new RegistrarLoginModel('','','','','','','','','','','','');
+  isFormSubmitted: boolean = false;
 
   constructor(
     private registrarloginService: RegistrarLoginService,
     private router: Router
   ) { }
 
-  ngOnInit() {
+  goBack() {
+    window.history.back();
   }
 
   onSubmit() {
     console.log('onSubmit');
 
+    if (!this.isFormFilled()) {
+      alert('Por favor, complete todos los campos obligatorios.');
+      return;
+  }
+    
     const regex = /^[a-zA-Z\s]*$/;
     if (!regex.test(this.users.primerNombre) || !regex.test(this.users.segundoNombre) ||
         !regex.test(this.users.primerApellido) || !regex.test(this.users.segundoApellido)) {
@@ -51,5 +58,10 @@ export class UsersComponent implements OnInit {
         }
       }
     );
+  }
+  isFormFilled(): boolean {
+    return !!this.users.documento && !!this.users.tipoDoc && !!this.users.primerNombre && 
+           !!this.users.primerApellido && !!this.users.segundoApellido &&
+           !!this.users.email && !!this.users.password && !!this.users.numero
   }
 }

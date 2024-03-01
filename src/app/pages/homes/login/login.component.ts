@@ -3,22 +3,25 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegistrarLoginService } from '../../../shared/services/registrarlogin.service';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['../../../app.component.css']
+  styleUrls: ['login.component.css']
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  showAlert: boolean = false; // Declarar la propiedad showAlert y asignarle un valor inicial
+  showAlert: boolean = false;
 
+  goBack() {
+    window.history.back();
+  }
   constructor(private fb: FormBuilder, private registrarloginService: RegistrarLoginService, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
+  
 
   login() {
     if (this.loginForm.valid) {
@@ -46,6 +49,9 @@ export class LoginComponent {
                 case 'Medico':
                   this.router.navigate(['/medico-home']);
                   break;
+                case 'Secretaria':
+                  this.router.navigate(['/secretaria-home']);
+                  break;
                 default:
                   console.error('Rol de usuario no reconocido:', rol);
                   break;
@@ -58,13 +64,17 @@ export class LoginComponent {
           (error) => {
             console.error('Error en el proceso de inicio de sesión:', error);
             this.showAlert = true; 
+            alert('Credenciales de inicio de sesión incorrectas. Por favor, inténtalo de nuevo.');
           }
         );
       } else {
-        this.showAlert = true; 
+        this.showAlert = true;
+        alert('Verifique Los Campos');
       }
     } else {
-      this.showAlert = true; 
+      this.showAlert = true;
+      alert('Verifique Los Campos');
+      return; 
     }
   }
 }

@@ -95,6 +95,7 @@ import { UserHomeComponent } from './pages/homes/user-home/user-home.component';
 import { PacienteHomeComponent } from './pages/paciente/paciente-home/paciente-home.component';
 import { MedicoHomeComponent } from './pages/medico/medico-home/medico-home.component';
 import { ConsultarHistorialComponent } from './cruds/historial/consultar-historial/consultar-historial.component';
+import { MedicoHome2Component } from './pages/medico/medico-home-2/medico-home-2.component';
 //import { HistoriaHomeComponent } from './pages/admin/homes-herramientas/historia-home/historia-home.component';
 //import { ConsultarHistoriaComponent } from './cruds/historia/consultar-historia/consultar-historia.component';
 //import { RegistrarHistoriaComponent } from './cruds/historia/registrar-historia/registrar-historia.component';
@@ -173,6 +174,7 @@ import { ConsultarHistorialComponent } from './cruds/historial/consultar-histori
     PacienteHomeComponent,
     MedicoHomeComponent,
     ConsultarHistorialComponent,
+    MedicoHome2Component,
     //HistoriaHomeComponent,
     //ConsultarHistoriaComponent,
     //RegistrarHistoriaComponent,
