@@ -1,52 +1,165 @@
 <div>
+  <div class="containerMedico">
     <div class="sidebar">
-        <div class="menu">
-        <div class="menu-item">
-            <div class="image"><img src="../../../../assets/images/citas-medico.png" alt="" style="width: 30px;"></div>
-            <div class="titleMedico">
-                Citas
+      <div class="menuMedico">
+        <a href="">
+            <div class="menu-item">
+                <div class="imageMedico"><img src="../../../../assets/images/homeMedico.png" alt="" style="width: 35px;"></div>
+                <div class="titleMedico">
+                    Home
+                </div>
             </div>
-        </div>
+        </a>
         <div>
             <h3 style="color: #fff; margin-top: -15px;">_____</h3>
         </div>
-        <div class="menu-item">
-            <div class="image"><img src="../../../../assets/images/users-medico.png" alt="" style="width: 30px;"></div>
-            <div class="titleMedico">
-                Pacientes
+        <a href="">
+            <div class="menu-item">
+                <div class="imageMedico"><img src="../../../../assets/images/citas-medico.png" alt="" style="width: 35px;"></div>
+                <div class="titleMedico">
+                    Citas
+                </div>
             </div>
-        </div>
+        </a>
         <div>
             <h3 style="color: #fff; margin-top: -15px;">_____</h3>
         </div>
-        <div class="menu-item">
-            <div class="image"><img src="../../../../assets/images/agenda-medico.png" alt="" style="width: 30px;"></div>
-            <div class="titleMedico">
-                Agenda
+        <a href="">
+            <div class="menu-item">
+                <div class="imageMedico"><img src="../../../../assets/images/users-medico.png" alt="" style="width: 35px;"></div>
+                <div class="titleMedico">
+                    Pacientes
+                </div>
             </div>
-        </div>
+        </a>
         <div>
             <h3 style="color: #fff; margin-top: -15px;">_____</h3>
         </div>
-        <div class="menu-item">
-            <div class="image"><img src="../../../../assets/images/examenes-medico.png" alt="" style="width: 30px;"></div>
-            <div class="titleMedico">
-                Examenes
+        <a href="">
+            <div class="menu-item">
+                <div class="imageMedico"><img src="../../../../assets/images/agenda-medico.png" alt="" style="width: 35px;"></div>
+                <div class="titleMedico">
+                    Agenda
+                </div>
             </div>
-        </div>
+        </a>
         <div>
             <h3 style="color: #fff; margin-top: -15px;">_____</h3>
         </div>
-        <div class="menu-item">
-            <div class="image"><img src="../../../../assets/images/ordenes-medico.png" alt="" style="width: 30px;"></div>
-            <div class="titleMedico">
-                Ordenes
+        <a href="">
+            <div class="menu-item">
+                <div class="imageMedico"><img src="../../../../assets/images/examenes-medico.png" alt="" style="width: 35px;"></div>
+                <div class="titleMedico">
+                    Examenes
+                </div>
             </div>
+        </a>
+        <div>
+            <h3 style="color: #fff; margin-top: -15px;">_____</h3>
         </div>
-        </div>
+        <a href="">
+            <div class="menu-item">
+                <div class="imageMedico"><img src="../../../../assets/images/ordenes-medico.png" alt="" style="width: 35px;"></div>
+                <div class="titleMedico">
+                    Ordenes
+                </div>
+            </div>
+        </a>
+      </div>
     </div>
-        
-    <div>
 
+    <div class="contentMedico" style="margin-left: 3%; position: relative;">
+        <a href="/index"><button class="button button-contactForm boxed-btn" style="position: absolute; top: 10px; right: 10px; padding: 7px 20px;font-size: 12px; right: 10%;">Cerrar Sesión</button></a>
+        <br><br><br>
+        <div class="welcomeTitle" style="text-align: left;">
+            <h1>¡¡Bienvenido NomMedicoPerzonalizado!!</h1>
+            <p>Gracias por ser parte de nuestro equipo médico.</p>
+        </div>
+        <div class="listaCitas">
+            <h2 style="font-weight: 600;">Citas Próximas</h2>
+            <ul>
+                <p>Cita 1 - 10:00 am</p>
+                <p>Cita 2 - 11:30 am</p>
+                <p>Cita 3 - 2:00 pm</p>
+            </ul>
+        </div>
+        <br>
+        <div class="contadorCitas">
+            <div class="barraProgreso"></div>
+            <p>Citas médicas pendientes: <span id="citasPendientes">0</span></p>
+        </div>
+        <br>
+        <div style="display: flex;">
+            <div class="otroContenido" style="width: 29%; background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+                <h2 style="color: #333333; font-size: 24px; margin-bottom: 20px;font-weight: 600;">Recomendaciones de Salud</h2>
+                <ul style="list-style-type: none; padding-left: 0;font-weight: 600;">
+                    <li style="margin-bottom: 10px;">1.ㅤㅤㅤMantén una dieta balanceada rica en frutas y verduras.</li>
+                    <li style="margin-bottom: 10px;">2.ㅤㅤㅤRealiza al menos 30 minutos de actividad física al día.</li>
+                    <li style="margin-bottom: 10px;">3.ㅤㅤㅤAsegúrate de dormir al menos 7-8 horas cada noche.</li>
+                    <li style="margin-bottom: 10px;">4.ㅤㅤㅤBebe suficiente agua para mantenerte hidratado.</li>
+                    <li style="margin-bottom: 10px;">5.ㅤㅤㅤEvita el consumo excesivo de alcohol y tabaco.</li>
+                </ul>
+            </div>
+            <div class="otroContenido" style="width: 30%; background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+                <h2 style="color: #333333; font-size: 24px; margin-bottom: 20px;font-weight: 600;">Artículos Recomendados</h2>
+                <ul style="list-style-type: none; padding-left: 0;font-weight: 600;">
+                    <li style="margin-bottom: 10px;">1.ㅤㅤㅤLos beneficios del ejercicio físico para la salud mental.</li>
+                    <li style="margin-bottom: 10px;">2.ㅤㅤㅤCómo mantener una buena postura en el trabajo.</li>
+                    <li style="margin-bottom: 10px;">3.ㅤㅤㅤConsejos para reducir el estrés y la ansiedad en el día a día.</li>
+                    <li style="margin-bottom: 10px;">4.ㅤㅤㅤLa importancia de la respiración consciente para la relajación.</li>
+                    <li style="margin-bottom: 10px;">5.ㅤㅤㅤDescubre cómo mejorar tu calidad de sueño con simples cambios en tu rutina.</li>
+                </ul>
+            </div>
+            
+            <div class="otroContenido" style="width: 29%; background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+                <h2 style="color: #333333; font-size: 24px; margin-bottom: 20px; font-weight: 600;">Consejos para una vida saludable</h2>
+                <ul style="list-style-type: none; padding-left: 0; font-weight: 600;">
+                    <li style="margin-bottom: 10px;">1.ㅤㅤㅤPractica la meditación diariamente para reducir el estrés y mejorar la concentración.</li>
+                    <li style="margin-bottom: 10px;">2.ㅤㅤㅤEvita los alimentos procesados y opta por opciones frescas y naturales.</li>
+                    <li style="margin-bottom: 10px;">3.ㅤㅤㅤHaz chequeos médicos regulares para prevenir enfermedades y detectarlas a tiempo.</li>
+                    <li style="margin-bottom: 10px;">4.ㅤㅤㅤMantén una actitud positiva y busca el equilibrio entre el trabajo y el descanso.</li>
+                    <li style="margin-bottom: 10px;">5.ㅤㅤㅤCultiva relaciones sociales saludables y busca apoyo emocional cuando lo necesites.</li>
+                </ul>
+            </div>
+            
+        </div>
     </div>
+    
+
+    <div class="infoMedico">    
+        <div class="clockMedico">
+          <div class="clockWrapper" style="text-align: center;">
+            <div class="digit">{{ hour }}</div>
+            <div class="colon">:</div>
+            <div class="digit">{{ minute }}</div>
+            <div class="colon">:</div>
+            <div class="digit">{{ second }}s</div>
+          </div>
+        </div><br>
+        <div style="text-align: left;">
+            <p>Info Medico</p>
+            <p>sasasa</p>
+            <p>sasasa</p>
+        </div><br>
+        <div class="additional-infoMedico">
+            <div class="iframeMedico">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.041526618038!2d-122.14301908582862!3d37.42257507979185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085806a58f70c27%3A0xd1a9227a8f5f693f!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v1646208913084!5m2!1sen!2sus" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div><br><br>
+            <div class="media-body">
+                <h5>Colombia - Bogotá</h5>
+                <p>Cll 111 n 11 - 11</p>
+            </div><br>
+            <div class="media-body">
+                <h5>+57 123 456 789</h5>
+                <p>De Lunes A Domingo De 6am A 11pm</p>
+            </div><br>
+            <div class="media-body">
+                <h5>NovaEPS@gmail.com</h5>
+                <p>Envíenos su consulta en cualquier momento!</p>
+            </div>      
+        </div>
+        
+      </div>
+      
+  </div>
 </div>

@@ -16750,36 +16750,235 @@ a.text-dark:hover {
 }
 
 
+.containerMedico {
+  display: flex;
+  overflow: auto; /* Agrega desplazamiento si es necesario */
+
+  width: 100%;
+}
 
 .sidebar {
-  width: 125px;
+  width: 105px;
   padding: 20px; 
   min-height: 100vh; 
   text-align: center;
-  background: linear-gradient(to right #2980b9, #fff); 
+  background: linear-gradient(to right, #004085, #70a1d7);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2); /* Sombra */
 }
 
-  
-  .menu {
+.menuMedico {
   display: flex;
   flex-direction: column;
-  }
-  
-  .menu-item {
+  align-items: center; /* Alineación vertical */
+}
+
+.menu-item {
   padding: 10px;
-  margin-bottom: 3px;
+  margin-bottom: 10px; /* Espacio entre elementos */
   border-radius: 5px;
   cursor: pointer;
-  transition: 0.9s;
-  }
-  
-  .menu-item:hover {
-  background-color: #fff;
-  }
-  
-  
+  transition: background-color 0.3s, box-shadow 0.3s; /* Transición de color de fondo y sombra */
+}
+
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Color de fondo al pasar el ratón */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra al pasar el ratón */
+}
+
 .titleMedico {
-  font-size: 16px; 
-  font-weight: bold; 
-  color: #fff;
+  font-size: 11px; /* Tamaño de la fuente */
+  margin-top: 5px; /* Espacio entre imagen y texto */
+  color: white; /* Color del texto */
+  font-weight: bold; /* Negrita */
+  text-transform: uppercase; /* Convertir texto a mayúsculas */
+}
+
+.imageMedico img {
+  width: 30px; /* Tamaño de la imagen */
+  margin-bottom: 5px; /* Espacio entre imagen y texto */
+}
+
+
+
+
+
+
+
+.contentMedico {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 0; /* Elimina el padding */
+  margin-right: -5%;
+}
+
+
+.infoMedico {
+  width: 17%;
+  background-color: #f0f0f0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Cambiado a centrar */
+}
+
+
+.clockMedico, .additional-infoMedico {
+  margin-bottom: 2px;
+  width: 150%;
+}
+
+
+.iframeMedico{
+  overflow: auto; /* Agrega desplazamiento si es necesario */
+}
+.additional-infoMedico {
+  max-width: 100%;
+  max-height: 100%;
+  padding: 10px; /* Añade relleno alrededor del contenido */
+}
+
+.additional-infoMedico iframe {
+  margin-bottom: 10px;
+
+}
+
+
+
+
+.clockMedico {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  width: 100%;
+}
+
+.clockWrapper {
+  display: flex; /* Cambiado a flex */
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: auto;
+  align-items: center; /* Alinea elementos verticalmente */
+}
+
+.digit {
+  color: #333333;
+  font-size: 2em;
+  margin: 0 5px;
+  font-weight: 600;
+}
+
+.colon {
+  color: #333333;
+  font-size: 2em;
+  margin: 0 3px;
+}
+
+.clockWrapper .digit:nth-child(2n) {
+  color: #aaaaaa;
+}
+
+.clockWrapper .colon:nth-child(odd) {
+  color: #aaaaaa;
+}
+
+
+.contadorCitas {
+  width: 90%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+}
+
+.barraProgreso {
+  background-color: #c69500;
+  height: 3px; /* Mayor grosor de la barra */
+  width: 75%;
+  margin-bottom: 15px; /* Mayor espacio inferior */
+  border-radius: 5px;
+}
+
+.contadorCitas p {
+  margin: 0;
+  font-size: 16px; /* Tamaño de fuente ligeramente mayor */
+}
+
+.contadorCitas span {
+  font-weight: bold;
+  color: #c69500;
+  font-size: 18px; /* Tamaño de fuente ligeramente mayor */
+}
+
+
+
+.listaCitas {
+  width: 90%;
+  padding: 20px;
+  border-radius: 10px;
+  background: linear-gradient(to bottom, #cacaca8b, #FFFFFF); /* Degradado de color de fondo */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.listaCitas h2 {
+  margin-top: 0;
+  font-size: 20px; /* Tamaño de fuente ligeramente mayor */
+  color: #333333; /* Color del título */
+}
+
+.listaCitas ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.listaCitas p {
+  font-size: 16px; /* Tamaño de fuente ligeramente mayor */
+  color: #555555; /* Color del texto */
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease; /* Transición de color de fondo al pasar el cursor */
+  cursor: pointer;
+}
+
+.listaCitas p:hover {
+  background-color: #ffffff; /* Cambio de color de fondo al pasar el cursor */
+  border-radius: 5px; /* Borde redondeado al pasar el cursor */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra al pasar el cursor */
+  cursor: pointer;
+
+}
+
+
+
+.otroContenido {
+  width: calc(50% - 10px); /* Calcula el ancho para dejar espacio para el margen derecho */
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-right: 10px; /* Agrega margen derecho */
+}
+
+.otroContenido:last-child {
+  margin-right: 0; /* Elimina el margen derecho del último elemento */
+}
+
+
+.welcomeTitle {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.welcomeTitle h1 {
+  color: #333333;
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.welcomeTitle p {
+  color: #666666;
+  font-size: 18px;
 }

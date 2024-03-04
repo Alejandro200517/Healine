@@ -22,7 +22,7 @@ export class AppComponent {
   }
 
 
-  //Dejar esto: || this.shouldShowAdminMenu(url)
+  // Dejar esto: || this.shouldShowAdminMenu(url)
   private shouldHideMenu(url: string): boolean {
     return url.includes('admin-home') || 
     url.includes('login') ||
