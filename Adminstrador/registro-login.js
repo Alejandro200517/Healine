@@ -1,7 +1,12 @@
 const bcrypt = require('bcrypt');
 
 module.exports = function (app, conexion) {
+
     
+    
+    
+    
+    // Endpoint para registrar usuarios
     app.post('/usuarios/agregar', async (req, res) => {
         const users = {
             tipoDoc: req.body.tipoDoc,
@@ -17,11 +22,11 @@ module.exports = function (app, conexion) {
             rol: req.body.rol,
             sede: req.body.sede,
         };
-    
+
         const hashedPassword = await bcrypt.hash(users.password, 10);
-    
+
         users.password = hashedPassword;
-    
+
         // Verificar correo
         const emailQuery = `SELECT * FROM users WHERE email='${users.email}'`;
         conexion.query(emailQuery, (emailError, emailResult) => {
@@ -29,41 +34,42 @@ module.exports = function (app, conexion) {
                 console.error(emailError.message);
                 return res.status(500).json({ error: 'Error interno del servidor' });
             }
-    
+
             if (emailResult.length > 0) {
                 return res.status(400).json({ error: 'El correo electrónico ya está registrado' });
             }
-    //verificacion de usuario
+
+            //verificacion de usuario
             const documentoQuery = `SELECT * FROM users WHERE documento='${users.documento}'`;
             conexion.query(documentoQuery, (documentoError, documentoResult) => {
                 if (documentoError) {
                     console.error(documentoError.message);
                     return res.status(500).json({ error: 'Error interno del servidor' });
                 }
-    
+
                 if (documentoResult.length > 0) {
                     return res.status(400).json({ error: 'El documento ya está registrado' });
                 }
-    
+
                 const insertQuery = `INSERT INTO users (tipoDoc, documento, primerNombre, segundoNombre, primerApellido, segundoApellido, email, password, numero, status, rol, sede) VALUES ('${users.tipoDoc}', '${users.documento}', '${users.primerNombre}', '${users.segundoNombre}', '${users.primerApellido}', '${users.segundoApellido}', '${users.email}', '${users.password}', '${users.numero}', 'True', 'User', 'Pendiente')`;
                 conexion.query(insertQuery, (insertError) => {
                     if (insertError) {
                         console.error(insertError.message);
                         return res.status(500).json({ error: 'Error al registrar el usuario' });
                     }
-    
+
                     res.json('Se registró correctamente el usuario');
                 });
             });
-            
+
         });
     });
-    
-    
+
+
     app.post('/login', (req, res) => {
         const { email, password } = req.body;
     
-        // Obtener el hash de la contraseña almacenada en la base de datos
+        // Obtener todos los campos del usuario utilizando el correo electrónico
         const query = `SELECT * FROM users WHERE email=?`;
         conexion.query(query, [email], async (error, resultado) => {
             if (error) {
@@ -77,7 +83,7 @@ module.exports = function (app, conexion) {
                 const passwordMatch = await bcrypt.compare(password, user.password);
     
                 if (passwordMatch) {
-                    // Usuario autenticado correctamente
+                    // Usuario autenticado correctamente, enviar toda la información del usuario
                     res.json({ mensaje: 'Inicio de sesión exitoso', usuario: user });
                 } else {
                     // Contraseña incorrecta
@@ -89,6 +95,5 @@ module.exports = function (app, conexion) {
             }
         });
     });
-    
     
 }
