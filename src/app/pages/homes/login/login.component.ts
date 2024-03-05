@@ -21,21 +21,23 @@ export class LoginComponent {
       password: ['', Validators.required]
     });
   }
-  
 
   login() {
     if (this.loginForm.valid) {
       const email = this.loginForm.get('email')?.value;
       const password = this.loginForm.get('password')?.value;
-  
+
       if (email && password) {
         this.registrarloginService.login(email, password).subscribe(
           (response) => {
             console.log(response);
-  
-            if (response && response.usuario && response.usuario.rol) {
+
+            if (response && response.usuario) {
+              // Guarda la información del usuario en el LocalStorage
+              localStorage.setItem('currentUser', JSON.stringify(response.usuario));
+
+              // Redirige según el rol como lo haces actualmente
               const rol = response.usuario.rol;
-  
               switch (rol) {
                 case 'Administrador':
                   this.router.navigate(['/admin-home']);

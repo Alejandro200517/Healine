@@ -9,10 +9,16 @@ export class MedicoHome2Component implements OnInit {
   hour: string = '00';
   minute: string = '00';
   second: string = '00';
+  userInfo: any; // Objeto para almacenar la información del usuario
 
   ngOnInit() {
-    this.updateClock(); // Llama a la función para inicializar el reloj
-    setInterval(() => this.updateClock(), 1000); // Actualiza el reloj cada segundo
+    // Llama a la función para inicializar el reloj
+    this.updateClock(); 
+    // Actualiza el reloj cada segundo
+    setInterval(() => this.updateClock(), 1000); 
+
+    // Obtener la información del usuario del LocalStorage
+    this.userInfo = JSON.parse(localStorage.getItem('currentUser') || '{}');
   }
 
   updateClock() {
