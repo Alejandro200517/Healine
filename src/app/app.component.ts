@@ -96,6 +96,12 @@ export class AppComponent {
     url.includes('editar-incapacidad') ||
 
     url.includes('medico-home') ||
+    url.includes('medico-citas') ||
+    url.includes('registrar-citas-medico') ||
+    url.includes('medico-pacientes') ||
+
+
+
 
     url.includes('paciente-home') ||
     url.includes('secretaria-home') ||

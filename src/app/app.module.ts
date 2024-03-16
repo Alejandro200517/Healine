@@ -96,6 +96,11 @@ import { PacienteHomeComponent } from './pages/paciente/paciente-home/paciente-h
 import { MedicoHomeComponent } from './pages/medico/medico-home/medico-home.component';
 import { ConsultarHistorialComponent } from './cruds/historial/consultar-historial/consultar-historial.component';
 import { MedicoHome2Component } from './pages/medico/medico-home-2/medico-home-2.component';
+import { MedicoCitasComponent } from './pages/medico/medico-citas/medico-citas.component';
+import { RegistrarCitasMedicoComponent } from './pages/medico/registrar-citas-medico/registrar-citas-medico.component';
+import { EditarConsultarCitasMedicoComponent } from './pages/medico/editar-consultar-citas-medico/editar-consultar-citas-medico.component';
+import { EditarCitasMedicoComponent } from './pages/medico/editar-citas-medico/editar-citas-medico.component';
+import { MedicoPacientesComponent } from './pages/medico/medico-pacientes/medico-pacientes.component';
 //import { HistoriaHomeComponent } from './pages/admin/homes-herramientas/historia-home/historia-home.component';
 //import { ConsultarHistoriaComponent } from './cruds/historia/consultar-historia/consultar-historia.component';
 //import { RegistrarHistoriaComponent } from './cruds/historia/registrar-historia/registrar-historia.component';
@@ -175,6 +180,11 @@ import { MedicoHome2Component } from './pages/medico/medico-home-2/medico-home-2
     MedicoHomeComponent,
     ConsultarHistorialComponent,
     MedicoHome2Component,
+    MedicoCitasComponent,
+    RegistrarCitasMedicoComponent,
+    EditarConsultarCitasMedicoComponent,
+    EditarCitasMedicoComponent,
+    MedicoPacientesComponent,
     //HistoriaHomeComponent,
     //ConsultarHistoriaComponent,
     //RegistrarHistoriaComponent,

@@ -99,6 +99,12 @@ import { IncapacidadHomeComponent } from './pages/admin/homes-herramientas/incap
 //Pages Principales Medico
 import { MedicoHomeComponent } from './pages/medico/medico-home/medico-home.component';
 import { MedicoHome2Component } from './pages/medico/medico-home-2/medico-home-2.component';
+import { MedicoCitasComponent } from './pages/medico/medico-citas/medico-citas.component';
+import { RegistrarCitasMedicoComponent } from './pages/medico/registrar-citas-medico/registrar-citas-medico.component';
+import { EditarConsultarCitasMedicoComponent } from './pages/medico/editar-consultar-citas-medico/editar-consultar-citas-medico.component';
+import { EditarCitasMedicoComponent } from './pages/medico/editar-citas-medico/editar-citas-medico.component';
+import { MedicoPacientesComponent } from './pages/medico/medico-pacientes/medico-pacientes.component';
+
 // °°°°°°°°°°°°°°°°°°°°°°
 import { PacienteHomeComponent } from './pages/paciente/paciente-home/paciente-home.component';
 
@@ -200,6 +206,14 @@ const routes: Routes = [
   // Pages Medico
   { path:'medico-home', component: MedicoHomeComponent },
   { path:'medico-home-2', component: MedicoHome2Component },
+
+  { path:'medico-citas', component: MedicoCitasComponent},
+  { path:'registrar-citas-medico', component: RegistrarCitasMedicoComponent},
+  { path:'editar-consultar-citas-medico', component: EditarConsultarCitasMedicoComponent},
+  { path:'editar-citas-medico/editar/:id', component: EditarCitasMedicoComponent},
+
+  { path:'medico-pacientes', component: MedicoPacientesComponent },
+
 
   //°°°°°°°°°°°°°°°°°°°°°°
   

@@ -531,6 +531,39 @@ h3 {
 }
 
 
+.boxed-btn5 {
+  background: #fff;
+  color: #131313;
+  display: inline-block;
+  padding: 18px 44px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: 0;
+  border: 1px solid #0063cc68;
+  letter-spacing: 3px;
+  text-align: center;
+  color: #0063cc68 !important;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.boxed-btn5:hover {
+  background: #0063cc68;
+  color: #fff !important;
+  border: 1px solid #0063cc68;
+}
+
+.boxed-btn5:focus {
+  outline: none;
+}
+
+.boxed-btn5.large-width {
+  width: 220px;
+}
+
+
 
 
 
@@ -16757,15 +16790,6 @@ a.text-dark:hover {
   width: 100%;
 }
 
-.sidebar {
-  width: 105px;
-  padding: 20px; 
-  min-height: 100vh; 
-  text-align: center;
-  background: linear-gradient(to right, #004085, #70a1d7);
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2); /* Sombra */
-}
-
 .menuMedico {
   display: flex;
   flex-direction: column;
@@ -16800,6 +16824,22 @@ a.text-dark:hover {
 
 
 
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 500px; /* Puedes ajustar este valor según el ancho deseado */
+  margin-top: 20px; /* Agrega margen superior para separar los botones del contenido superior */
+}
+
+.buttons-container button {
+  flex: 1;
+}
+
+.button-container {
+  margin-bottom: 20px; /* Agrega margen inferior para separar el botón de "Cerrar Sesión" del contenido inferior */
+}
+
 
 
 
@@ -16807,22 +16847,31 @@ a.text-dark:hover {
 .contentMedico {
   flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
   flex-direction: column;
-  padding: 0; /* Elimina el padding */
-  margin-right: -5%;
+  align-items: center;
+  justify-content: center;
+  width: 65%; /* Se ajusta el ancho */
+  margin-left: 7%;
+  margin-right: 1%;
+  overflow: auto;
 }
 
 
 .infoMedico {
-  width: 17%;
+  width: 15%;
   background-color: #f0f0f0;
-  padding: 20px;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Cambiado a centrar */
+  align-items: center;
+  justify-content: flex-start; /* Alinea el contenido desde la parte superior */
 }
+
+
+.infoMedicoContent {
+  max-height: 100%; /* Altura máxima del contenido del div */
+}
+
 
 
 .clockMedico, .additional-infoMedico {
@@ -16887,7 +16936,7 @@ a.text-dark:hover {
 
 
 .contadorCitas {
-  width: 90%;
+  width: 100%;
   padding: 20px;
   border-radius: 10px;
   background-color: #ffffff;
@@ -16916,7 +16965,7 @@ a.text-dark:hover {
 
 
 .listaCitas {
-  width: 90%;
+  width: 100%;
   padding: 20px;
   border-radius: 10px;
   background: linear-gradient(to bottom, #cacaca8b, #FFFFFF); /* Degradado de color de fondo */
@@ -16981,4 +17030,322 @@ a.text-dark:hover {
 .welcomeTitle p {
   color: #666666;
   font-size: 18px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 260px;
+  background: linear-gradient(to right, #0062cc, #70a1d7);
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.sidebar.close {
+  width: 78px;
+}
+
+.sidebar .logo {
+  height: 60px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.sidebar .logo i {
+  font-size: 30px;
+  color: #fff;
+  height: 50px;
+  min-width: 78px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.sidebar .logo .logo-name {
+  font-size: 22px;
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  transition-delay: 0.1s;
+}
+
+.sidebar.close .logo .logo-name {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar .nav-list {
+  height: 100%;
+  padding: 30px 0 150px 0;
+  overflow: auto;
+}
+
+.sidebar.close .nav-list {
+  overflow: visible;
+}
+
+.sidebar .nav-list::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar .nav-list li {
+  position: relative;
+  list-style: none;
+  transition: all 0.4s ease;
+}
+
+.sidebar .nav-list li:hover {
+  background-color: #acacac;
+}
+
+.sidebar .nav-list li .icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar.close .nav-list li .icon-link {
+  display: block;
+}
+
+.sidebar .nav-list li i {
+  height: 50px;
+  min-width: 78px;
+  text-align: center;
+  line-height: 50px;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sidebar.close .nav-list li i.arrow {
+  display: none;
+}
+
+.sidebar .nav-list li.show i.arrow {
+  transform: rotate(-180deg);
+}
+
+.sidebar .nav-list li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.sidebar .nav-list li a .link-name {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  transition: all 0.4s ease;
+}
+
+.sidebar.close .nav-list li a .link-name {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar .nav-list li .sub-menu {
+  padding: 6px 6px 14px 80px;
+  margin-top: -10px;
+  background: #acacac;
+  display: none;
+  transition: all 0.3s ease;
+}
+
+.sidebar .nav-list li.show .sub-menu {
+  display: block;
+}
+
+.sidebar.close .nav-list li .sub-menu {
+  position: absolute;
+  left: 100%;
+  top: -10px;
+  margin-top: 0;
+  padding: 10px 20px;
+  border-radius: 0 6px 6px 0;
+  opacity: 0;
+  display: block;
+  pointer-events: none;
+  transition: 0s;
+}
+
+.sidebar.close .nav-list li:hover .sub-menu {
+  top: 0;
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.4s ease;
+}
+
+.sidebar .nav-list li .sub-menu a {
+  color: #fff;
+  font-size: 15px;
+  padding: 5px 0;
+  white-space: nowrap;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.sidebar .nav-list li .sub-menu a:hover {
+  opacity: 1;
+}
+
+.sidebar .nav-list li .sub-menu .link-name {
+  display: none;
+}
+
+.sidebar.close .nav-list li .sub-menu .link-name {
+  font-size: 18px;
+  opacity: 1;
+  display: block;
+}
+
+.sidebar .nav-list li .sub-menu.blank {
+  padding: 3px 20px 6px 16px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar .nav-list li:hover .sub-menu.blank {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.profile-details {
+  position: fixed;
+  bottom: 0;
+  width: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #acacac;
+  padding: 12px 0;
+  transition: all 0.5s ease;
+}
+
+.sidebar.close .profile-details {
+  background-color: none;
+  width: 78px;
+}
+
+.profile-details .profile-content {
+  display: flex;
+  align-items: center;
+}
+
+.profile-details .profile-content img {
+  height: 51px;
+  width: 51px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 14px 0 12px;
+  background-color: #acacac;
+  transition: all 0.5s ease;
+}
+
+.sidebar.close .profile-details .profile-content img {
+  padding: 10px;
+}
+
+.profile-details .name-job .name,
+.profile-details .name-job .job {
+  color: #fff;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.sidebar.close .profile-details i,
+.sidebar.close .profile-details .name-job .name,
+.sidebar.close .profile-details .name-job .job {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.profile-details .name-job .job {
+  font-size: 12px;
+}
+
+.home-section {
+  position: relative;
+  height: 100vh;
+  width: calc(100% - 260px);
+  left: 260px;
+  background-color: #acacac;
+  transition: all 0.2s ease;
+}
+
+.sidebar.close ~ .home-section {
+  left: 78px;
+  width: calc(100% - 78px);
+}
+
+.home-section .home-content {
+  display: flex;
+  height: 60px;
+  align-items: center;
+}
+
+.home-section .home-content i,
+.home-section .home-content .text {
+  color: #cacaca;
+  font-size: 35px;
+}
+
+.home-section .home-content i {
+  margin: 0 15px;
+  cursor: pointer;
+}
+
+.home-section .home-content .text {
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+@media (max-width: 400px) {
+  .sidebar.close .nav-list li .sub-menu {
+    display: none;
+  }
+
+  .sidebar {
+    width: 78px;
+  }
+
+  .sidebar.close {
+    width: 0;
+  }
+
+  .home-section {
+    left: 78px;
+    width: calc(100% - 78px);
+    z-index: 100;
+  }
+
+  .sidebar.close ~ .home-section {
+    width: 100%;
+    left: 0;
+  }
+}
+
+
+.custom-title {
+  font-family: 'Arial', sans-serif;
+  font-size: 45px;
+  color: #2c91d5;
+  padding: 5px;
+  text-shadow: 1px 1px 2px #000000;
+  text-align: center;
 }

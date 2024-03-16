@@ -31,4 +31,8 @@ export class CitasService {
   borrarCitas(id: string) {
     return this.http.delete<string>(`${this.BASE_URL}/citas/borrar/${id}`)
   }
+
+  obtenerCitasPorMedico(medicoId: string): Observable<CitasModel[]> {
+    return this.http.get<CitasModel[]>(`${this.BASE_URL}/citas?medicoId=${medicoId}`);
+  }
 }

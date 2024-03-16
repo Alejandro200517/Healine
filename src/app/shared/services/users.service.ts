@@ -33,5 +33,6 @@ export class UsersService {
     return this.http.put<string>(`${this.BASE_URL}/users/inactivar/${id}`, {});
   }
   
+  
 
 }

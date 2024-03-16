@@ -12,9 +12,10 @@ export class LoginComponent {
   loginForm: FormGroup;
   showAlert: boolean = false;
 
+
   goBack() {
     window.history.back();
-  }
+  } 
   constructor(private fb: FormBuilder, private registrarloginService: RegistrarLoginService, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
@@ -33,25 +34,26 @@ export class LoginComponent {
             console.log(response);
 
             if (response && response.usuario) {
-              // Guarda la información del usuario en el LocalStorage
-              localStorage.setItem('currentUser', JSON.stringify(response.usuario));
-
-              // Redirige según el rol como lo haces actualmente
               const rol = response.usuario.rol;
               switch (rol) {
                 case 'Administrador':
+                  localStorage.setItem('adminUser', JSON.stringify(response.usuario));
                   this.router.navigate(['/admin-home']);
                   break;
                 case 'User':
+                  localStorage.setItem('regularUser', JSON.stringify(response.usuario));
                   this.router.navigate(['/user-home']);
                   break;
                 case 'Paciente':
+                  localStorage.setItem('patientUser', JSON.stringify(response.usuario));
                   this.router.navigate(['/paciente-home']);
                   break;
                 case 'Medico':
+                  localStorage.setItem('medicUser', JSON.stringify(response.usuario));
                   this.router.navigate(['/medico-home']);
                   break;
                 case 'Secretaria':
+                  localStorage.setItem('secretaryUser', JSON.stringify(response.usuario));
                   this.router.navigate(['/secretaria-home']);
                   break;
                 default:

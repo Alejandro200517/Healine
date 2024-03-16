@@ -12,8 +12,6 @@ export class RegistrarLoginModel {
   public status: string,
   public rol: string, 
   public sede: string
-
-
   ) { }
-  }
+}
   
