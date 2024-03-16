@@ -63,9 +63,9 @@ module.exports = function (app, conexion) {
     
     app.put('/citas/actualizar/:id', (req, res) => {
         const { id } = req.params;
-        const { fecha, hora, paciente, medico, especialidad, facturacion, estado } = req.body;
+        const { fecha, hora, paciente, medico, facturacion, estado } = req.body;
     
-        const query = `UPDATE citas SET fecha='${fecha}', hora='${hora}', paciente='${paciente}', medico='${medico}', especialidad='${especialidad}', facturacion='${facturacion}' , estado='${estado}' WHERE id='${id}';`;
+        const query = `UPDATE citas SET fecha='${fecha}', hora='${hora}', paciente='${paciente}', medico='${medico}', facturacion='${facturacion}' , estado='${estado}' WHERE id='${id}';`;
     
         conexion.query(query, (error) => {
         if (error) return console.error(error.message);

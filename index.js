@@ -35,6 +35,10 @@ require('./Adminstrador/users')(app, conexion);
 require('./Adminstrador/historial')(app, conexion);
 
 
+// API Medico
+require('./Medico/citas-medico')(app, conexion);
+
+
 
 
 

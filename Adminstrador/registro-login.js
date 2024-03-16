@@ -69,7 +69,6 @@ module.exports = function (app, conexion) {
     app.post('/login', (req, res) => {
         const { email, password } = req.body;
     
-        // Obtener todos los campos del usuario utilizando el correo electrónico
         const query = `SELECT * FROM users WHERE email=?`;
         conexion.query(query, [email], async (error, resultado) => {
             if (error) {
@@ -78,19 +77,15 @@ module.exports = function (app, conexion) {
             }
     
             if (resultado.length > 0) {
-                // Verificar la contraseña utilizando bcrypt
                 const user = resultado[0];
                 const passwordMatch = await bcrypt.compare(password, user.password);
     
                 if (passwordMatch) {
-                    // Usuario autenticado correctamente, enviar toda la información del usuario
                     res.json({ mensaje: 'Inicio de sesión exitoso', usuario: user });
                 } else {
-                    // Contraseña incorrecta
                     res.status(401).json({ error: 'Credenciales incorrectas' });
                 }
             } else {
-                // Usuario no encontrado
                 res.status(401).json({ error: 'Credenciales incorrectas' });
             }
         });
