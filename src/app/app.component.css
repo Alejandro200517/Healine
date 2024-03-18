@@ -17349,3 +17349,39 @@ a.text-dark:hover {
   text-shadow: 1px 1px 2px #000000;
   text-align: center;
 }
+
+.info-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px; /* Ancho del panel lateral */
+  height: 100%;
+  background-color: #f8f9fa; /* Color de fondo del panel */
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra en el lado izquierdo */
+  display: none; /* Ocultar el panel inicialmente */
+  overflow-y: auto; /* Permitir desplazamiento si el contenido es demasiado largo */
+}
+
+.info-panel.show {
+  display: block !important; /* Mostrar el panel cuando la clase 'show' está presente */
+}
+
+
+/* Estilos adicionales para el panel lateral */
+.card.shadow {
+  width: 100%;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

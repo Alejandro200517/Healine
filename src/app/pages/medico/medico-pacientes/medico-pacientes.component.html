@@ -1,4 +1,50 @@
+<style>
+    /* Estilos generales de la tabla */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #0063cc68; /* Color cambiado */
+    color: #fff;
+    border-top: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Estilo para las filas impares */
+tr.odd {
+    background-color: #f9f9f9;
+}
+
+/* Estilo para el mensaje cuando no hay elementos */
+.empty-message {
+    margin-top: 10px;
+    color: #999;
+}
+
+/* Estilos mejorados para los títulos */
+h2 {
+    font-size: 24px;
+    color: #2c91d5;
+    margin-bottom: 15px;
+}
+
+</style>
 <body>
     <div class="containerMedico">
 
@@ -106,25 +152,220 @@
 
                 <div class="row justify-content-center">
                     <ng-container *ngFor="let user of filtrarUsers(users | async) || []; let i = index">
-                        <div class="col-md-3 mb-4">
+                      <div class="col-md-3 mb-4">
+                        <div class="card shadow rounded" style="border: 2px solid #0063cc68;">
+                          <div class="card-header text-white text-center" style="background-color: #0063cc68; font-weight: 600; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                            <h5 class="m-0">{{ user.primerNombre }} {{ user.primerApellido }}</h5>
+                          </div>
+                          <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                              <!-- Información básica -->
+                              <li class="list-group-item"><strong>Documento:</strong> <span class="text-muted">{{ user.documento }}</span></li>
+                              <li class="list-group-item"><strong>Correo:</strong> <span class="text-muted">{{ user.email }}</span></li>
+                              <li class="list-group-item"><strong>Número:</strong> <span class="text-muted">{{ user.numero }}</span></li>
+                              <li class="list-group-item"><strong>Status:</strong> <span class="text-muted">{{ user.status }}</span></li>
+                              <li class="list-group-item"><strong>Sede:</strong> <span class="text-muted">{{ user.sede }}</span></li>
+                              <!-- Botón para mostrar más información -->
+                              <li class="list-group-item">
+                                <button class="button button-contactForm boxed-btn5" style="padding: 8px; font-weight: 600;" (click)="mostrarDetalles(user)">Mas información</button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-container>
+                  </div>
+                  
+                  <!-- Panel lateral derecho para mostrar información adicional -->
+                  <div class="row justify-content-center">
+                    <div class="col-md-12 mb-4" *ngIf="userInfo">
+                      <div class="card shadow rounded" style="border: 2px solid #0063cc68;">
+                        <div class="card-body">
+                          <h3 class="card-title">Información adicional del usuario</h3>
+                          <hr>
+
+                          <ng-container *ngIf="user">
                             <div class="card shadow rounded" style="border: 2px solid #0063cc68;">
-                                <div class="card-header text-white text-center" style="background-color: #0063cc68; font-weight: 600; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-                                    <h5 class="m-0">{{ user.primerNombre }} {{ user.primerApellido }}</h5>
-                                </div>
                                 <div class="card-body">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><strong>Documento:</strong> <span class="text-muted"> {{ user.documento }}</span></li>
-                                        <li class="list-group-item"><strong>Correo:</strong> <span class="text-muted"> {{ user.email }}</span></li>
-                                        <li class="list-group-item"><strong>Número:</strong> <span class="text-muted"> {{ user.numero }}</span></li>
-                                        <li class="list-group-item"><strong>Status:</strong> <span class="text-muted"> {{ user.status }}</span></li>
-                                        <li class="list-group-item"><strong>Sede:</strong> <span class="text-muted"> {{ user.sede }}</span></li>
-                                    </ul>
+                                    <h3 class="card-title">Detalles del usuario</h3>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">
+                                                    <strong>Primer Nombre:</strong>
+                                                    <span class="text-muted">{{ user.primerNombre }}</span>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Segundo Nombre:</strong>
+                                                    <span class="text-muted">{{ user.segundoNombre }}</span>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Primer Apellido:</strong>
+                                                    <span class="text-muted">{{ user.primerApellido }}</span>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Segundo Apellido:</strong>
+                                                    <span class="text-muted">{{ user.segundoApellido }}</span>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Documento:</strong>
+                                                    <span class="text-muted">{{ user.documento }}</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">
+                                                    <strong>Tipo De Documento:</strong>
+                                                    <span class="text-muted">{{ user.tipoDoc }}</span>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Correo:</strong>
+                                                    <span class="text-muted">{{ user.email }}</span>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Número:</strong>
+                                                    <span class="text-muted">{{ user.numero }}</span>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Status:</strong>
+                                                    <span class="text-muted">{{ user.status }}</span>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Sede:</strong>
+                                                    <span class="text-muted">{{ user.sede }}</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                        </ng-container>
+                        <br><br>                        
+                          <div class="row">
+                            <div class="col-xl-6">
+                                <h2>Lista de exámenes</h2>
+                                <div *ngIf="examenesFiltrados.length > 0" class="overflow-auto" style="max-height: 300px;">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Info del Paciente</th>
+                                                <th>Nombre del Examen</th>
+                                                <th>Resultado</th>
+                                                <th>Fecha</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let examen of examenesFiltrados">
+                                                <td>{{ examen.paciente }}</td>
+                                                <td>{{ examen.nombre }}</td>
+                                                <td>{{ examen.resultado }}</td>
+                                                <td>{{ examen.fecha }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div *ngIf="examenesFiltrados.length === 0">
+                                    <p>No hay exámenes presentados hasta el momento.</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <h2>Lista de incapacidades</h2>
+                                <div *ngIf="incapacidadesFiltradas.length > 0" class="overflow-auto" style="max-height: 300px;">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Paciente</th>
+                                                <th>Médico</th>
+                                                <th>Fecha</th>
+                                                <th>Tipo</th>
+                                                <th>Detalles</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let incapacidad of incapacidadesFiltradas">
+                                                <td>{{ incapacidad.paciente }}</td>
+                                                <td>{{ incapacidad.medico }}</td>
+                                                <td>{{ incapacidad.fecha }}</td>
+                                                <td>{{ incapacidad.tipo }}</td>
+                                                <td>{{ incapacidad.detalles }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div *ngIf="incapacidadesFiltradas.length === 0">
+                                    <p>No hay incapacidades presentadas hasta el momento.</p>
+                                </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-xl-6">
+                                <h2>Lista de órdenes</h2>
+                                <div *ngIf="ordenesFiltradas.length > 0" class="overflow-auto" style="max-height: 300px;">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Paciente</th>
+                                                <th>Fórmula</th>
+                                                <th>Diagnóstico</th>
+                                                <th>Tratamiento</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let orden of ordenesFiltradas">
+                                                <td>{{ orden.paciente }}</td>
+                                                <td>{{ orden.formula }}</td>
+                                                <td>{{ orden.diagnostico }}</td>
+                                                <td>{{ orden.tratamiento }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div *ngIf="ordenesFiltradas.length === 0">
+                                    <p>No hay órdenes presentadas hasta el momento.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6">
+                                <h2>Lista de citas</h2>
+                                <div *ngIf="citasFiltradas.length > 0" class="overflow-auto" style="max-height: 300px;">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Fecha</th>
+                                                <th>Hora</th>
+                                                <th>Paciente</th>
+                                                <th>Médico</th>
+                                                <th>Especialidad</th>
+                                                <th>Facturación</th>
+                                                <th>Estado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let cita of citasFiltradas">
+                                                <td>{{ cita.fecha }}</td>
+                                                <td>{{ cita.hora }}</td>
+                                                <td>{{ cita.paciente }}</td>
+                                                <td>{{ cita.medico }}</td>
+                                                <td>{{ cita.especialidad }}</td>
+                                                <td>{{ cita.facturacion }}</td>
+                                                <td>{{ cita.estado }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div *ngIf="citasFiltradas.length === 0">
+                                    <p>No hay citas presentadas hasta el momento.</p>
+                                </div>
+                            </div>                          
+                          </div>
                         </div>
-                    </ng-container>
-                </div>
-                
+                      </div>
+                    </div>
+                  </div>
+                  
             </div>
         </div>
         
