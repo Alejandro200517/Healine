@@ -60,7 +60,7 @@
                     </div>                
                     
                     <div class="form-group mt-3">
-                        <button type="submit" class="button button-contactForm boxed-btn" [disabled]="!pqrsForm.form.valid">Enviar</button>
+                        <button type="submit" class="button button-contactForm boxed-btn"  [disabled]="!pqrsForm.form.valid && isFormSubmitted">Enviar</button>
                     </div>
                 </form>
             </div>
@@ -68,7 +68,7 @@
             <div class="col-lg-3 offset-lg-1">
                 <!-- Contact Info Content -->
                 <div class="media contact-info">
-                    <span class="contact-info__icon"><i class="ti-home"></i></span>
+                    <span class="contact-info__icon"><img src="../../../../assets/images/ubi.png" width="40px" alt=""></span>
                     <!-- Contact Info Details -->
                     <div class="media-body">
                         <h3>Colombia - Bogotá</h3>
@@ -77,7 +77,7 @@
                 </div>
                 <!-- More Contact Info -->
                 <div class="media contact-info">
-                    <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                    <span class="contact-info__icon"><img src="../../../../assets/images/tele2.png" width="40px" alt=""></span>
                     <!-- Contact Info Details -->
                     <div class="media-body">
                         <h3>+57 123 456 789</h3>
@@ -86,7 +86,7 @@
                 </div>
                 <!-- More Contact Info -->
                 <div class="media contact-info">
-                    <span class="contact-info__icon"><i class="ti-email"></i></span>
+                    <span class="contact-info__icon"><img src="../../../../assets/images/web.png" width="40px" alt=""></span>
                     <!-- Contact Info Details -->
                     <div class="media-body">
                         <h3>NovaEPS@gmail.com</h3>

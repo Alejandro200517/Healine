@@ -19,3 +19,5 @@ describe('PacienteHomeComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+export { PacienteHomeComponent };

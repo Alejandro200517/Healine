@@ -104,9 +104,29 @@ import { RegistrarCitasMedicoComponent } from './pages/medico/registrar-citas-me
 import { EditarConsultarCitasMedicoComponent } from './pages/medico/editar-consultar-citas-medico/editar-consultar-citas-medico.component';
 import { EditarCitasMedicoComponent } from './pages/medico/editar-citas-medico/editar-citas-medico.component';
 import { MedicoPacientesComponent } from './pages/medico/medico-pacientes/medico-pacientes.component';
+import { MedicoAgendaComponent } from './pages/medico/medico-agenda/medico-agenda.component';
+import { RegistrarAgendaMedicoComponent } from './pages/medico/registrar-agenda-medico/registrar-agenda-medico.component';
 
 // °°°°°°°°°°°°°°°°°°°°°°
 import { PacienteHomeComponent } from './pages/paciente/paciente-home/paciente-home.component';
+import { MedicoExamenesComponent } from './pages/medico/medico-examenes/medico-examenes.component';
+import { RegistrarExamenesMedicoComponent } from './pages/medico/registrar-examenes-medico/registrar-examenes-medico.component';
+import { EditarConsultarExamenesMedicoComponent } from './pages/medico/editar-consultar-examenes-medico/editar-consultar-examenes-medico.component';
+import { EditarExamenesMedicoComponent } from './pages/medico/editar-examenes-medico/editar-examenes-medico.component';
+import { EditarPerfilComponent } from './pages/medico/editar-perfil/editar-perfil.component';
+import { MedicoOrdenesComponent } from './pages/medico/medico-ordenes/medico-ordenes.component';
+import { RegistrarOrdenesMedicoComponent } from './pages/medico/registrar-ordenes-medico/registrar-ordenes-medico.component';
+import { EditarOrdenesMedicoComponent } from './pages/medico/editar-ordenes-medico/editar-ordenes-medico.component';
+import { MedicoFormulasComponent } from './pages/medico/medico-formulas/medico-formulas.component';
+import { RegistrarFormulasMedicoComponent } from './pages/medico/registrar-formulas-medico/registrar-formulas-medico.component';
+import { RegistrarIncapacidadesMedicoComponent } from './pages/medico/registrar-incapacidades-medico/registrar-incapacidades-medico.component';
+import { EncuestasHomeComponent } from './pages/admin/homes-herramientas/encuestas-home/encuestas-home.component';
+import { PacienteHome2Component } from './pages/paciente/paciente-home-2/paciente-home-2.component';
+import { AfiliacionComponent } from './pages/paciente/afiliacion/afiliacion.component';
+import { CitasComponent } from './pages/paciente/citas/citas.component';
+import { HistoriaComponent } from './pages/paciente/historia/historia.component';
+import { RegistrarPeticionComponent } from './pages/paciente/registrar-peticion/registrar-peticion.component';
+import { EditarPerfilPacienteComponent } from './pages/paciente/editar-perfil-paciente/editar-perfil-paciente.component';
 
 
 
@@ -203,6 +223,9 @@ const routes: Routes = [
   { path:'editar-consultar-incapacidad', component: EditarConsultarIncapacidadComponent },
   { path:'editar-incapacidad/editar/:id', component: EditarIncapacidadComponent },
 
+  { path:'encuestas-home', component: EncuestasHomeComponent },
+
+
   // Pages Medico
   { path:'medico-home', component: MedicoHomeComponent },
   { path:'medico-home-2', component: MedicoHome2Component },
@@ -213,11 +236,32 @@ const routes: Routes = [
   { path:'editar-citas-medico/editar/:id', component: EditarCitasMedicoComponent},
 
   { path:'medico-pacientes', component: MedicoPacientesComponent },
+  { path:'medico-agenda', component: MedicoAgendaComponent },
+  { path:'registrar-agenda-medico', component: RegistrarAgendaMedicoComponent },
+  { path:'medico-examenes', component: MedicoExamenesComponent },
+  { path:'registrar-examenes-medico', component: RegistrarExamenesMedicoComponent },
+  { path:'editar-consultar-examenes-medico', component: EditarConsultarExamenesMedicoComponent },
+  { path:'editar-examenes-medico/editar/:id', component: EditarExamenesMedicoComponent},
 
+  { path:'editar-perfil/editar/:documento', component: EditarPerfilComponent},
 
-  //°°°°°°°°°°°°°°°°°°°°°°
+  { path:'medico-ordenes', component: MedicoOrdenesComponent},
+  { path:'registrar-ordenes-medico', component: RegistrarOrdenesMedicoComponent},
+  { path:'editar-ordenes-medico/editar/:id', component: EditarOrdenesMedicoComponent},
+  { path:'medico-formulas', component: MedicoFormulasComponent},
+  { path:'registrar-incapacidades-medico', component: RegistrarIncapacidadesMedicoComponent},
+
+  //Pages Paciente
+  { path:'paciente-home', component: PacienteHomeComponent },
+  { path:'paciente-home-2', component: PacienteHome2Component },
+  { path:'afiliacion', component: AfiliacionComponent },
+  { path:'citas', component: CitasComponent },
+  { path:'historia', component: HistoriaComponent },
+  { path:'editar-perfil', component: EditarPerfilComponent },
+  { path:'registrar-peticion', component: RegistrarPeticionComponent },
+  { path:'editar-perfil-paciente', component: EditarPerfilPacienteComponent },
+
   
-  { path:'paciente-home', component: PacienteHomeComponent},
 
 
 ];

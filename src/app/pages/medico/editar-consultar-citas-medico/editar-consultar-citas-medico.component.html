@@ -53,24 +53,24 @@
                     <h3 style="color: #fff; margin-top: -15px; text-align: center;">___</h3>
                 </div>
                 <li><br>
-                    <a href="/medico-home-2">
+                    <a href="/medico-examenes">
                         <img class="imageMedico" src="../../../../assets/images/examenes-medico.png" alt="" style="width: 45px; text-align: center; margin-left: 29%;">
                     </a><br>
 
                     <ul class="sub-menu blank">
-                        <li><a href="/medico-home-2" class="link-name">Examenes</a></li>
+                        <li><a href="/medico-examenes" class="link-name">Examenes</a></li>
                     </ul>
                 </li>
                 <div>
                     <h3 style="color: #fff; margin-top: -15px; text-align: center;">___</h3>
                 </div>
                 <li><br>
-                    <a href="/medico-home-2">
+                    <a href="/medico-ordenes">
                         <img class="imageMedico" src="../../../../assets/images/ordenes-medico.png" alt="" style="width: 45px; text-align: center; margin-left: 29%;">
                     </a><br>
-
+    
                     <ul class="sub-menu blank">
-                        <li><a href="/medico-home-2" class="link-name">Ordenes</a></li>
+                        <li><a href="/medico-ordenes" class="link-name">Ordenes</a></li>
                     </ul>
                 </li>
             </ul>
@@ -137,6 +137,9 @@
                 <p>{{ userInfo.primerApellido }} {{ userInfo.segundoApellido }}</p>
                 <p>{{ userInfo.email }}</p>
                 <p>{{ userInfo.especialidad }}</p>
+                <a style="text-decoration: none;" [routerLink]="['/editar-perfil/editar/', userInfo.documento]"><div class="editar-perfil">
+                    <span>Perfil</span>
+                </div></a>
             </div>
             
             

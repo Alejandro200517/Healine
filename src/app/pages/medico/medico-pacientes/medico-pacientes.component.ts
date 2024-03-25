@@ -7,6 +7,9 @@ import { ExamenesService } from '../../../shared/services/examenes.service';
 import { CitasService } from '../../../shared/services/citas.service';
 import { IncapacidadService } from '../../../shared/services/incapacidad.service';
 import { OrdenesService } from '../../../shared/services/ordenes.service';
+import { EncuestasModel } from 'src/app/shared/models/encuestas.model';
+import { EncuestasService } from 'src/app/shared/services/encuestas.service';
+
 
 @Component({
   selector: 'app-medico-pacientes',
@@ -37,12 +40,16 @@ export class MedicoPacientesComponent{
   citasFiltradas: any[] = [];
   ordenesFiltradas: any[] = [];
   user: UsersModel | null = null;
+  mostrarEncuesta: boolean = false;
+
+  // Encuesta
+  encuestas = new EncuestasModel('', '', '', '', '', '', '', '', '');
 
 
   constructor(
     private usersService: UsersService,
     private router: Router,
-
+    private encuestasService: EncuestasService,
     private examenesService: ExamenesService,
     private citasService: CitasService,
     private incapacidadesService: IncapacidadService,
@@ -159,22 +166,64 @@ export class MedicoPacientesComponent{
     this.user = user;
     console.log('Usuario seleccionado:', this.user);
 
-    // Filtrar exámenes por documento del paciente seleccionado
     this.examenesFiltrados = this.examenes.filter(examen => examen.paciente.includes(user.documento));
     console.log('Exámenes filtrados:', this.examenesFiltrados);
 
-    // Filtrar incapacidades por documento del paciente seleccionado
     this.incapacidadesFiltradas = this.incapacidades.filter(incapacidad => incapacidad.paciente.includes(user.documento));
     console.log('Incapacidades filtradas:', this.incapacidadesFiltradas);
 
-    // Filtrar órdenes por documento del paciente seleccionado
     this.ordenesFiltradas = this.ordenes.filter(orden => orden.paciente.includes(user.documento));
     console.log('Órdenes filtradas:', this.ordenesFiltradas);
 
-    // Filtrar citas por documento del paciente seleccionado
     this.citasFiltradas = this.citas.filter(cita => cita.paciente.includes(user.documento));
     console.log('Citas filtradas:', this.citasFiltradas);
 
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-}
+
+
+    this.router.navigate(['/registrarIncapacidad'], {
+      queryParams: {
+        documento: user.documento,
+        nombreCompleto: `${user.primerNombre} ${user.segundoNombre ? user.segundoNombre + ' ' : ''}${user.primerApellido} ${user.segundoApellido ? user.segundoApellido : ''}`
+      }
+    });
+  }
+  
+
+  onSubmit() {
+    console.log('onSubmit');
+
+    if (!this.isFormFilled()) {
+      alert('Por favor, complete todos los campos obligatorios.');
+      return;
+    }
+
+    this.encuestas.documento = `${this.userInfo.documento}`;
+    this.encuestas.email = `${this.userInfo.email}`;
+    this.encuestas.rol = `${this.userInfo.rol}`;
+
+    this.encuestasService.agregarEncuestas(this.encuestas).subscribe(
+      (data) => {
+        alert('Encuestas registrada correctamente');
+        this.router.navigate(['/index']); 
+      },
+      (error) => {
+        if (error.status === 500) {
+          alert('Verifica los campos o la encuesta ya está registrada');
+        } else {
+          console.error(error);
+        }
+      }
+    );
+  }
+
+  isFormFilled(): boolean {
+    return !!this.encuestas.calificacion && !!this.encuestas.facilidad && !!this.encuestas.seguridad && !!this.encuestas.velocidad && !!this.encuestas.opinion;
+  }
+
+  salir() {
+    this.mostrarEncuesta = false;
+    window.location.href = '/index';
+  }
+
 }

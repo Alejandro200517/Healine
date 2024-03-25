@@ -15,7 +15,7 @@ export class PqrsService {
   obtenerPqrs(): Observable<PqrsModel[]> {
     return this.http.get<PqrsModel[]>(`${this.BASE_URL}/pqrs`);
   }
-
+  
   obtenerPqr(id: string): Observable<PqrsModel[]> {
     return this.http.get<PqrsModel[]>(`${this.BASE_URL}/pqrs/${id}`);
   }

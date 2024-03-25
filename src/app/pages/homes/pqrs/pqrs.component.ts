@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class PqrsComponent {
   pqrs = new PqrsModel('', '', '', '', '', '', ''); 
+  isFormSubmitted: boolean = false;
 
   constructor(
     private pqrsService: PqrsService,
@@ -18,6 +19,10 @@ export class PqrsComponent {
   ) { }
 
   onSubmit() {
+    if (!this.isFormValid()) {
+      return;
+    }
+
     console.log('onSubmit');
   
     this.pqrsService.agregarPqrs(this.pqrs).subscribe(
@@ -35,6 +40,26 @@ export class PqrsComponent {
         }
       }
     );
+  }
+
+  isFormValid(): boolean {
+    if (!this.isFormFilled()) {
+      alert('Por favor, complete todos los campos obligatorios.');
+      return false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(this.pqrs.email)) {
+      alert('El correo electrónico ingresado no es válido.');
+      return false;
+    }
+  
+
+    return true;
+  }
+
+  isFormFilled(): boolean {
+    return !!this.pqrs.tipo && !!this.pqrs.descripcion && !!this.pqrs.email && !!this.pqrs.telefono && !!this.pqrs.documento;
   }
   
 }

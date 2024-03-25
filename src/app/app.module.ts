@@ -101,11 +101,33 @@ import { RegistrarCitasMedicoComponent } from './pages/medico/registrar-citas-me
 import { EditarConsultarCitasMedicoComponent } from './pages/medico/editar-consultar-citas-medico/editar-consultar-citas-medico.component';
 import { EditarCitasMedicoComponent } from './pages/medico/editar-citas-medico/editar-citas-medico.component';
 import { MedicoPacientesComponent } from './pages/medico/medico-pacientes/medico-pacientes.component';
+import { MedicoAgendaComponent } from './pages/medico/medico-agenda/medico-agenda.component';
+import { RegistrarAgendaMedicoComponent } from './pages/medico/registrar-agenda-medico/registrar-agenda-medico.component';
+import { MedicoExamenesComponent } from './pages/medico/medico-examenes/medico-examenes.component';
+import { RegistrarExamenesMedicoComponent } from './pages/medico/registrar-examenes-medico/registrar-examenes-medico.component';
+import { EditarConsultarExamenesMedicoComponent } from './pages/medico/editar-consultar-examenes-medico/editar-consultar-examenes-medico.component';
+import { EditarExamenesMedicoComponent } from './pages/medico/editar-examenes-medico/editar-examenes-medico.component';
+import { EditarPerfilComponent } from './pages/medico/editar-perfil/editar-perfil.component';
+import { MedicoOrdenesComponent } from './pages/medico/medico-ordenes/medico-ordenes.component';
+import { RegistrarOrdenesMedicoComponent } from './pages/medico/registrar-ordenes-medico/registrar-ordenes-medico.component';
+import { EditarOrdenesMedicoComponent } from './pages/medico/editar-ordenes-medico/editar-ordenes-medico.component';
+import { MedicoFormulasComponent } from './pages/medico/medico-formulas/medico-formulas.component';
+import { RegistrarFormulasMedicoComponent } from './pages/medico/registrar-formulas-medico/registrar-formulas-medico.component';
+import { EncuestaSatisfaccionComponent } from './pages/medico/encuesta-satisfaccion/encuesta-satisfaccion.component';
+import { RegistrarIncapacidadesMedicoComponent } from './pages/medico/registrar-incapacidades-medico/registrar-incapacidades-medico.component';
+import { EncuestasHomeComponent } from './pages/admin/homes-herramientas/encuestas-home/encuestas-home.component';
 //import { HistoriaHomeComponent } from './pages/admin/homes-herramientas/historia-home/historia-home.component';
 //import { ConsultarHistoriaComponent } from './cruds/historia/consultar-historia/consultar-historia.component';
 //import { RegistrarHistoriaComponent } from './cruds/historia/registrar-historia/registrar-historia.component';
 //import { EditarConsultarHistoriaComponent } from './cruds/historia/editar-consultar-historia/editar-consultar-historia.component';
 //import { EditarHistoriaComponent } from './cruds/historia/editar-historia/editar-historia.component';
+
+import { PacienteHome2Component } from './pages/paciente/paciente-home-2/paciente-home-2.component';
+import { CitasComponent } from './pages/paciente/citas/citas.component';
+import { AfiliacionComponent } from './pages/paciente/afiliacion/afiliacion.component';
+import { HistoriaComponent } from './pages/paciente/historia/historia.component';
+import { RegistrarPeticionComponent } from './pages/paciente/registrar-peticion/registrar-peticion.component';
+import { EditarPerfilPacienteComponent } from './pages/paciente/editar-perfil-paciente/editar-perfil-paciente.component';
 
 
 
@@ -185,11 +207,37 @@ import { MedicoPacientesComponent } from './pages/medico/medico-pacientes/medico
     EditarConsultarCitasMedicoComponent,
     EditarCitasMedicoComponent,
     MedicoPacientesComponent,
+    MedicoAgendaComponent,
+    RegistrarAgendaMedicoComponent,
+    MedicoExamenesComponent,
+    RegistrarExamenesMedicoComponent,
+    EditarConsultarExamenesMedicoComponent,
+    EditarExamenesMedicoComponent,
+    EditarPerfilComponent,
+    MedicoOrdenesComponent,
+    RegistrarOrdenesMedicoComponent,
+    EditarOrdenesMedicoComponent,
+    MedicoFormulasComponent,
+    RegistrarFormulasMedicoComponent,
+    EncuestaSatisfaccionComponent,
+    RegistrarIncapacidadesMedicoComponent,
+    EncuestasHomeComponent,
     //HistoriaHomeComponent,
     //ConsultarHistoriaComponent,
     //RegistrarHistoriaComponent,
     //EditarConsultarHistoriaComponent,
     //EditarHistoriaComponent,
+
+    PacienteHomeComponent,
+    MedicoHomeComponent,
+    ConsultarHistorialComponent,
+    PacienteHome2Component,
+    CitasComponent,
+    AfiliacionComponent,
+    HistoriaComponent,
+    EditarPerfilComponent,
+    RegistrarPeticionComponent,
+    EditarPerfilPacienteComponent,
     
   ],
   imports: [

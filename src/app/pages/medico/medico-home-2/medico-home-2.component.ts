@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CitasService } from 'src/app/shared/services/citas.service';
 import { CitasModel } from 'src/app/shared/models/citas.model';
+import { EncuestasModel } from 'src/app/shared/models/encuestas.model';
+import { EncuestasService } from 'src/app/shared/services/encuestas.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-medico-home-2',
@@ -14,8 +17,14 @@ export class MedicoHome2Component implements OnInit {
   userInfo: any; 
   citasContador: number = 0;
   citasProximas: CitasModel[] = [];
+  mostrarEncuesta: boolean = false;
+  
 
-  constructor(private citasService: CitasService) {}
+  // Encuesta
+  encuestas = new EncuestasModel('', '', '', '', '', '', '', '', '');
+  isFormSubmitted: boolean = false;
+
+  constructor(private citasService: CitasService, private encuestasService: EncuestasService, private router: Router) {}
 
   ngOnInit() {
     this.updateClock(); 
@@ -34,6 +43,8 @@ export class MedicoHome2Component implements OnInit {
     this.second = now.getSeconds().toString().padStart(2, '0');
   }
 
+
+
   obtenerCitasMedico() {
     this.citasService.obtenerCitas().subscribe(
       (citas: CitasModel[]) => {
@@ -48,5 +59,39 @@ export class MedicoHome2Component implements OnInit {
         console.error('Error al obtener citas del médico:', error);
       }
     );
+  }
+
+  onSubmit() {
+    console.log('onSubmit');
+
+    if (!this.isFormFilled()) {
+      alert('Por favor, complete todos los campos obligatorios.');
+      return;
+    }
+
+    this.encuestas.documento = `${this.userInfo.documento}`;
+    this.encuestas.email = `${this.userInfo.email}`;
+    this.encuestas.rol = `${this.userInfo.rol}`;
+
+    this.encuestasService.agregarEncuestas(this.encuestas).subscribe(
+      (data) => {
+        alert('Encuestas registrada correctamente');
+        this.router.navigate(['/index']); 
+      },
+      (error) => {
+        if (error.status === 500) {
+          alert('Verifica los campos o la encuesta ya está registrada');
+        } else {
+          console.error(error);
+        }
+      }
+    );
+  }
+  isFormFilled(): boolean {
+    return !!this.encuestas.calificacion && !!this.encuestas.facilidad && !!this.encuestas.seguridad && !!this.encuestas.velocidad && !!this.encuestas.opinion;
+  }
+  salir() {
+    this.mostrarEncuesta = false;
+    window.location.href = '/index';
   }
 }

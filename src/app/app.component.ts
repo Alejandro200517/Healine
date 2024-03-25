@@ -99,12 +99,36 @@ export class AppComponent {
     url.includes('medico-citas') ||
     url.includes('registrar-citas-medico') ||
     url.includes('medico-pacientes') ||
-
-
-
+    url.includes('medico-agenda') ||
+    url.includes('registrar-agenda-medico') ||
+    url.includes('medico-examenes') ||
+    url.includes('registrar-examenes-medico') ||
+    url.includes('editar-consultar-examenes-medico') ||
+    url.includes('editar-perfil') ||
+    url.includes('medico-ordenes') ||
+    url.includes('registrar-ordenes-medico') ||
+    url.includes('editar-ordenes-medico') ||
+    url.includes('medico-formulas') ||
+    url.includes('registrar-formulas-medico') ||
+    url.includes('registrar-incapacidades-medico') ||
 
     url.includes('paciente-home') ||
     url.includes('secretaria-home') ||
+
+    url.includes('encuestas-home') ||
+
+
+
+    url.includes('paciente-home-2') || 
+    url.includes('citas') || 
+    url.includes('afiliacion') ||  
+    url.includes('certificaciones') || 
+    url.includes('historia') || 
+    url.includes('admin-home-2') || 
+    url.includes('editar-perfil') || 
+    url.includes('registrar-peticion') || 
+    url.includes('editar-perfil-paciente') || 
+
     
     this.shouldShowAdminMenu(url);
   }
