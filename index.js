@@ -35,6 +35,9 @@ require('./Adminstrador/users')(app, conexion);
 require('./Adminstrador/historial')(app, conexion);
 
 
+require('./Adminstrador/encuestas')(app, conexion);
+
+
 // API Medico
 require('./Medico/citas-medico')(app, conexion);
 
