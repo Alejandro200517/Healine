@@ -94,10 +94,10 @@ module.exports = function (app, conexion) {
 
     app.put('/users/actualizar/:id', (req, res) => {
         const { id } = req.params;
-        const { tipoDoc, documento, primerNombre, segundoNombre, primerApellido, segundoApellido, email, numero, status, rol, especialidad, sede } = req.body;
+        const { documento, tipoDoc, primerNombre, segundoNombre, primerApellido, segundoApellido, email, numero, status, rol, especialidad, sede } = req.body;
 
         const query = `
-            UPDATE users SET tipoDoc='${tipoDoc}', documento='${documento}', primerNombre='${primerNombre}', segundoNombre='${segundoNombre}', primerApellido='${primerApellido}', segundoApellido='${segundoApellido}', email='${email}', numero='${numero}', status='${status}', rol='${rol}', especialidad='${especialidad}', sede='${sede}' WHERE documento='${id}';`;
+            UPDATE users SET documento='${documento}', tipoDoc='${tipoDoc}', primerNombre='${primerNombre}', segundoNombre='${segundoNombre}', primerApellido='${primerApellido}', segundoApellido='${segundoApellido}', email='${email}', numero='${numero}', status='${status}', rol='${rol}', especialidad='${especialidad}', sede='${sede}' WHERE documento='${id}';`;
 
         conexion.query(query, (error) => {
             if (error) {
