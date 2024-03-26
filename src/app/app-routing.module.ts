@@ -127,7 +127,30 @@ import { CitasComponent } from './pages/paciente/citas/citas.component';
 import { HistoriaComponent } from './pages/paciente/historia/historia.component';
 import { RegistrarPeticionComponent } from './pages/paciente/registrar-peticion/registrar-peticion.component';
 import { EditarPerfilPacienteComponent } from './pages/paciente/editar-perfil-paciente/editar-perfil-paciente.component';
+import { SecretariaHomeComponent } from './pages/secretaria/secretaria-home/secretaria-home.component';
+import { PacientesConsultarComponent } from './pages/secretaria/pacientes/pacientes-consultar/pacientes-consultar.component';
+import { SecretariaHome2Component } from './pages/secretaria/secretaria-home-2/secretaria-home-2.component';
+import { PacientesEditarComponent } from './pages/secretaria/pacientes/pacientes-editar/pacientes-editar.component';
+import { AgendaConsultarComponent } from './pages/secretaria/agenda/agenda-consultar/agenda-consultar.component';
+import { AgendaEditarComponent } from './pages/secretaria/agenda/agenda-editar/agenda-editar.component';
+import { CitasConsultarComponent } from './pages/secretaria/citas/citas-consultar/citas-consultar.component';
+import { CitasEditarComponent } from './pages/secretaria/citas/citas-editar/citas-editar.component';
+import { ExamenesConsultarComponent } from './pages/secretaria/examenes/examenes-consultar/examenes-consultar.component';
+import { ExamenesEditarComponent } from './pages/secretaria/examenes/examenes-editar/examenes-editar.component';
+import { SedesConsultarComponent } from './pages/secretaria/sedes/sedes-consultar/sedes-consultar.component';
+import { SedesEditarComponent } from './pages/secretaria/sedes/sedes-editar/sedes-editar.component';
+import { PqrsListarSecretariaComponent } from './pages/secretaria/pqrs/pqrs-listar-secretaria/pqrs-listar-secretaria.component';
+import { PqrsEditarSecretariaComponent } from './pages/secretaria/pqrs/pqrs-editar-secretaria/pqrs-editar-secretaria.component';
+import { HistoriaConsultarSecretariaComponent } from './pages/secretaria/historia-medica-secretaria/historia-consultar-secretaria/historia-consultar-secretaria.component';
+import { OrdenesConsultarSecretariaComponent } from './pages/secretaria/ordenes-secretaria/ordenes-consultar-secretaria/ordenes-consultar-secretaria.component';
+import { IncapacidadConsultarSecretariaComponent } from './pages/secretaria/incapacidad-secretaria/incapacidad-consultar-secretaria/incapacidad-consultar-secretaria.component';
+import { CitasRegistrarSecretariaComponent } from './pages/secretaria/citas/citas-registrar-secretaria/citas-registrar-secretaria.component';
+import { AgendaRegistrarSecretariaComponent } from './pages/secretaria/agenda/agenda-registrar-secretaria/agenda-registrar-secretaria.component';
+import { FormulasConsultarSecretariaComponent } from './pages/secretaria/formulas-secretaria/formulas-consultar-secretaria/formulas-consultar-secretaria.component';
+import { EditarPerfilSecretariaComponent } from './pages/secretaria/editar-perfil-secretaria/editar-perfil-secretaria.component';
 
+
+// Secretaria
 
 
 const routes: Routes = [
@@ -261,6 +284,29 @@ const routes: Routes = [
   { path:'registrar-peticion', component: RegistrarPeticionComponent },
   { path:'editar-perfil-paciente', component: EditarPerfilPacienteComponent },
 
+
+  // Pages Secretaria
+  { path:'secretaria-home', component: SecretariaHomeComponent},
+  { path:'secretaria-home-2', component: SecretariaHome2Component},
+  { path:'pacientes-consultar', component: PacientesConsultarComponent},
+  { path:'pacientes-editar/editar/:id', component: PacientesEditarComponent},
+  { path:'agenda-consultar', component: AgendaConsultarComponent},
+  { path:'agenda-editar/editar/:id', component: AgendaEditarComponent},
+  { path:'citas-consultar', component: CitasConsultarComponent},
+  { path:'citas-editar/editar/:id', component: CitasEditarComponent},
+  { path:'examenes-consultar', component: ExamenesConsultarComponent},
+  { path:'examenes-editar/editar/:id', component: ExamenesEditarComponent},
+  { path:'sedes-consultar', component: SedesConsultarComponent},
+  { path:'sedes-editar/editar/:id', component: SedesEditarComponent},
+  { path:'listar-PQRS-secretaria', component: PqrsListarSecretariaComponent},
+  { path:'pqrs-editar-secretaria/editar/:id', component: PqrsEditarSecretariaComponent},
+  { path:'historia-consultar-secretaria', component: HistoriaConsultarSecretariaComponent},
+  { path:'ordenes-consultar-secretaria', component: OrdenesConsultarSecretariaComponent},
+  { path:'formulas-consultar-secretaria', component: FormulasConsultarSecretariaComponent},
+  { path:'incapacidad-consultar-secretaria', component: IncapacidadConsultarSecretariaComponent},
+  { path:'agenda-registrar-secretaria', component: AgendaRegistrarSecretariaComponent},
+  { path:'citas-registrar-secretaria', component: CitasRegistrarSecretariaComponent},
+  { path:'editar-perfil-secretaria', component: EditarPerfilSecretariaComponent},
   
 
 

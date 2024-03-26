@@ -1,0 +1,48 @@
+<div class="container mt-4" >
+    <a href="/examenes-consultar" style="margin-left: 19%;">
+        <button class="boxed-btn" style="padding: 10px; font-weight: 600; text-decoration: none;">↺ Atrás</button>
+    </a>
+</div>
+
+<div class="container container54 mt-4" style="max-width: 800px; padding: 20px; box-shadow: 0 4px 8px #000000; background-color: transparent;">
+    <h1 class="title1">Editar Examen Médico</h1>
+    
+    <div class="examen-medico">
+        <form id="examenMedicoForm" #examenesForm="ngForm" (ngSubmit)="onSubmit()">
+            
+            <div class="examen-info">
+                <label for="formula" class="font-weight-bold mr-2">Cita:</label>
+                <select required [(ngModel)]="examenes.cita" name="formula" id="formula" class="form-control">
+                    <option *ngFor="let cita of citas" [ngValue]="cita.id + ' ' + cita.fecha">
+                        {{ cita.hora }} - {{ cita.fecha }} - {{ cita.paciente }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="examen-info">
+                <label for="paciente" class="font-weight-bold mr-2">Paciente:</label>
+                <select required [(ngModel)]="examenes.paciente" name="paciente" id="paciente" class="form-control">
+                    <option *ngFor="let user of usersPacientes" [ngValue]="user.documento + ' ' + user.primerNombre + ' ' + (user.segundoNombre ? user.segundoNombre + ' ' : '') + user.primerApellido + ' ' + (user.segundoApellido ? user.segundoApellido : '')">
+                        {{ user.documento }} - {{ user.primerNombre }} {{ user.segundoNombre }} {{ user.primerApellido }} {{ user.segundoApellido }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="examen-info">
+                <label for="nomExamen" class="font-weight-bold mr-2">Nombre del Examen:</label>
+                <input required [(ngModel)]="examenes.nombre" type="text" id="nomExamen" name="nomExamen" placeholder="Nombre Del Examen Enviado" class="form-control">
+            </div>
+
+            <div class="examen-info">
+                <label for="resultado" class="font-weight-bold mr-2">Resultado del Examen:</label>
+                <textarea required [(ngModel)]="examenes.resultado" id="resultado" name="resultado" placeholder="Ingrese el resultado del examen" class="form-control"></textarea>
+            </div>
+            
+            <div class="examen-info text-center mt-3">
+                <button class="btn btn-primary" [disabled]="!examenesForm.form.valid && isFormSubmitted" type="submit">
+                    Guardar Cambios
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -127,9 +127,13 @@
             
                 <div class="contentMedico" style="display: flex; flex-direction: column; align-items: center;">
                     <div style="display: flex; justify-content: flex-end; width: 100%;">
+                        <a href="/medico-examenes">
+                            <button class="button button-contactForm boxed-btn6" onclick="goBack()">↺ Atrás</button>
+                        </a>
                         <a (click)="mostrarEncuesta = true">
                             <button class="button button-contactForm boxed-btn5" style="padding: 7px 20px; font-size: 12px;">Cerrar Sesión</button>
                         </a>
+                        
                     </div>
                     
                     <div class="encuesta-satisfaccion" *ngIf="mostrarEncuesta">
@@ -251,10 +255,12 @@
                             <button type="submit" class="button button-contactForm boxed-btn col-xl-7" style="border-radius: 20px; width: 100%;">Enviar</button>
                         </form>
                     </div>
+                    
                     <div class="welcomeTitle" style="text-align: center;">
                         <h1>¡¡{{ userInfo.primerNombre }}!!</h1>
                         <p>Consulta Y Edita Los Examenes Medicos De Los Pacientes</p>
                     </div> 
+                    
 
                     <div class="container mt-5">
                         <div class="form-group">

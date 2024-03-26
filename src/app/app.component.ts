@@ -129,7 +129,32 @@ export class AppComponent {
     url.includes('registrar-peticion') || 
     url.includes('editar-perfil-paciente') || 
 
-    
+
+
+
+
+    url.includes('secretaria-home') ||
+    url.includes('secretaria-home-2') ||
+    url.includes('pacientes-consultar') ||
+    url.includes('pacientes-editar') ||
+    url.includes('agenda-consultar') ||
+    url.includes('agenda-editar') ||
+    url.includes('citas-consultar') ||
+    url.includes('citas-editar') ||
+    url.includes('examenes-consultar') ||
+    url.includes('examenes-editar') ||
+    url.includes('sedes-consultar') ||
+    url.includes('sedes-editar') ||
+    url.includes('listar-PQRS-secretaria') ||
+    url.includes('pqrs-editar-secretaria') ||
+    url.includes('historia-consultar-secretaria') ||
+    url.includes('ordenes-consultar-secretaria') ||
+    url.includes('formulas-consultar-secretaria') ||
+    url.includes('incapacidad-consultar-secretaria') ||
+    url.includes('agenda-registrar-secretaria') ||
+    url.includes('citas-registrar-secretaria') ||
+    url.includes('editar-perfil-secretaria') ||
+
     this.shouldShowAdminMenu(url);
   }
 

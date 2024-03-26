@@ -331,6 +331,7 @@ h3 {
   text-transform: uppercase;
   cursor: pointer;
   border-radius: 10px;
+  transition: 0.4s;
 }
 
 .boxed-btn:hover {
@@ -567,6 +568,29 @@ h3 {
 
 
 
+.boxed-btn6 {
+  background: #fff;
+  color: #131313;
+  display: inline-block;
+  padding: 4px 44px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: 0;
+  border: 1px solid #0063ccc5;
+  letter-spacing: 3px;
+  text-align: center;
+  color: #0063ccc5 !important;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.boxed-btn6:hover {
+  background: #0063ccc5;
+  color: #fff !important;
+  border: 1px solid #0063ccc5;
+}
 
 
 .line-button {

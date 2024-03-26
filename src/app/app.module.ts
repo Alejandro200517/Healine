@@ -131,6 +131,29 @@ import { EditarPerfilPacienteComponent } from './pages/paciente/editar-perfil-pa
 
 
 
+
+import { SecretariaHomeComponent } from './pages/secretaria/secretaria-home/secretaria-home.component';
+import { SecretariaHome2Component } from './pages/secretaria/secretaria-home-2/secretaria-home-2.component';
+import { PacientesConsultarComponent } from './pages/secretaria/pacientes/pacientes-consultar/pacientes-consultar.component';
+import { AgendaConsultarComponent } from './pages/secretaria/agenda/agenda-consultar/agenda-consultar.component';
+import { PacientesEditarComponent } from './pages/secretaria/pacientes/pacientes-editar/pacientes-editar.component';
+import { CitasConsultarComponent } from './pages/secretaria/citas/citas-consultar/citas-consultar.component';
+import { CitasEditarComponent } from './pages/secretaria/citas/citas-editar/citas-editar.component';
+import { ExamenesConsultarComponent } from './pages/secretaria/examenes/examenes-consultar/examenes-consultar.component';
+import { SedesConsultarComponent } from './pages/secretaria/sedes/sedes-consultar/sedes-consultar.component';
+import { AgendaEditarComponent } from './pages/secretaria/agenda/agenda-editar/agenda-editar.component';
+import { ExamenesEditarComponent } from './pages/secretaria/examenes/examenes-editar/examenes-editar.component';
+import { SedesEditarComponent } from './pages/secretaria/sedes/sedes-editar/sedes-editar.component';
+import { PqrsListarSecretariaComponent } from './pages/secretaria/pqrs/pqrs-listar-secretaria/pqrs-listar-secretaria.component';
+import { PqrsEditarSecretariaComponent } from './pages/secretaria/pqrs/pqrs-editar-secretaria/pqrs-editar-secretaria.component';
+import { HistoriaConsultarSecretariaComponent } from './pages/secretaria/historia-medica-secretaria/historia-consultar-secretaria/historia-consultar-secretaria.component';
+import { OrdenesConsultarSecretariaComponent } from './pages/secretaria/ordenes-secretaria/ordenes-consultar-secretaria/ordenes-consultar-secretaria.component';
+import { FormulasConsultarSecretariaComponent } from './pages/secretaria/formulas-secretaria/formulas-consultar-secretaria/formulas-consultar-secretaria.component';
+import { IncapacidadConsultarSecretariaComponent } from './pages/secretaria/incapacidad-secretaria/incapacidad-consultar-secretaria/incapacidad-consultar-secretaria.component';
+import { AgendaRegistrarSecretariaComponent } from './pages/secretaria/agenda/agenda-registrar-secretaria/agenda-registrar-secretaria.component';
+import { CitasRegistrarSecretariaComponent } from './pages/secretaria/citas/citas-registrar-secretaria/citas-registrar-secretaria.component';
+import { EditarPerfilSecretariaComponent } from './pages/secretaria/editar-perfil-secretaria/editar-perfil-secretaria.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -238,6 +261,30 @@ import { EditarPerfilPacienteComponent } from './pages/paciente/editar-perfil-pa
     EditarPerfilComponent,
     RegistrarPeticionComponent,
     EditarPerfilPacienteComponent,
+
+
+
+    SecretariaHomeComponent,
+    SecretariaHome2Component,
+    PacientesConsultarComponent,
+    PacientesEditarComponent,
+    AgendaConsultarComponent,
+    CitasConsultarComponent,
+    CitasEditarComponent,
+    ExamenesConsultarComponent,
+    ExamenesEditarComponent,
+    SedesConsultarComponent,
+    SedesEditarComponent,
+    AgendaEditarComponent,
+    PqrsListarSecretariaComponent,
+    PqrsEditarSecretariaComponent,
+    HistoriaConsultarSecretariaComponent,
+    OrdenesConsultarSecretariaComponent,
+    FormulasConsultarSecretariaComponent,
+    IncapacidadConsultarSecretariaComponent,
+    AgendaRegistrarSecretariaComponent,
+    CitasRegistrarSecretariaComponent,
+    EditarPerfilSecretariaComponent,
     
   ],
   imports: [
