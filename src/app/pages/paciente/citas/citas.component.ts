@@ -14,7 +14,7 @@ import { EncuestasModel } from 'src/app/shared/models/encuestas.model';
   templateUrl: './citas.component.html',
   styleUrls: ['./citas.component.css']
 })
-export class CitasComponent {
+export class CitasComponent implements OnInit {
   citas = new CitasModel('', '', '', '', '', '', '', '');
   usersPacientes: UsersModel[] = [];
   especialidades: EspecialidadesModel[] = [];
@@ -26,15 +26,12 @@ export class CitasComponent {
   // Encuesta
   encuestas = new EncuestasModel('', '', '', '', '', '', '', '', '');
 
-  
-
   constructor(
     private citasService: CitasService,
     private usersService: UsersService,
     private especialidadesService: EspecialidadesService,
     private router: Router,
     private encuestasService: EncuestasService,
-    
   ) {}
 
   ngOnInit() {
@@ -72,11 +69,12 @@ export class CitasComponent {
     this.usersMedicos = this.usersMedicos.filter(medico => medico.especialidad === especialidadSeleccionada);
   }
 
-  onSubmit() {
-    console.log('onSubmit');
 
-    if (!this.isFormFilledd()) {
-      alert('Por favor, complete todos los campos obligatorios.');
+  onSubmitEncuestas() {
+    console.log('onSubmitEncuestas');
+
+    if (!this.isEncuestasFormFilled()) {
+      alert('Por favor, complete todos los campos de la encuesta.');
       return;
     }
 
@@ -86,7 +84,7 @@ export class CitasComponent {
 
     this.encuestasService.agregarEncuestas(this.encuestas).subscribe(
       (data) => {
-        alert('Encuestas registrada correctamente');
+        alert('Encuesta registrada correctamente');
         this.router.navigate(['/index']); 
       },
       (error) => {
@@ -97,16 +95,17 @@ export class CitasComponent {
         }
       }
     );
+  }
 
+  onSubmitCitas() {
+    console.log('onSubmitCitas');
 
-
-
-
-    if (!this.isFormFilled()) {
-      alert('Por favor, complete todos los campos obligatorios.');
+    if (!this.isCitasFormFilled()) {
+      alert('Por favor, complete todos los campos de la cita médica.');
       return;
     }
 
+    // Procesar el formulario de citas médicas
     this.citas.paciente = `${this.userInfo.documento} - ${this.userInfo.primerNombre} ${this.userInfo.segundoNombre ? this.userInfo.segundoNombre + ' ' : ''}${this.userInfo.primerApellido} ${this.userInfo.segundoApellido ? this.userInfo.segundoApellido : ''}`;
 
     const hoy = new Date();
@@ -142,11 +141,13 @@ export class CitasComponent {
     );
   }
 
-  isFormFilled(): boolean {
+  // Verificar si todos los campos del formulario de citas están llenos
+  isCitasFormFilled(): boolean {
     return !!this.citas.fecha && !!this.citas.hora && !!this.citas.medico && !!this.citas.especialidad;
   }
 
-  isFormFilledd(): boolean {
+  // Verificar si todos los campos del formulario de encuestas están llenos
+  isEncuestasFormFilled(): boolean {
     return !!this.encuestas.calificacion && !!this.encuestas.facilidad && !!this.encuestas.seguridad && !!this.encuestas.velocidad && !!this.encuestas.opinion;
   }
 

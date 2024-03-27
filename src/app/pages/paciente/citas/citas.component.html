@@ -18,7 +18,7 @@
 <div class="encuesta-satisfaccion" *ngIf="mostrarEncuesta">
     <button class="cerrar-btn" (click)="mostrarEncuesta = false">&#10006;</button>
     <h3 style="text-align: center; font-size: 24px; margin-bottom: 20px; font-weight: 600; color: #181818;">Encuesta de Satisfacción</h3>
-    <form #encuestasForm="ngForm" (ngSubmit)="onSubmit()" style="max-width: 500px; margin: 0 auto; background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);max-height: 400px; overflow-y: auto;  ">
+    <form #encuestasForm="ngForm" (ngSubmit)="onSubmitEncuestas()" style="max-width: 500px; margin: 0 auto; background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);max-height: 400px; overflow-y: auto;  ">
         <div style="margin-bottom: 20px;">
             <label style="font-weight: bold; font-size: 18px; margin-bottom: 10px; display: block;">Calificación del Aplicativo:</label>
             <div style="display: flex; justify-content: space-between;">
@@ -150,7 +150,7 @@
                     <h1 class="custom-title" style="font-size: 45px; color: #2c91d5; padding: 5px; text-shadow: 1px 1px 2px #000000;">Solicitar Cita Médica</h1>
                 </div>
                 <br>
-                <form style="width: 90%;" class="formCitaBuscar" #citasForm="ngForm" (ngSubmit)="onSubmit()">
+                <form style="width: 90%;" class="formCitaBuscar" #citasForm="ngForm" (ngSubmit)="onSubmitCitas()">
                     <div style="margin-right: 7%; margin-left: 15%; max-width: 78%;">
                         <label class="labelCitaBuscar" for="fecha" style="font-size: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #101010;">
                             Fecha
@@ -159,10 +159,10 @@
                     </div>
     
                     <div style="margin-right: 7%; margin-left: 15%; max-width: 78%; margin-top: -5px;">
-                        <label class="labelCitaBuscar" for="horaInicio" style="font-size: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #101010; ">
+                        <label class="labelCitaBuscar" for="hora" style="font-size: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #101010; ">
                             Hora
                         </label>
-                        <input class="selectLogin" name="hora_inicio" id="hora_inicio" type="time" placeholder="hora_inicio" required [(ngModel)]="citas.hora" style="margin-bottom: 20px; border-radius: 17px; width: 100%; color: rgb(14, 14, 14); background-color: rgb(255, 255, 255); border: 1px solid #9e9e9e; font-size: 20px;">
+                        <input class="selectLogin" name="hora" id="hora" type="time" placeholder="hora" required [(ngModel)]="citas.hora" style="margin-bottom: 20px; border-radius: 17px; width: 100%; color: rgb(14, 14, 14); background-color: rgb(255, 255, 255); border: 1px solid #9e9e9e; font-size: 20px;">
                     </div>
     
                     <!-- Muestra la información del paciente -->
