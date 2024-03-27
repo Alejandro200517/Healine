@@ -1,4 +1,73 @@
+/**
+ * @swagger
+ * tags:
+ *   name: Incapacidad
+ *   description: API para la gestión de incapacidades médicas
+ */
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Incapacidad:
+ *       type: object
+ *       required:
+ *         - paciente
+ *         - medico
+ *         - fecha
+ *         - tipo
+ *         - detalles
+ *       properties:
+ *         id:
+ *           type: integer
+ *           description: ID único de la incapacidad
+ *         paciente:
+ *           type: string
+ *           description: ID del paciente asociado a la incapacidad
+ *         medico:
+ *           type: string
+ *           description: ID del médico que emitió la incapacidad
+ *         fecha:
+ *           type: string
+ *           format: date
+ *           description: Fecha de emisión de la incapacidad
+ *         tipo:
+ *           type: string
+ *           description: Tipo de incapacidad (temporal/permanente)
+ *         detalles:
+ *           type: string
+ *           description: Detalles adicionales sobre la incapacidad
+ *       example:
+ *         paciente: "1126447331"
+ *         medico: "123456789"
+ *         fecha: "2024-03-25"
+ *         tipo: "temporal"
+ *         detalles: "Reposo por una semana debido a gripe"
+ */
+
+
 module.exports = function (app, conexion) {
+
+
+
+    /**
+     * @swagger
+     * /incapacidad:
+     *   get:
+     *     summary: Retorna la lista de todas las incapacidades médicas
+     *     tags: [Incapacidad]
+     *     responses:
+     *       200:
+     *         description: La lista de incapacidades médicas
+     *         content:
+     *           application/json:
+     *             schema:
+     *               type: array
+     *               items:
+     *                 $ref: '#/components/schemas/Incapacidad'
+     *       404:
+     *         description: No se encontraron incapacidades médicas
+     */
 
     app.get('/incapacidad', (req, res) => {
         const query = `SELECT * FROM incapacidad;`
@@ -13,6 +82,31 @@ module.exports = function (app, conexion) {
         })
     })
 
+
+
+    /**
+     * @swagger
+     * /incapacidad/{id}:
+     *   get:
+     *     summary: Obtiene la incapacidad médica por su ID
+     *     tags: [Incapacidad]
+     *     parameters:
+     *       - in: path
+     *         name: id
+     *         schema:
+     *           type: integer
+     *         required: true
+     *         description: ID de la incapacidad médica
+     *     responses:
+     *       200:
+     *         description: Información de la incapacidad médica por ID
+     *         content:
+     *           application/json:
+     *             schema:
+     *               $ref: '#/components/schemas/Incapacidad'
+     *       404:
+     *         description: Incapacidad médica no encontrada
+     */
     app.get('/incapacidad/:id', (req, res) => {
         const { id } = req.params
 
@@ -28,6 +122,26 @@ module.exports = function (app, conexion) {
         })
     })
 
+
+
+    /**
+     * @swagger
+     * /incapacidad/agregar:
+     *   post:
+     *     summary: Crea una nueva incapacidad médica
+     *     tags: [Incapacidad]
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             $ref: '#/components/schemas/Incapacidad'
+     *     responses:
+     *       200:
+     *         description: La incapacidad médica se registró correctamente
+     *       500:
+     *         description: Error interno del servidor al registrar la incapacidad médica
+     */
     app.post('/incapacidad/agregar', (req, res) => {
         const incapacida = {
             paciente: req.body.paciente,
@@ -50,6 +164,33 @@ module.exports = function (app, conexion) {
         });
     });
 
+
+
+    /**
+     * @swagger
+     * /incapacidad/actualizar/{id}:
+     *   put:
+     *     summary: Actualiza una incapacidad médica existente
+     *     tags: [Incapacidad]
+     *     parameters:
+     *       - in: path
+     *         name: id
+     *         schema:
+     *           type: integer
+     *         required: true
+     *         description: ID de la incapacidad médica a actualizar
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             $ref: '#/components/schemas/Incapacidad'
+     *     responses:
+     *       200:
+     *         description: La incapacidad médica se actualizó correctamente
+     *       500:
+     *         description: Error interno del servidor al actualizar la incapacidad médica
+     */
     app.put('/incapacidad/actualizar/:id', (req, res) => {
         const { id } = req.params;
         const { paciente, medico, fecha, tipo, detalles } = req.body;
@@ -67,6 +208,27 @@ module.exports = function (app, conexion) {
         });
     });
 
+
+
+    /**
+     * @swagger
+     * /incapacidad/borrar/{id}:
+     *   delete:
+     *     summary: Elimina una incapacidad médica existente
+     *     tags: [Incapacidad]
+     *     parameters:
+     *       - in: path
+     *         name: id
+     *         schema:
+     *           type: integer
+     *         required: true
+     *         description: ID de la incapacidad médica a eliminar
+     *     responses:
+     *       200:
+     *         description: La incapacidad médica se eliminó correctamente
+     *       500:
+     *         description: Error interno del servidor al eliminar la incapacidad médica
+     */
     app.delete('/incapacidad/borrar/:id', (req, res) => {
         const { id } = req.params
 

@@ -1,6 +1,67 @@
+/**
+ * @swagger
+ * tags:
+ *   name: Sedes
+ *   description: API para la gestión de sedes
+ */
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Sede:
+ *       type: object
+ *       required:
+ *         - nombreSede
+ *         - direccion
+ *         - telefonoSede
+ *         - tipoServicio
+ *       properties:
+ *         id:
+ *           type: integer
+ *           description: ID único de la sede
+ *         nombreSede:
+ *           type: string
+ *           description: Nombre de la sede
+ *         direccion:
+ *           type: string
+ *           description: Dirección de la sede
+ *         telefonoSede:
+ *           type: string
+ *           description: Teléfono de la sede
+ *         tipoServicio:
+ *           type: string
+ *           description: Tipo de servicio ofrecido en la sede
+ *       example:
+ *         nombreSede: "Sede Principal"
+ *         direccion: "Calle 123"
+ *         telefonoSede: "123456789"
+ *         tipoServicio: "Consulta General"
+ */
+
+
 module.exports = function (app, conexion) {
 
-    // Obtener todas las sedes
+    
+    
+    /**
+     * @swagger
+     * /sedes:
+     *   get:
+     *     summary: Retorna la lista de todas las sedes
+     *     tags: [Sedes]
+     *     responses:
+     *       200:
+     *         description: La lista de sedes
+     *         content:
+     *           application/json:
+     *             schema:
+     *               type: array
+     *               items:
+     *                 $ref: '#/components/schemas/Sede'
+     *       404:
+     *         description: No se encontraron sedes
+     */
     app.get('/sedes', (req, res) => {
         const query = `SELECT * FROM sedes;`
         conexion.query(query, (error, resultado) => {
@@ -14,7 +75,31 @@ module.exports = function (app, conexion) {
         })
     })
 
-    // Obtener una sede por ID
+    
+    
+    /**
+     * @swagger
+     * /sedes/{id}:
+     *   get:
+     *     summary: Obtiene una sede por su ID
+     *     tags: [Sedes]
+     *     parameters:
+     *       - in: path
+     *         name: id
+     *         schema:
+     *           type: integer
+     *         required: true
+     *         description: ID de la sede
+     *     responses:
+     *       200:
+     *         description: Información de la sede por ID
+     *         content:
+     *           application/json:
+     *             schema:
+     *               $ref: '#/components/schemas/Sede'
+     *       404:
+     *         description: Sede no encontrada
+     */
     app.get('/sedes/:id', (req, res) => {
         const { id } = req.params
 
@@ -30,7 +115,27 @@ module.exports = function (app, conexion) {
         })
     })
 
-    // Agregar una nueva sede
+    
+    
+
+    /**
+     * @swagger
+     * /sedes/agregar:
+     *   post:
+     *     summary: Crea una nueva sede
+     *     tags: [Sedes]
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             $ref: '#/components/schemas/Sede'
+     *     responses:
+     *       200:
+     *         description: La sede se registró correctamente
+     *       500:
+     *         description: Error interno del servidor al agregar la sede
+     */
     app.post('/sedes/agregar', (req, res) => {
         const sede = {
             nombreSede: req.body.nombreSede,
@@ -51,7 +156,33 @@ module.exports = function (app, conexion) {
         });
     });
 
-    // Actualizar una sede por ID
+    
+    
+    /**
+     * @swagger
+     * /sedes/actualizar/{id}:
+     *   put:
+     *     summary: Actualiza una sede existente
+     *     tags: [Sedes]
+     *     parameters:
+     *       - in: path
+     *         name: id
+     *         schema:
+     *           type: integer
+     *         required: true
+     *         description: ID de la sede a actualizar
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             $ref: '#/components/schemas/Sede'
+     *     responses:
+     *       200:
+     *         description: La sede se actualizó correctamente
+     *       500:
+     *         description: Error interno del servidor al actualizar la sede
+     */
     app.put('/sedes/actualizar/:id', (req, res) => {
         const { id } = req.params;
         const { nombreSede, direccion, telefonoSede, tipoServicio } = req.body;
@@ -69,7 +200,28 @@ module.exports = function (app, conexion) {
         });
     });
 
-    // Eliminar una sede por ID
+    
+    
+
+    /**
+     * @swagger
+     * /sedes/borrar/{id}:
+     *   delete:
+     *     summary: Elimina una sede existente
+     *     tags: [Sedes]
+     *     parameters:
+     *       - in: path
+     *         name: id
+     *         schema:
+     *           type: integer
+     *         required: true
+     *         description: ID de la sede a eliminar
+     *     responses:
+     *       200:
+     *         description: La sede se eliminó correctamente
+     *       500:
+     *         description: Error interno del servidor al eliminar la sede
+     */
     app.delete('/sedes/borrar/:id', (req, res) => {
         const { id } = req.params
 

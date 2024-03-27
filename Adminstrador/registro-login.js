@@ -2,10 +2,6 @@ const bcrypt = require('bcrypt');
 
 module.exports = function (app, conexion) {
 
-    
-    
-    
-    
     // Endpoint para registrar usuarios
     app.post('/usuarios/agregar', async (req, res) => {
         const users = {

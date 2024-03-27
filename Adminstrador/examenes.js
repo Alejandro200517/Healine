@@ -1,5 +1,72 @@
+/**
+ * @swagger
+ * tags:
+ *   name: Examenes
+ *   description: API para la gestión de exámenes médicos
+ */
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Examen:
+ *       type: object
+ *       required:
+ *         - cita
+ *         - paciente
+ *         - nombre
+ *         - resultado
+ *         - fecha
+ *       properties:
+ *         id:
+ *           type: integer
+ *           description: ID único del examen
+ *         cita:
+ *           type: string
+ *           description: ID de la cita asociada al examen
+ *         paciente:
+ *           type: string
+ *           description: ID del paciente
+ *         nombre:
+ *           type: string
+ *           description: Nombre del examen
+ *         resultado:
+ *           type: string
+ *           description: Resultado del examen
+ *         fecha:
+ *           type: string
+ *           format: date
+ *           description: Fecha del examen
+ *       example:
+ *         cita: "123456"
+ *         paciente: "1126447331"
+ *         nombre: "Hemograma completo"
+ *         resultado: "Normal"
+ *         fecha: "2024-03-25"
+ */
+
 module.exports = function (app, conexion) {
 
+
+
+    /**
+     * @swagger
+     * /examenes:
+     *   get:
+     *     summary: Retorna la lista de todos los exámenes médicos
+     *     tags: [Examenes]
+     *     responses:
+     *       200:
+     *         description: La lista de exámenes médicos
+     *         content:
+     *           application/json:
+     *             schema:
+     *               type: array
+     *               items:
+     *                 $ref: '#/components/schemas/Examen'
+     *       404:
+     *         description: No se encontraron exámenes médicos
+     */
     app.get('/examenes', (req, res) => {
         const query = `SELECT * FROM examenes;`
         conexion.query(query, (error, resultado) => {
@@ -13,6 +80,31 @@ module.exports = function (app, conexion) {
         })
     })
 
+
+
+    /**
+     * @swagger
+     * /examenes/{id}:
+     *   get:
+     *     summary: Obtiene el examen médico por su ID
+     *     tags: [Examenes]
+     *     parameters:
+     *       - in: path
+     *         name: id
+     *         schema:
+     *           type: integer
+     *         required: true
+     *         description: ID del examen médico
+     *     responses:
+     *       200:
+     *         description: Información del examen médico por ID
+     *         content:
+     *           application/json:
+     *             schema:
+     *               $ref: '#/components/schemas/Examen'
+     *       404:
+     *         description: Examen médico no encontrado
+     */
     app.get('/examenes/:id', (req, res) => {
         const { id } = req.params
 
@@ -28,6 +120,26 @@ module.exports = function (app, conexion) {
         })
     })
 
+
+
+    /**
+     * @swagger
+     * /examenes/agregar:
+     *   post:
+     *     summary: Crea un nuevo examen médico
+     *     tags: [Examenes]
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             $ref: '#/components/schemas/Examen'
+     *     responses:
+     *       200:
+     *         description: El examen médico se registró correctamente
+     *       500:
+     *         description: Error interno del servidor al registrar el examen médico
+     */
     app.post('/examenes/agregar', (req, res) => {
         const examen = {
             cita: req.body.cita,
@@ -49,6 +161,32 @@ module.exports = function (app, conexion) {
         });
     });
 
+
+    /**
+     * @swagger
+     * /examenes/actualizar/{id}:
+     *   put:
+     *     summary: Actualiza un examen médico existente
+     *     tags: [Examenes]
+     *     parameters:
+     *       - in: path
+     *         name: id
+     *         schema:
+     *           type: integer
+     *         required: true
+     *         description: ID del examen médico a actualizar
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             $ref: '#/components/schemas/Examen'
+     *     responses:
+     *       200:
+     *         description: El examen médico se actualizó correctamente
+     *       500:
+     *         description: Error interno del servidor al actualizar el examen médico
+     */
     app.put('/examenes/actualizar/:id', (req, res) => {
         const { id } = req.params;
         const { cita, paciente, nombre, resultado, fecha } = req.body;
@@ -66,6 +204,27 @@ module.exports = function (app, conexion) {
         });
     });
 
+
+
+    /**
+     * @swagger
+     * /examenes/borrar/{id}:
+     *   delete:
+     *     summary: Elimina un examen médico existente
+     *     tags: [Examenes]
+     *     parameters:
+     *       - in: path
+     *         name: id
+     *         schema:
+     *           type: integer
+     *         required: true
+     *         description: ID del examen médico a eliminar
+     *     responses:
+     *       200:
+     *         description: El examen médico se eliminó correctamente
+     *       500:
+     *         description: Error interno del servidor al eliminar el examen médico
+     */
     app.delete('/examenes/borrar/:id', (req, res) => {
         const { id } = req.params
 
