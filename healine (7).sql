@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-03-2024 a las 09:54:11
+-- Tiempo de generación: 06-04-2024 a las 01:14:13
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -66,8 +66,13 @@ CREATE TABLE `citas` (
 --
 
 INSERT INTO `citas` (`id`, `fecha`, `hora`, `paciente`, `medico`, `especialidad`, `facturacion`, `estado`) VALUES
-(38, '2024-04-06', '07:00:00', '1234567890 Sara Nicole Sar Ramirez', '1126447331 Alejandro Ardila Llano', 'Cirugía General', 'pendiente', 'pendiente'),
-(39, '2024-04-06', '09:00:00', '2147483647 Daniel Vera Vera', '1006004005 Juan Carlos Rodriguez Rodriguez', 'Neurología', 'pendiente', 'pendiente');
+(38, '2024-04-06', '07:00:00', '1234567890 Sara Nicole Sar Ramirez', '1126447331 Alejandro Ardila Llano', 'Cirugía General', 'pendiente', 'cancelada'),
+(39, '2024-04-06', '09:00:00', '2147483647 Daniel Vera Vera', '1006004005 Juan Carlos Rodriguez Rodriguez', 'Neurología', 'pendiente', 'pendiente'),
+(40, '2024-03-28', '03:12:00', '2147483647 - Daniel Vera Vera', '1126447331 - Alejandro Ardilaa Llano', 'Ginecología', 'pendiente', 'confirmada'),
+(41, '2024-03-28', '06:13:00', '2147483647 - Daniel Vera Vera', '1006004005 - Juan Carlos Rodriguez Rodriguez', 'Cardiología', 'pendiente', 'pendiente'),
+(42, '2024-03-28', '20:18:00', '2147483647 - Daniel Vera Vera', '1126447331 - Alejandro Ardilaa Llano', 'Cirugía General', 'pendiente', 'cancelada'),
+(43, '2024-03-28', '03:20:00', '2147483647 - Daniel Vera Vera', '1126447331 - Alejandro Ardilaa Llano', 'Neurología', 'pendiente', 'confirmada'),
+(44, '2024-03-30', '11:11:00', '2147483647 - Daniel Vera Vera', '1126447331 - Alejandro Ardilaa Llano', 'Pediatría', 'pendiente', 'cancelada');
 
 -- --------------------------------------------------------
 
@@ -132,16 +137,19 @@ CREATE TABLE `examenes` (
   `paciente` varchar(255) DEFAULT NULL,
   `nombre` varchar(255) DEFAULT NULL,
   `resultado` varchar(255) DEFAULT NULL,
-  `fecha` date DEFAULT NULL
+  `fecha` date DEFAULT NULL,
+  `estado` varchar(222) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `examenes`
 --
 
-INSERT INTO `examenes` (`id`, `cita`, `paciente`, `nombre`, `resultado`, `fecha`) VALUES
-(16, '38 2024-04-06T05:00:00.000Z', '1234567890 Sara Nicole Sar Ramirez', 'Diabetes', 'NA', '2024-03-26'),
-(17, '39 2024-04-06T05:00:00.000Z', '2147483647 Daniel Vera Vera', 'Ulceras estomacales', 'NA', '2024-03-26');
+INSERT INTO `examenes` (`id`, `cita`, `paciente`, `nombre`, `resultado`, `fecha`, `estado`) VALUES
+(16, '38 2024-04-06T05:00:00.000Z', '1234567890 Sara Nicole Sar Ramirez', 'Diabetes', 'NA', '2024-03-26', 'Autorizado'),
+(17, '39 2024-04-06T05:00:00.000Z', '2147483647 Daniel Vera Vera', 'Ulceras estomacales', 'NA', '2024-03-26', 'No Autorizada'),
+(18, '43 2024-03-28T05:00:00.000Z', '2147483647 Daniel Vera Vera', 'Rastawa', 'RastawaRastawaRastawaRastawa', '2024-04-05', 'Autorizado'),
+(19, '38 2024-04-06T05:00:00.000Z', '1234567890 Sara Yulieth Sar Ramirez', 'sasasara', 'sasasara', '2024-04-05', 'Autorizado');
 
 -- --------------------------------------------------------
 
@@ -301,7 +309,7 @@ INSERT INTO `turnomedico` (`idturnoMedico`, `tiempEst`, `numeroTurn`) VALUES
 --
 
 CREATE TABLE `users` (
-  `documento` int(11) NOT NULL,
+  `documento` bigint(250) NOT NULL,
   `tipoDoc` varchar(100) DEFAULT NULL,
   `primerNombre` varchar(100) DEFAULT NULL,
   `segundoNombre` varchar(100) NOT NULL,
@@ -322,12 +330,20 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`documento`, `tipoDoc`, `primerNombre`, `segundoNombre`, `primerApellido`, `segundoApellido`, `email`, `password`, `numero`, `status`, `rol`, `especialidad`, `sede`) VALUES
 (123456789, 'NIT', 'Healine', '', 'Healine', 'Healine', 'healine@gmail.com', '$2b$10$etLsNUTmzbPbRCquX4b/hefNOuI2TrcjG8K3rsbUwydjSYc8msM.m', '1234567890', 'True', 'Administrador', '', ''),
-(1126447331, 'CC', 'Alejandro', '', 'Ardila', 'Llano', 'aardila257@gmail.com', '$2b$10$OBa.1/QrTa1h3clrZixXT.0xv9M/STtCVEkazFw7e3z.Zd2PmzVty', '3125175148', 'True', 'Medico', 'Cirugía General', 'Hospital Universitario San Ignacio'),
+(1126447331, 'CC', 'Alejandro', '', 'Ardilaa', 'Llano', 'aardila257@gmail.com', '$2b$10$trpcgcyge.IkiyK2D2MNRO5yF9DEvWv4GH5B61s5ChOkB83mnH.vO', '3125175148', 'True', 'Medico', 'Cirugía General', 'Hospital Universitario San Ignacio'),
 (1234567890, 'CC', 'Sara', 'Yulieth', 'Sar', 'Ramirez', 'sara@gmail.com', '$2b$10$M4.ISX0Fhb2WlTGO1/L12OvlKAYt4LPq4lJqmtQ1dN1KS7nvG03z2', '3125147854', 'True', 'Paciente', '', 'Hospital Universitario San Ignacio'),
 (2147483647, 'CC', 'Nicole', '', 'Toro', 'Toro', 'nicole@gmail.com', '$2b$10$ByKpzFGQRI1bgNlzRYktfulh4fs5XWs80qpRLzgjTiQTrzNZ3ZtZa', '1597532148', 'True', 'Secretaria', '', 'Hospital Universitario San Ignacio'),
 (30406555, 'CC', 'Luz', 'Stella', 'Llano', 'Flores', 'luzllano@gmail.com', '$2b$10$4H25ukbWaDHWzV2RjJQcTu0bnitjGGPD26XzXnKw56irc42ENWAS.', '3125147854', 'True', 'Secretaria', '', 'Centro de Salud Santa Clara'),
 (2147483647, 'Pasaporte', 'Daniel', '', 'Vera', 'Vera', 'vera@gmail.com', '$2b$10$Dxoc9PksCM5x2sxOON7xN.QLLKGvOm2CsNwBb2PrtFgUwUE8EKA9m', '3145748156', 'True', 'Paciente', '', 'Clínica de Marly'),
-(1006004005, 'CC', 'Juan', 'Carlos', 'Rodriguez', 'Rodriguez', 'carlos21@gmail.com', '$2b$10$cJvhEo6c7rH4PLoUIlJYgOVCk5fGNwgkCGdtzYBoLkTT0JfJU7oyS', '3162541511', 'True', 'Medico', 'Cardiología', 'Hospital Militar Central');
+(1006004005, 'CC', 'Juan', 'Carlos', 'Rodriguez', 'Rodriguez', 'carlos21@gmail.com', '$2b$10$cJvhEo6c7rH4PLoUIlJYgOVCk5fGNwgkCGdtzYBoLkTT0JfJU7oyS', '3162541511', 'True', 'Medico', 'Cardiología', 'Hospital Militar Central'),
+(2147483647, 'CC', 'Juan', 'Pablo', 'García', 'López', 'juan@example.com', '$2b$10$/4rQ74KzmLV7ZqyADmikMuoNuhtn0kc5r2chksGNZR2HjUWQ1pMc2', '987654321', 'True', 'Médico', 'Pediatría', 'Sede Principal'),
+(0, '4812400007', 'Juan', 'Pablo', 'García', 'López', 'juan7@example.com', '$2b$10$HmIuTq3U3qdqCXKEA31F0eB5usMEtrKYW.5cYkpCqrr7lUMnEFtUq', '987654321', 'True', 'Médico', 'Pediatría', 'Sede Principal'),
+(2147483647, 'CC', 'Juan', 'Pablo', 'García', 'López', 'juan8@example.com', '$2b$10$eI0ozDZNBYHP2AIfpwpE6eGonOB4oOwBsQiFZKmLQaS6w8qTcrzTq', '987654321', 'activo', 'Médico', 'Pediatría', 'Sede Principal'),
+(2147483647, 'CC', 'Juan', 'Pablo', 'García', 'López', 'juan9@example.com', '$2b$10$vrA2lhw/F7r9hsh9W3ZcXOF9yUsWvtY0cBy29X4ozSZLk08t1VqkS', '987654321', 'activo', 'Médico', 'Pediatría', 'Sede Principal'),
+(4812400002, 'CC', 'Juan', 'Pablo', 'García', 'López', 'juan2@example.com', '$2b$10$bxtqD0VCnvu.VM3q7Ml4aOdjMtY7whDt1fEAXgksxTUZdcih8k19m', '987654321', 'False', 'Médico', 'Pediatría', 'Sede Principal'),
+(3213213213, 'CC', 'sa', 'as', 'sa', 'a', '321312@gmail.com', '$2b$10$gAlzIwipl22ERlEqwZWke.SIME0V2QhOazF8ThvNezb76xY16/BAm', '32131321', '', 'User', '', 'Centro de Salud Santa Clara'),
+(1126447447, 'CC', 'Alejandro', '', 'Lopez', '', 'aardila25@gmail.com', '$2b$10$2qsxq/xvxXcig63C8AYKVeEeUyFgTvU0I2FvPCyI10rxK82WS9S.m', '3125175148', 'True', 'User', '', 'Pendiente'),
+(1126447332, 'CC', 'Alejandro', '', 'Ardila', '', 'aardila255@gmail.com', '$2b$10$eexkYV61E.RG.z1nW3NJR.L5N9ZVbtLUzv39Bz83GABkNLlaABGjK', '3125175148', 'True', 'User', '', 'Pendiente');
 
 --
 -- Índices para tablas volcadas
@@ -419,7 +435,7 @@ ALTER TABLE `agenda`
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `encuestas`
@@ -437,7 +453,7 @@ ALTER TABLE `especialidades`
 -- AUTO_INCREMENT de la tabla `examenes`
 --
 ALTER TABLE `examenes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `formulas`
