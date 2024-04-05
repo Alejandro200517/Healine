@@ -146,10 +146,11 @@ module.exports = function (app, conexion) {
             paciente: req.body.paciente,
             nombre: req.body.nombre,
             resultado: req.body.resultado,
-            fecha: req.body.fecha
+            fecha: req.body.fecha,
+            estado: req.body.estado
         };
 
-        const query = `INSERT INTO examenes (cita, paciente, nombre, resultado, fecha) VALUES ('${examen.cita}', '${examen.paciente}', '${examen.nombre}', '${examen.resultado}', '${examen.fecha}')`;
+        const query = `INSERT INTO examenes (cita, paciente, nombre, resultado, fecha, estado) VALUES ('${examen.cita}', '${examen.paciente}', '${examen.nombre}', '${examen.resultado}', '${examen.fecha}', 'Pendiente')`;
 
         conexion.query(query, (error) => {
             if (error) {
@@ -189,10 +190,10 @@ module.exports = function (app, conexion) {
      */
     app.put('/examenes/actualizar/:id', (req, res) => {
         const { id } = req.params;
-        const { cita, paciente, nombre, resultado, fecha } = req.body;
+        const { cita, paciente, nombre, resultado, fecha, estado } = req.body;
 
         const query = `
-            UPDATE examenes SET cita='${cita}', paciente='${paciente}', nombre='${nombre}', resultado='${resultado}', fecha='${fecha}' WHERE id='${id}';`;
+            UPDATE examenes SET cita='${cita}', paciente='${paciente}', nombre='${nombre}', resultado='${resultado}', fecha='${fecha}', estado='${estado}' WHERE id='${id}';`;
 
         conexion.query(query, (error) => {
             if (error) {

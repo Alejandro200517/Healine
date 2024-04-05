@@ -57,6 +57,8 @@ require('./Adminstrador/incapacidad')(app, conexion);
 require('./Adminstrador/users')(app, conexion);
 require('./Adminstrador/encuestas')(app, conexion);
 
+
+
 // Iniciar el servidor
 app.listen(PUERTO, () => {
     console.log(`Servidor corriendo en el puerto ${PUERTO}`);
