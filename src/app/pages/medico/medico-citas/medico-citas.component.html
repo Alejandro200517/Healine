@@ -215,36 +215,17 @@
                             <p>Revisa Y Administra Tus Citas Medicas.</p>
                         </div> 
                         
-                        <div class="col-xl-6 col-md-6 col-lg-4">
-                            <div class="single_department">
-                                <div class="department_thumb" style="width: 55%; margin-left: 22%;">
-                                    <a href="/registrar-citas-medico"><img src="../../../../assets/images/registrar.png" alt=""></a>
-                                </div>
-                                <div class="department_content">
-                                    <h3><a style="margin-left: 15%; font-weight: 600; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" href="/registrar-citas-medico">Registrar</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-md-6 col-lg-4">
-                            <div class="single_department">
-                                <div class="department_thumb" style="width: 55%; margin-left: 22%;">
-                                    <a href="/editar-consultar-citas-medico"><img src="../../../../assets/images/editarr.png" alt=""></a>
-                                </div>
-                                <div class="department_content">
-                                    <h3 ><a style="margin-left: 15%; font-weight: 600; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" href="/editar-consultar-citas-medico">Editar Cita</a></h3>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
             
-            <div style="background-color: rgb(255, 255, 255); margin-top: -50px;">
-                <div>
-                    <table class="table table-striped table-responsive" style="width: 100%; margin: 0 auto; border-collapse: separate; border-spacing: 0; margin-top: 100px;">
-                        <div class="welcomeTitle" style="text-align: center; ">
-                            <h2 style="font-weight: 600; color: rgb(52, 52, 52);">Tus Citas Medicas</h2>
-                        </div> 
+            <div style="background-color: rgb(255, 255, 255);">
+                <div id="tabla-imprimir">
+                    <table class="table table-responsive" style="width: 100%; margin: 0 auto; border-collapse: separate; border-spacing: 0;">
+                        <div class="welcomeTitle" style="text-align: center;">
+                            <p style="font-weight: 600; color: rgb(52, 52, 52);">Tus Citas Medicas</p>
+                        </div>
                         <thead>
                             <tr>
                                 <th style="padding: 15px; text-align: center; background-color: #0063cc68; color: #fff; border-top-left-radius: 10px;">Fecha</th>
@@ -253,7 +234,8 @@
                                 <th style="padding: 15px; text-align: center; background-color: #0063cc68; color: #fff;">Médico</th>
                                 <th style="padding: 15px; text-align: center; background-color: #0063cc68; color: #fff;">Especialidad</th>
                                 <th style="padding: 15px; text-align: center; background-color: #0063cc68; color: #fff;">Facturacion</th>
-                                <th style="padding: 15px; text-align: center; background-color: #0063cc68; color: #fff; border-top-right-radius: 10px;">Estado</th>
+                                <th style="padding: 15px; text-align: center; background-color: #0063cc68; color: #fff;">Estado</th>
+                                <th style="padding: 15px; text-align: center; background-color: #0063cc68; color: #fff; border-top-right-radius: 10px;">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -265,12 +247,17 @@
                                 <td style="padding: 12px; text-align: center;">{{ cita.especialidad }}</td>
                                 <td style="padding: 12px; text-align: center;" [ngClass]="{'facturacion-pendiente': cita.facturacion === 'pendiente', 'facturacion-pagada': cita.facturacion === 'pagada'}">{{ cita.facturacion }}</td>
                                 <td style="padding: 12px; text-align: center;" [ngClass]="{'estado-pendiente': cita.estado === 'pendiente', 'estado-cancelada': cita.estado === 'cancelada', 'estado-confirmada': cita.estado === 'confirmada'}">{{ cita.estado }}</td>
-
+                                <td style="padding: 12px; text-align: center;">
+                                    <img style="cursor: pointer;" src="../../../../assets/images/confirmar.png" width="30px" alt="" (click)="confirmarCita(cita)"><h4> </h4>
+                                    <img style="cursor: pointer;" src="../../../../assets/images/cancelar.png" width="30px" alt="" (click)="cancelarCita(cita)">
+                                </td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
-            </div>
+                    
+                </div><br>
+            <a style="cursor: pointer;" (click)="imprimirTabla()"><img src="../../../../../assets/images/imprimir.png" width="35px" alt=""></a>
+            </div><br><br><br><br><br><br><br><br>
         </div>
         
 

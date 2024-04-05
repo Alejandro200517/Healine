@@ -282,3 +282,21 @@ button.ghost {
     border: 2px solid #0696f0;
     color: #0696f0;
   }
+
+
+  .button-login {
+    display: inline-block;
+    padding: 2px;
+    border: none;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.6s;
+  }
+  
+  .button-login:hover {
+    background-color: rgba(255, 255, 255, 0.184);
+    color: #ffffff;
+  }

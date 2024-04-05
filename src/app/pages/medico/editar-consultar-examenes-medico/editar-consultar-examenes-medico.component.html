@@ -274,33 +274,35 @@
                             
                             <div class="examen-info">
                                 <span class="examen-info-label">Cita:</span>
-                                <span class="examen-info-value">    {{ examen.cita }}</span>
+                                <span class="examen-info-value">{{ examen.cita }}</span>
                             </div>
                             <div class="examen-info">
                                 <span class="examen-info-label">Paciente:</span>
-                                <span class="examen-info-value">    {{ examen.paciente }}</span>
+                                <span class="examen-info-value">{{ examen.paciente }}</span>
                             </div>
-                            <!--<div class="examen-info">
-                                <span class="examen-info-label">ID:</span>
-                                <span class="examen-info-value">    {{ examen.id }}</span>
-                            </div>-->
                             <div class="examen-info">
                                 <span class="examen-info-label">Nombre del Examen:</span>
-                                <span class="examen-info-value">    {{ examen.nombre }}</span>
+                                <span class="examen-info-value">{{ examen.nombre }}</span>
                             </div>
                             <div class="examen-info">
                                 <span class="examen-info-label">Resultado del Examen:</span>
-                                <span class="examen-info-value">    {{ examen.resultado }}</span>
+                                <span class="examen-info-value">{{ examen.resultado }}</span>
                             </div>
                             <div class="examen-info">
                                 <span class="examen-info-label">Fecha del Examen:</span>
-                                <span class="examen-info-value">    {{ examen.fecha }}</span>
+                                <span class="examen-info-value">{{ examen.fecha }}</span>
                             </div>
-                            <div class="examen-info" style="text-align: center; margin-left: 45%; margin-right: 55%;">
-                                <a [routerLink]="['/editar-examenes-medico/editar', examen.id]"><span><img src="../../../../assets/images/editar.png" width="25px" alt=""></span></a>
+                            <div class="examen-info">
+                                <span class="examen-info-label">Estado Del Examen:</span>
+                                <span class="examen-info-value">{{ examen.estado }}</span>
+                            </div>
+                            <div class="examen-actions">
+                                <button class="autorizar-button" (click)="autorizarExamen(examen)">Autorizar</button>
+                                <button class="no-autorizar-button" (click)="noAutorizarExamen(examen)">No Autorizar</button>
                             </div>
                         </div>
                     </div>
+                    
                     <br><br>
                   </div>
                   

@@ -107,7 +107,7 @@ export class EditarUsersComponent implements OnInit {
 
   isFormFilled(): boolean {
     return !!this.users.documento && !!this.users.tipoDoc && !!this.users.primerNombre &&
-      !!this.users.primerApellido && !!this.users.segundoApellido &&
+      !!this.users.primerApellido &&
       !!this.users.email && !!this.users.password && !!this.users.numero && !!this.users.rol;
   }
 

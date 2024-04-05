@@ -37,6 +37,14 @@
                 <label for="resultado" style="font-weight: bold; margin-right: 10px; color: #000;">Resultado del Examen:</label>
                 <textarea required [(ngModel)]="examenes.resultado" id="resultado" name="resultado" placeholder="Ingrese el resultado del examen" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; width: 100%; font-size: 14px; margin-top: 5px;"></textarea>
             </div>
+            <div class="examen-info">
+                <label for="resultado" style="font-weight: bold; margin-right: 10px; color: #000;">Estado:</label>
+                <select required [(ngModel)]="examenes.estado" name="estado" id="estado" class="selectLogin" style="display: block;margin: 0 auto;margin-bottom: 30px;padding: 8px;border-radius: 17px;width: 480px;color: rgb(14, 14, 14);background-color: rgb(255, 255, 255);padding: 12px; border: 1px solid #9e9e9e; border-radius: 15px; width: 100%; font-size: 14px;">
+                    <option value="" selected disabled>Selecciona El Estado De El Examen</option>
+                    <option value="Autorizado" style="color: green">Autorizado</option>
+                    <option value="No Autorizado" style="color: orange">No Autorizado</option>
+                </select> 
+            </div>
             
             <div class="examen-info" style="text-align: center; margin-top: 10px;">
                 <button class="button button-contactForm boxed-btn" [disabled]="!examenesForm.form.valid && isFormSubmitted" type="submit">

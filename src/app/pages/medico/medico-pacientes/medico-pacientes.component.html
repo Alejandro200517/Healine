@@ -320,8 +320,9 @@ h2 {
                   </div>
                   
                   <!-- Panel lateral derecho para mostrar información adicional -->
-                  <div class="row justify-content-center">
-                    <div class="col-md-12 mb-4" *ngIf="userInfo">
+                  <div class="row justify-content-center" >
+                    <a style="cursor: pointer; text-align: left;" (click)="imprimirTabla()"><img src="../../../../../assets/images/imprimir.png" width="35px" alt=""></a><br>
+                    <div class="col-md-12 mb-4" *ngIf="userInfo" id="tabla-imprimir">
                       <div class="card shadow rounded" style="border: 2px solid #0063cc68;">
                         <div class="card-body">
                           <h3 class="card-title">Información adicional del usuario</h3>
@@ -507,8 +508,7 @@ h2 {
                         </div>
                       </div>
                     </div>
-                  </div>
-                  
+                  </div><br>
             </div>
         </div>
         

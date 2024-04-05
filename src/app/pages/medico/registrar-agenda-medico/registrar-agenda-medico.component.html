@@ -18,12 +18,13 @@
         <div style="margin-right: 5px;">
             <select class="selectLogin" name="tipo" id="tipo" style="font-size: 20px;" [(ngModel)]="pqrs.tipo" required>
                 <option value="" selected disabled>Seleccione El Tipo</option>
-                <option value="Peticion">Petición</option>
+                <option value="Reprogramacion">Reprogramacion De Agenda</option>
+                <option value="Peticion">Peticion</option>
             </select>
         </div>
 
         <div style="margin-right: 5px; margin-top: 10px;">
-            <textarea class="selectLogin" name="descripcion" id="descripcion" rows="3" placeholder="Descripción de la Razón por la cual deseas actualizar tu agenda" required [(ngModel)]="pqrs.descripcion" style="font-size: 20px;"></textarea>
+            <textarea class="selectLogin" name="descripcion" id="descripcion" rows="3" placeholder="Descripción De La Razón De La Actualizacion" required [(ngModel)]="pqrs.descripcion" style="font-size: 20px;"></textarea>
         </div>
         
         <div style="margin-top: 10px;">

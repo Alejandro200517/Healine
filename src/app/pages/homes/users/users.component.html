@@ -70,8 +70,8 @@
             <input name="Numero" id="Numero" type="number" maxlength="10" placeholder="Número Telefónico" required [(ngModel)]="users.numero"/>
           </div>
           <div>
-            <a class="botonnn3" (click)="showAdditionalFields = !showAdditionalFields" [hidden]="showAdditionalFields">Ver Mas</a>
-            <a class="botonnn3" (click)="showAdditionalFields = !showAdditionalFields" [hidden]="!showAdditionalFields">Ver Menos</a>
+            <a style="cursor: pointer;" class="botonnn3" (click)="showAdditionalFields = !showAdditionalFields" [hidden]="showAdditionalFields">Ver Mas</a>
+            <a style="cursor: pointer;" class="botonnn3" (click)="showAdditionalFields = !showAdditionalFields" [hidden]="!showAdditionalFields">Ver Menos</a>
           </div>
           <br>
           <button class="botonnn" type="submit" [disabled]="!registrarForm.form.valid && isFormSubmitted">Registrarse</button>

@@ -6,11 +6,14 @@ import { UsersModel } from '../../../../shared/models/users.model';
 import { CitasService } from '../../../../shared/services/citas.service';
 import { EspecialidadesService } from '../../../../shared/services/especialidades.service';
 import { UsersService } from '../../../../shared/services/users.service';
+import { AgendaModel } from 'src/app/shared/models/agenda.model';
+import { Observable } from 'rxjs';
+import { AgendaService } from 'src/app/shared/services/agenda.service';
 
 @Component({
   selector: 'app-citas-registrar-secretaria',
   templateUrl: './citas-registrar-secretaria.component.html',
-  styleUrls: ['./citas-registrar-secretaria.component.css']
+  styleUrls: ['../../../../app.component.css']
 })
 export class CitasRegistrarSecretariaComponent implements OnInit {
   citas = new CitasModel('', '', '', '', '', '', '', '');
@@ -18,12 +21,19 @@ export class CitasRegistrarSecretariaComponent implements OnInit {
   usersPacientes: UsersModel[] = [];
   especialidades: EspecialidadesModel[] = [];
   isFormSubmitted: boolean = false;
+  filtroMedico: string = '';
+  filtroPaciente: string = '';
+  agenda: Observable<AgendaModel[]> | undefined;
+  agendas: AgendaModel[] = [];
+
+
 
   constructor(
     private citasService: CitasService,
     private usersService: UsersService,
     private especialidadesService: EspecialidadesService,
-    private router: Router
+    private router: Router,
+    private agendaService: AgendaService
   ) {}
 
   ngOnInit() {
@@ -32,6 +42,15 @@ export class CitasRegistrarSecretariaComponent implements OnInit {
         this.usersMedicos = data.filter(users => users.rol === 'Medico');
         this.usersPacientes = data.filter(users => users.rol === 'Paciente');
 
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+
+    this.agendaService.obtenerAgenda().subscribe(
+      (data) => {
+        this.agendas = data;
       },
       (error) => {
         console.error(error);
@@ -98,6 +117,19 @@ export class CitasRegistrarSecretariaComponent implements OnInit {
 
   isFormFilled(): boolean {
     return !!this.citas.fecha && !!this.citas.hora && !!this.citas.medico && !!this.citas.paciente && !!this.citas.especialidad;
+  }
+
+  filtrarAgendas(agenda: AgendaModel[] | undefined | null): AgendaModel[] {
+    if (!agenda) {
+        return [];
+    }
+  
+    return agenda.filter(u => {
+        const idCoincide = u.id.toString().includes(this.filtroMedico.toString());
+        const nombreMedicoCoincide = u.medico.toLowerCase().includes(this.filtroMedico.toLowerCase());
+  
+        return idCoincide || nombreMedicoCoincide;
+    });
   }
 }
 

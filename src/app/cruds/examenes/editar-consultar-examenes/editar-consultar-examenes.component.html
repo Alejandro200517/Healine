@@ -37,6 +37,7 @@
                         <th style="text-align: center; background-color: #009DFF; color: #fff;">Nombre Del Examen</th>
                         <th style="text-align: center; background-color: #009DFF; color: #fff;">Resultado del Examen</th>
                         <th style="text-align: center; background-color: #009DFF; color: #fff;">Fecha del Examen</th>
+                        <th style="text-align: center; background-color: #009DFF; color: #fff;">Estado Del Examen</th>
                         <th style="text-align: center; background-color: #009DFF; color: #fff; border-top-right-radius: 10px;">Acciones</th>
                     </tr>
                 </thead>
@@ -48,6 +49,7 @@
                         <td style="padding: 8px; text-align: center;">{{ examen.nombre }}</td>
                         <td style="padding: 8px; text-align: center;">{{ examen.resultado }}</td>
                         <td style="padding: 8px; text-align: center;">{{ examen.fecha }}</td>
+                        <td style="padding: 8px; text-align: center;">{{ examen.estado }}</td>
                         <td class="text-center">
                             <a [routerLink]="['/editar-examenes/editar/', examen.id]">
                                 <img src='../../../../assets/images/editar.png' alt='Editar Examenes' style='width: 19px; height: 19px;'>

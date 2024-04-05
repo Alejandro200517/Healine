@@ -129,7 +129,7 @@ export class RegistrarUsersComponent implements OnInit {
   // Función para verificar si algún campo obligatorio está vacío
   isFormFilled(): boolean {
     return !!this.users.documento && !!this.users.tipoDoc && !!this.users.primerNombre && 
-           !!this.users.primerApellido && !!this.users.segundoApellido &&
+           !!this.users.primerApellido &&
            !!this.users.email && !!this.users.password && !!this.users.numero && !!this.users.rol
   }
   onRoleChange(selectedRole: string) {

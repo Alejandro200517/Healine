@@ -8,7 +8,7 @@ import { UsersService } from 'src/app/shared/services/users.service';
 @Component({
   selector: 'app-agenda-registrar-secretaria',
   templateUrl: './agenda-registrar-secretaria.component.html',
-  styleUrls: ['./agenda-registrar-secretaria.component.css']
+  styleUrls: ['../../../../app.component.css']
 })
 export class AgendaRegistrarSecretariaComponent  implements OnInit {
   agenda = new AgendaModel(0, '', '', '', '', '');

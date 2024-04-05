@@ -1,6 +1,9 @@
 <div class="container mt-4">
     <a href="/secretaria-home-2" class="btn btn-outline-secondary text-decoration-none boxed-btn" style="padding: 10px; font-weight: 600;">
         ↺ Atrás
+    </a>ㅤ
+    <a href="agenda-registrar-secretaria" class="btn btn-outline-secondary text-decoration-none boxed-btn" style="padding: 10px; font-weight: 600;">
+        Agregar Agenda Médica
     </a>
 </div>
 
@@ -18,7 +21,7 @@
 </div>
 
 <div class="container mt-4">
-    <div class="table-responsive">
+    <div class="table-responsive" id="tabla-imprimir">
         <table class="table table-bordered table-hover shadow-lg" style="border-radius: 15px;">
             <thead class="bg-primary text-white">
                 <tr>
@@ -48,10 +51,6 @@
             </tbody>
         </table>
     </div>
-    <div class="container mt-4">
-        <a href="agenda-registrar-secretaria" class="btn btn-outline-primary titulo-recuadro" style="border-radius: 15px;">
-            Agregar Agenda Médica
-        </a>
-    </div>
+    <a style="cursor: pointer;" (click)="imprimirTabla()"><img src="../../../../../assets/images/imprimir.png" width="35px" alt=""></a>
 </div>
 <br>

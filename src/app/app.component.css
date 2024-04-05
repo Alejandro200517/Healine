@@ -17572,3 +17572,111 @@ input[type="radio"]:checked + img {
   padding: 10px 0; /* Espacio interno en la barra */
   flex-grow: 1; /* Permitir que las barras crezcan para llenar el espacio disponible */
 }
+
+
+
+.recovery-container {
+    width: 80%; /* Ajusta el ancho del contenedor al 80% del ancho disponible */
+    margin: 100px auto; /* Centra verticalmente */
+    padding: 30px;
+    border-radius: 25px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recovery-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.recovery-form .form-group {
+    margin-bottom: 25px;
+}
+
+.recovery-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: bold; /* Texto en negrita */
+}
+
+.recovery-form input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.recovery-form input[type="email"]:focus {
+    border-color: #007bff;
+}
+
+.recovery-form .btn-submit {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase; /* Convertir texto a mayúsculas */
+}
+
+.recovery-form .btn-submit:hover {
+    background-color: #0056b3;
+}
+
+
+.autorizar-button{
+  background-color: #3eae56b5;
+  border: 1px solid #3eae56b5;
+  border: none; 
+  color: white; 
+  padding: 10px 20px; 
+  text-align: center;
+  text-decoration: none; 
+  display: inline-block;
+  font-size: 16px; 
+  margin: 4px 2px; 
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.4s;
+}
+
+.autorizar-button:hover:hover {
+  background-color: #fff;
+  color: #3eae56b5;
+  border: 1px solid #3eae56b5;
+}
+
+
+.no-autorizar-button{
+  background-color: #db763c9c;
+  border: 1px solid #db763c9c;
+  border: none; 
+  color: white; 
+  padding: 10px 20px; 
+  text-align: center;
+  text-decoration: none; 
+  display: inline-block;
+  font-size: 16px; 
+  margin: 4px 2px; 
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.4s;
+}
+
+.no-autorizar-button:hover:hover {
+  background-color: #fff;
+  color: #db763c9c;
+  border: 1px solid #db763c9c;
+}
+
+
+

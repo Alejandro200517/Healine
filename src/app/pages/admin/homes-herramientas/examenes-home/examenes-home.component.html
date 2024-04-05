@@ -14,51 +14,54 @@
                     <div class="section_title text-center mb-55">
                         <h3>Exámenes Médicos</h3>
                         <p>Los exámenes médicos te permiten obtener información precisa <br>
-                            sobre la salud de los pacientes. Consulta los exámenes, registra <br>
-                            nuevos exámenes, actualiza detalles y, si es necesario, elimina exámenes <br>
-                            para mantener todo organizado.</p>
+                            sobre la salud de los pacientes. Consulta los exámenes para mantener todo organizado.</p>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb" style="max-width: 50%; margin: 0 auto;">
-                            <a routerLink="/consultar-examenes">
-                                <img src="../../../../../assets/images/consultar-examen.png" alt="" class="service_image" style="max-width: 100%; height: auto; background-color: transparent;">
-                            </a>
-                        </div>
-                        <div class="department_content">
-                            <h3><a routerLink="/consultar-examenes">Consultar Exámenes</a></h3>
-                            <p>Verifica los exámenes médicos registrados.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb" style="max-width: 50%; margin: 0 auto;">
-                            <a routerLink="/registrar-examenes">
-                                <img src="../../../../../assets/images/registrar-examen.png" alt="" class="service_image" style="max-width: 100%; height: auto; background-color: transparent;">
-                            </a>
-                        </div>
-                        <div class="department_content">
-                            <h3><a routerLink="/registrar-examenes">Registrar Examen</a></h3>
-                            <p>Registra nuevos exámenes médicos.</p>
+            <div class="row no-gutters">
+                <div class="col-xl-6" style="background-color: #feffff;margin-top: 40px; ">
+                    <div style="margin-top: -90px;">
+                        <div>
+                            <div>
+                                <form class="formCitaBuscar">
+                                    <h1>ㅤ</h1>
+                                    <div class="form-group">
+                                        <label class="labelCitaBuscar" for="filtroPaciente" style="font-size: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #101010;margin-left: 10%; margin-right: 10%;">Filtrar Por Paciente</label>
+                                        <input placeholder="ID o Nombre del Paciente" type="text" class="form-control" [(ngModel)]="filtroPaciente" name="filtroPaciente" style="margin-left: 10%; margin-right: 10%; width: 80%;">
+                                    </div>
+                                    <h1>ㅤ</h1>
+                                </form>
+                                
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb" style="max-width: 50%; margin: 0 auto;">
-                            <a routerLink="/editar-consultar-examenes">
-                                <img src="../../../../../assets/images/editar-examen.png" alt="" class="service_image" style="max-width: 100%; height: auto; background-color: transparent;">
-                            </a>
-                        </div>
-                        <div class="department_content">
-                            <h3><a routerLink="/editar-consultar-examenes">Editar Examen</a></h3>
-                            <p>Actualiza o elimina los detalles de un examen existente.</p>
-                        </div>
+                <div class="col-xl-6" style="background-color: rgb(255, 255, 255);">
+                    <div>
+                        <table class="table table-striped table-responsive" style="width: 100%; margin: 0 auto; border-collapse: separate; border-spacing: 0; margin-top: 50px;">
+                            <thead >
+                                <tr>
+                                    <th style="text-align: center; background-color: #009DFF; color: #fff; border-top-left-radius: 10px;">ID</th>
+                                    <th style="text-align: center; background-color: #009DFF; color: #fff;">Cita</th>
+                                    <th style="text-align: center; background-color: #009DFF; color: #fff;">Paciente</th>
+                                    <th style="text-align: center; background-color: #009DFF; color: #fff;">Nombre Del Examen</th>
+                                    <th style="text-align: center; background-color: #009DFF; color: #fff;">Resultado del Examen</th>
+                                    <th style="text-align: center; background-color: #009DFF; color: #fff;">Fecha del Examen</th>
+                                    <th style="text-align: center; background-color: #009DFF; color: #fff; border-top-right-radius: 10px;">Estado Del Examen</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let examen of filtrarExamenes(examenes) || []; let i = index" [class.odd]="i % 2 !== 0">
+                                    <td style="padding: 8px; text-align: center;">{{ examen.id }}</td>
+                                    <td style="padding: 8px; text-align: center;">{{ examen.cita }}</td>
+                                    <td style="padding: 8px; text-align: center;">{{ examen.paciente }}</td>
+                                    <td style="padding: 8px; text-align: center;">{{ examen.nombre }}</td>
+                                    <td style="padding: 8px; text-align: center;">{{ examen.resultado }}</td>
+                                    <td style="padding: 8px; text-align: center;">{{ examen.fecha }}</td>
+                                    <td style="padding: 8px; text-align: center;">{{ examen.estado }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

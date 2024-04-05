@@ -8,7 +8,7 @@ import { RegistrarLoginModel } from '../models/registrarlogin.model';
 })
 export class RegistrarLoginService {
 
-  BASE_URL = "http://localhost:3000"
+  BASE_URL = "http://localhost:3000";
 
   constructor(private http: HttpClient) { }
 
@@ -17,8 +17,15 @@ export class RegistrarLoginService {
   }
 
   login(email: string, password: string): Observable<any> {
-    const loginData = { email, password }; // Cambia 'contrasena' a 'password'
+    const loginData = { email, password };
     return this.http.post<any>(`${this.BASE_URL}/login`, loginData);
-}
+  }
 
+  enviarTokenRecuperacion(email: string): Observable<any> {
+    return this.http.post<any>(`${this.BASE_URL}/recuperacion-contrasena/enviar-token`, { email });
+  }
+
+  actualizarContrasenaConToken(token: string, nuevaContrasena: string): Observable<any> {
+    return this.http.post<any>(`${this.BASE_URL}/recuperacion-contrasena/actualizar`, { token, nuevaContrasena });
+  }
 }

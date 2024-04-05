@@ -13,7 +13,8 @@ import { UsersService } from 'src/app/shared/services/users.service';
   styleUrls: ['../../../app.component.css']
 })
 export class RegistrarExamenesMedicoComponent implements OnInit {
-  examenes = new ExamenesModel('', '', '', '', '', '');
+  examenes = new ExamenesModel('', '', '', '', '', '','');
+
   usersPacientes: UsersModel[] = [];
   citas: CitasModel[] = [];
   isFormSubmitted: boolean = false;
@@ -56,6 +57,7 @@ export class RegistrarExamenesMedicoComponent implements OnInit {
       alert('Por favor, complete todos los campos obligatorios.');
       return;
     }
+
     console.log('onSubmit');
 
     const ahora = new Date();

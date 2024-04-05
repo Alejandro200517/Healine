@@ -106,7 +106,6 @@ import { RegistrarAgendaMedicoComponent } from './pages/medico/registrar-agenda-
 import { MedicoExamenesComponent } from './pages/medico/medico-examenes/medico-examenes.component';
 import { RegistrarExamenesMedicoComponent } from './pages/medico/registrar-examenes-medico/registrar-examenes-medico.component';
 import { EditarConsultarExamenesMedicoComponent } from './pages/medico/editar-consultar-examenes-medico/editar-consultar-examenes-medico.component';
-import { EditarExamenesMedicoComponent } from './pages/medico/editar-examenes-medico/editar-examenes-medico.component';
 import { EditarPerfilComponent } from './pages/medico/editar-perfil/editar-perfil.component';
 import { MedicoOrdenesComponent } from './pages/medico/medico-ordenes/medico-ordenes.component';
 import { RegistrarOrdenesMedicoComponent } from './pages/medico/registrar-ordenes-medico/registrar-ordenes-medico.component';
@@ -153,6 +152,8 @@ import { IncapacidadConsultarSecretariaComponent } from './pages/secretaria/inca
 import { AgendaRegistrarSecretariaComponent } from './pages/secretaria/agenda/agenda-registrar-secretaria/agenda-registrar-secretaria.component';
 import { CitasRegistrarSecretariaComponent } from './pages/secretaria/citas/citas-registrar-secretaria/citas-registrar-secretaria.component';
 import { EditarPerfilSecretariaComponent } from './pages/secretaria/editar-perfil-secretaria/editar-perfil-secretaria.component';
+import { RecuperacionContrasenaComponent } from './pages/homes/recuperacion-contrasena/recuperacion-contrasena.component';
+import { ActualizarContrasenaComponent } from './pages/homes/actualizar-contrasena/actualizar-contrasena.component';
 
 @NgModule({
   declarations: [
@@ -235,7 +236,6 @@ import { EditarPerfilSecretariaComponent } from './pages/secretaria/editar-perfi
     MedicoExamenesComponent,
     RegistrarExamenesMedicoComponent,
     EditarConsultarExamenesMedicoComponent,
-    EditarExamenesMedicoComponent,
     EditarPerfilComponent,
     MedicoOrdenesComponent,
     RegistrarOrdenesMedicoComponent,
@@ -285,6 +285,8 @@ import { EditarPerfilSecretariaComponent } from './pages/secretaria/editar-perfi
     AgendaRegistrarSecretariaComponent,
     CitasRegistrarSecretariaComponent,
     EditarPerfilSecretariaComponent,
+    RecuperacionContrasenaComponent,
+    ActualizarContrasenaComponent,
     
   ],
   imports: [

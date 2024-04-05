@@ -12,7 +12,7 @@
     <a href="/paciente-home-2"><span><i class="fas fa-user"></i></span> INFORMACION PERSONAL</a>
     <a href="/citas"><span><i class="fas fa-calendar-alt"></i></span> CITAS</a>
     <a href="/afiliacion"><span><i class="fas fa-id-card"></i></span> AFILIACION</a>
-    <a href="/historia"><span><i class="fas fa-file-medical"></i></span> HISTORIA MEDICA</a>
+    <a href="/historia"><span><i class="fas fa-file-medical"></i></span> HISTORIAL CLINICO</a>
     <a (click)="mostrarEncuesta = true"><span><i class="fas fa-sign-out-alt"></i></span> CERRAR SESION</a>
 </div>
 
@@ -148,110 +148,110 @@
 </div>
 
 <div style="margin-right: 20%; margin-left: 14%;">
-    
-<div class="listaCitas" #listaCitas>
-    <h2 style="font-weight: 600;">Citas Próximas</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Fecha</th>
-                <th>Hora</th>
-                <th>Paciente</th>
-                <th>Medico</th>
-                <th>Especialidad</th>
-                <th>Facturacion</th>
-                <th>Estado</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let cita of citasFiltradas">
-                <td style="padding: 12px; text-align: center;">{{ cita.fecha }}</td>
-                <td style="padding: 12px; text-align: center;">{{ cita.hora }}</td>
-                <td style="padding: 12px; text-align: center;">{{ cita.paciente }}</td>
-                <td style="padding: 12px; text-align: center;">{{ cita.medico }}</td>
-                <td style="padding: 12px; text-align: center;">{{ cita.especialidad }}</td>
-                <td style="padding: 12px; text-align: center;" [ngClass]="{'facturacion-pendiente': cita.facturacion === 'pendiente', 'facturacion-pagada': cita.facturacion === 'pagada'}">{{ cita.facturacion }}</td>
-                <td style="padding: 12px; text-align: center;" [ngClass]="{'estado-pendiente': cita.estado === 'pendiente', 'estado-cancelada': cita.estado === 'cancelada', 'estado-confirmada': cita.estado === 'confirmada'}">{{ cita.estado }}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    <a style="cursor: pointer;" style="text-align: left;" (click)="imprimirTabla()"><img src="../../../../../assets/images/imprimir.png" width="35px" alt=""></a>
+    <div id="tabla-imprimir" class="listaCitas" #listaCitas>
+        <h2 style="font-weight: 600;">Citas Próximas</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Paciente</th>
+                    <th>Medico</th>
+                    <th>Especialidad</th>
+                    <th>Facturacion</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cita of citasFiltradas">
+                    <td style="padding: 12px; text-align: center;">{{ cita.fecha }}</td>
+                    <td style="padding: 12px; text-align: center;">{{ cita.hora }}</td>
+                    <td style="padding: 12px; text-align: center;">{{ cita.paciente }}</td>
+                    <td style="padding: 12px; text-align: center;">{{ cita.medico }}</td>
+                    <td style="padding: 12px; text-align: center;">{{ cita.especialidad }}</td>
+                    <td style="padding: 12px; text-align: center;" [ngClass]="{'facturacion-pendiente': cita.facturacion === 'pendiente', 'facturacion-pagada': cita.facturacion === 'pagada'}">{{ cita.facturacion }}</td>
+                    <td style="padding: 12px; text-align: center;" [ngClass]="{'estado-pendiente': cita.estado === 'pendiente', 'estado-cancelada': cita.estado === 'cancelada', 'estado-confirmada': cita.estado === 'confirmada'}">{{ cita.estado }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-<div class="listaExamenes" #listaExamenes>
-    <h2 style="font-weight: 600;">Examenes Realizados</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Cita</th>
-                <th>Paciente</th>
-                <th>Nombre</th>
-                <th>Resultado</th>
-                <th>Fecha</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let examen of examenesFiltrados">
-                <td style="padding: 12px; text-align: center;">{{ examen.id }}</td>
-                <td style="padding: 12px; text-align: center;">{{ examen.cita }}</td>
-                <td style="padding: 12px; text-align: center;">{{ examen.paciente }}</td>
-                <td style="padding: 12px; text-align: center;">{{ examen.nombre }}</td>
-                <td style="padding: 12px; text-align: center;">{{ examen.resultado }}</td>
-                <td style="padding: 12px; text-align: center;">{{ examen.fecha }}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    <div class="listaExamenes" #listaExamenes>
+        <h2 style="font-weight: 600;">Examenes Realizados</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Cita</th>
+                    <th>Paciente</th>
+                    <th>Nombre</th>
+                    <th>Resultado</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let examen of examenesFiltrados">
+                    <td style="padding: 12px; text-align: center;">{{ examen.id }}</td>
+                    <td style="padding: 12px; text-align: center;">{{ examen.cita }}</td>
+                    <td style="padding: 12px; text-align: center;">{{ examen.paciente }}</td>
+                    <td style="padding: 12px; text-align: center;">{{ examen.nombre }}</td>
+                    <td style="padding: 12px; text-align: center;">{{ examen.resultado }}</td>
+                    <td style="padding: 12px; text-align: center;">{{ examen.fecha }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-<div class="listaOrdenes" #listaOrdenes>
-    <h2 style="font-weight: 600;">Órdenes Médicas</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Paciente</th>
-                <th>Fórmula</th>
-                <th>Diagnóstico</th>
-                <th>Tratamiento</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let orden of ordenesFiltradas">
-                <td style="padding: 12px; text-align: center;">{{ orden.id }}</td>
-                <td style="padding: 12px; text-align: center;">{{ orden.paciente }}</td>
-                <td style="padding: 12px; text-align: center;">{{ orden.formula }}</td>
-                <td style="padding: 12px; text-align: center;">{{ orden.diagnostico }}</td>
-                <td style="padding: 12px; text-align: center;">{{ orden.tratamiento }}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    <div class="listaOrdenes" #listaOrdenes>
+        <h2 style="font-weight: 600;">Órdenes Médicas</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Paciente</th>
+                    <th>Fórmula</th>
+                    <th>Diagnóstico</th>
+                    <th>Tratamiento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let orden of ordenesFiltradas">
+                    <td style="padding: 12px; text-align: center;">{{ orden.id }}</td>
+                    <td style="padding: 12px; text-align: center;">{{ orden.paciente }}</td>
+                    <td style="padding: 12px; text-align: center;">{{ orden.formula }}</td>
+                    <td style="padding: 12px; text-align: center;">{{ orden.diagnostico }}</td>
+                    <td style="padding: 12px; text-align: center;">{{ orden.tratamiento }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-<div class="listaIncapacidades" #listaIncapacidades>
-    <h2 style="font-weight: 600;">Incapacidades</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Paciente</th>
-                <th>Médico</th>
-                <th>Fecha</th>
-                <th>Tipo</th>
-                <th>Detalles</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let incapacidad of incapacidadesFiltradas">
-                <td style="padding: 12px; text-align: center;">{{ incapacidad.id }}</td>
-                <td style="padding: 12px; text-align: center;">{{ incapacidad.paciente }}</td>
-                <td style="padding: 12px; text-align: center;">{{ incapacidad.medico }}</td>
-                <td style="padding: 12px; text-align: center;">{{ incapacidad.fecha }}</td>
-                <td style="padding: 12px; text-align: center;">{{ incapacidad.tipo }}</td>
-                <td style="padding: 12px; text-align: center;">{{ incapacidad.detalles }}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    <div class="listaIncapacidades" #listaIncapacidades>
+        <h2 style="font-weight: 600;">Incapacidades</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Paciente</th>
+                    <th>Médico</th>
+                    <th>Fecha</th>
+                    <th>Tipo</th>
+                    <th>Detalles</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let incapacidad of incapacidadesFiltradas">
+                    <td style="padding: 12px; text-align: center;">{{ incapacidad.id }}</td>
+                    <td style="padding: 12px; text-align: center;">{{ incapacidad.paciente }}</td>
+                    <td style="padding: 12px; text-align: center;">{{ incapacidad.medico }}</td>
+                    <td style="padding: 12px; text-align: center;">{{ incapacidad.fecha }}</td>
+                    <td style="padding: 12px; text-align: center;">{{ incapacidad.tipo }}</td>
+                    <td style="padding: 12px; text-align: center;">{{ incapacidad.detalles }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 

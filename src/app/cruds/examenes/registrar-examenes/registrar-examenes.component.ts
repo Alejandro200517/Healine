@@ -13,7 +13,7 @@ import { CitasService } from '../../../shared/services/citas.service';
   styleUrls: ['../../../app.component.css']
 })
 export class RegistrarExamenesComponent implements OnInit {
-  examenes = new ExamenesModel('', '', '', '', '', '');
+  examenes = new ExamenesModel('', '', '', '', '', '', '');
   usersPacientes: UsersModel[] = [];
   citas: CitasModel[] = [];
   isFormSubmitted: boolean = false;

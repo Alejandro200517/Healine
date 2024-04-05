@@ -14,7 +14,7 @@ import { CitasService } from '../../../shared/services/citas.service';
 })
 export class EditarExamenesComponent implements OnInit {
   id = '';
-  examenes = new ExamenesModel('', '', '', '', '', '');
+  examenes = new ExamenesModel('', '', '', '', '', '','');
   usersPacientes: UsersModel[] = [];
   citas: CitasModel[] = [];
   isFormSubmitted: boolean = false;
@@ -97,6 +97,6 @@ export class EditarExamenesComponent implements OnInit {
     }
   }
   isFormFilled(): boolean {
-    return !!this.examenes.cita && !!this.examenes.paciente && !!this.examenes.nombre && !!this.examenes.resultado && !!this.examenes.fecha;
+    return !!this.examenes.cita && !!this.examenes.paciente && !!this.examenes.nombre && !!this.examenes.resultado && !!this.examenes.estado;
   }
 }

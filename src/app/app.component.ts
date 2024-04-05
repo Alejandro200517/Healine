@@ -155,6 +155,10 @@ export class AppComponent {
     url.includes('citas-registrar-secretaria') ||
     url.includes('editar-perfil-secretaria') ||
 
+
+    url.includes('recuperacion-contrasena') ||
+    url.includes('actualizar-contrasena') ||
+
     this.shouldShowAdminMenu(url);
   }
 

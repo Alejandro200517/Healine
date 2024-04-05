@@ -53,6 +53,31 @@ export class MedicoOrdenesComponent implements OnInit {
     );
   }
 
+  imprimirTabla() {
+    const printContent = document.getElementById('tabla-imprimir');
+
+    if (printContent) {
+      const originalContents = document.body.innerHTML; 
+
+      document.body.innerHTML = `
+        <html>
+          <head>
+            <title>Ordenes Medicas</title>
+          </head>
+          <body>
+            ${printContent.innerHTML}
+          </body>
+        </html>
+      `;
+
+      window.print(); 
+
+      document.body.innerHTML = originalContents;
+    } else {
+      console.error('No se encontró la tabla para imprimir');
+    }
+}
+
   updateClock() {
     const now = new Date();
     this.hour = now.getHours().toString().padStart(2, '0');

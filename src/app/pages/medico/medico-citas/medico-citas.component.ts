@@ -35,6 +35,31 @@ export class MedicoCitasComponent implements OnInit {
     this.obtenerCitasMedico();
   }
 
+  imprimirTabla() {
+    const printContent = document.getElementById('tabla-imprimir');
+
+    if (printContent) {
+      const originalContents = document.body.innerHTML; 
+
+      document.body.innerHTML = `
+        <html>
+          <head>
+            <title>Citas Medicas</title>
+          </head>
+          <body>
+            ${printContent.innerHTML}
+          </body>
+        </html>
+      `;
+
+      window.print(); 
+
+      document.body.innerHTML = originalContents;
+    } else {
+      console.error('No se encontró la tabla para imprimir');
+    }
+}
+
   updateClock() {
     const now = new Date();
     this.hour = now.getHours().toString().padStart(2, '0');
@@ -92,4 +117,30 @@ export class MedicoCitasComponent implements OnInit {
     this.mostrarEncuesta = false;
     window.location.href = '/index';
   }
+
+  confirmarCita(cita: CitasModel) {
+    cita.estado = 'confirmada';
+    this.citasService.actualizarCitas(cita).subscribe(
+        (data) => {
+            alert('Cita confirmada correctamente');
+        },
+        (error) => {
+            console.error(error);
+            alert('Error al confirmar la cita');
+        }
+    );
+}
+
+cancelarCita(cita: CitasModel) {
+    cita.estado = 'cancelada';
+    this.citasService.actualizarCitas(cita).subscribe(
+        (data) => {
+            alert('Cita cancelada correctamente');
+        },
+        (error) => {
+            console.error(error);
+            alert('Error al cancelar la cita');
+        }
+    );
+}
 }

@@ -27,6 +27,31 @@ export class ExamenesConsultarComponent implements OnInit {
     );
   }
 
+  imprimirTabla() {
+    const printContent = document.getElementById('tabla-imprimir');
+
+    if (printContent) {
+      const originalContents = document.body.innerHTML; 
+
+      document.body.innerHTML = `
+        <html>
+          <head>
+            <title>Tabla de Examenes</title>
+          </head>
+          <body>
+            ${printContent.innerHTML}
+          </body>
+        </html>
+      `;
+
+      window.print(); 
+
+      document.body.innerHTML = originalContents;
+    } else {
+      console.error('No se encontró la tabla para imprimir');
+    }
+}
+
   borrarExamen(id: string) {
     const confirmacion = window.confirm('¿Estás seguro de que quieres borrar este examen?');
 

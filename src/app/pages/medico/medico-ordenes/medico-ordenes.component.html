@@ -277,7 +277,7 @@ h2 {
                                     <a href="/medico-formulas"><img src="../../../../assets/images/examen-medico.png" alt=""></a>
                                 </div>
                                 <div class="department_content">
-                                    <h3><a href="/medico-formulas" style="font-weight: 600;">Formulas Medicas</a></h3>
+                                    <h3><a href="/medico-formulas" style="font-weight: 600;">Medicamentos</a></h3>
                                 </div>
                             </div>
                         </div>
@@ -292,13 +292,14 @@ h2 {
             </div>   
     
             <div style="background-color: rgb(255, 255, 255);">
-                <div>
+                <a style="cursor: pointer; margin-left: 10%;" (click)="imprimirTabla()"><img src="../../../../../assets/images/imprimir.png" width="35px" alt=""></a><br>
+                <div id="tabla-imprimir">
                     <table class="table table-striped table-responsive" style="width: 80%; margin: 0 auto; border-collapse: separate; border-spacing: 0; margin-top: 50px;">
                         <thead>
                             <tr>
                                 <td style="padding: 8px; text-align: center; background-color: #0063cc68; color: #fff; border-radius: 10px 0 0 0;"><strong>Código de Orden</strong></td>
                                 <td style="padding: 8px; text-align: center; background-color: #0063cc68; color: #fff;"><strong>Paciente</strong></td>
-                                <td style="padding: 8px; text-align: center; background-color: #0063cc68; color: #fff;"><strong>Formula Medica</strong></td>
+                                <td style="padding: 8px; text-align: center; background-color: #0063cc68; color: #fff;"><strong>Medicamento</strong></td>
                                 <td style="padding: 8px; text-align: center; background-color: #0063cc68; color: #fff;"><strong>Descripción del Diagnóstico</strong></td>
                                 <td style="padding: 8px; text-align: center; background-color: #0063cc68; color: #fff;"><strong>Descripción del Tratamiento</strong></td>
                                 <td style="padding: 8px; text-align: center; background-color: #0063cc68; color: #fff; border-radius:  0 10px 0 0;" ><strong>Acciones</strong></td>

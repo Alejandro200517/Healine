@@ -53,12 +53,6 @@ import { RegistrarRolesComponent } from './cruds/roles/registrar-roles/registrar
 import { EditarConsultarRolesComponent } from './cruds/roles/editar-consultar-roles/editar-consultar-roles.component';
 import { EditarRolesComponent } from './cruds/roles/editar-roles/editar-roles.component';
 
-//import { HistoriaHomeComponent } from './pages/admin/homes-herramientas/historia-home/historia-home.component';
-//import { ConsultarHistoriaComponent } from './cruds/historia/consultar-historia/consultar-historia.component';
-//import { RegistrarHistoriaComponent } from './cruds/historia/registrar-historia/registrar-historia.component';
-//import { EditarConsultarHistoriaComponent } from './cruds/historia/editar-consultar-historia/editar-consultar-historia.component';
-//import { EditarHistoriaComponent } from './cruds/historia/editar-historia/editar-historia.component';
-
 import { EspecialidadesHomeComponent } from './pages/admin/homes-herramientas/especialidades-home/especialidades-home.component';
 import { ConsultarEspecialidadesComponent } from './cruds/especialidades/consultar-especialidades/consultar-especialidades.component';
 import { RegistrarEspecialidadesComponent } from './cruds/especialidades/registrar-especialidades/registrar-especialidades.component';
@@ -112,7 +106,6 @@ import { PacienteHomeComponent } from './pages/paciente/paciente-home/paciente-h
 import { MedicoExamenesComponent } from './pages/medico/medico-examenes/medico-examenes.component';
 import { RegistrarExamenesMedicoComponent } from './pages/medico/registrar-examenes-medico/registrar-examenes-medico.component';
 import { EditarConsultarExamenesMedicoComponent } from './pages/medico/editar-consultar-examenes-medico/editar-consultar-examenes-medico.component';
-import { EditarExamenesMedicoComponent } from './pages/medico/editar-examenes-medico/editar-examenes-medico.component';
 import { EditarPerfilComponent } from './pages/medico/editar-perfil/editar-perfil.component';
 import { MedicoOrdenesComponent } from './pages/medico/medico-ordenes/medico-ordenes.component';
 import { RegistrarOrdenesMedicoComponent } from './pages/medico/registrar-ordenes-medico/registrar-ordenes-medico.component';
@@ -148,9 +141,9 @@ import { CitasRegistrarSecretariaComponent } from './pages/secretaria/citas/cita
 import { AgendaRegistrarSecretariaComponent } from './pages/secretaria/agenda/agenda-registrar-secretaria/agenda-registrar-secretaria.component';
 import { FormulasConsultarSecretariaComponent } from './pages/secretaria/formulas-secretaria/formulas-consultar-secretaria/formulas-consultar-secretaria.component';
 import { EditarPerfilSecretariaComponent } from './pages/secretaria/editar-perfil-secretaria/editar-perfil-secretaria.component';
+import { RecuperacionContrasenaComponent } from './pages/homes/recuperacion-contrasena/recuperacion-contrasena.component';
+import { ActualizarContrasenaComponent } from './pages/homes/actualizar-contrasena/actualizar-contrasena.component';
 
-
-// Secretaria
 
 
 const routes: Routes = [
@@ -264,7 +257,6 @@ const routes: Routes = [
   { path:'medico-examenes', component: MedicoExamenesComponent },
   { path:'registrar-examenes-medico', component: RegistrarExamenesMedicoComponent },
   { path:'editar-consultar-examenes-medico', component: EditarConsultarExamenesMedicoComponent },
-  { path:'editar-examenes-medico/editar/:id', component: EditarExamenesMedicoComponent},
 
   { path:'editar-perfil/editar/:documento', component: EditarPerfilComponent},
 
@@ -308,7 +300,8 @@ const routes: Routes = [
   { path:'citas-registrar-secretaria', component: CitasRegistrarSecretariaComponent},
   { path:'editar-perfil-secretaria', component: EditarPerfilSecretariaComponent},
   
-
+  { path:'recuperacion-contrasena', component: RecuperacionContrasenaComponent},
+  { path:'actualizar-contrasena', component: ActualizarContrasenaComponent},
 
 ];
 

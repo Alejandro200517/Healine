@@ -71,6 +71,31 @@ export class MedicoPacientesComponent{
       map((users: any[]) => users.filter(user => user.rol === 'Paciente'))
     );
   }
+
+  imprimirTabla() {
+    const printContent = document.getElementById('tabla-imprimir');
+
+    if (printContent) {
+      const originalContents = document.body.innerHTML; 
+
+      document.body.innerHTML = `
+        <html>
+          <head>
+            <title>Historia Medica</title>
+          </head>
+          <body>
+            ${printContent.innerHTML}
+          </body>
+        </html>
+      `;
+
+      window.print(); 
+
+      document.body.innerHTML = originalContents;
+    } else {
+      console.error('No se encontró la tabla para imprimir');
+    }
+}
   
   obtenerDatos() {
     this.obtenerExamenes();

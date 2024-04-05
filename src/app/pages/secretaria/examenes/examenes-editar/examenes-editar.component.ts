@@ -14,7 +14,7 @@ import { UsersService } from 'src/app/shared/services/users.service';
 })
 export class ExamenesEditarComponent implements OnInit {
   id = '';
-  examenes = new ExamenesModel('', '', '', '', '', '');
+  examenes = new ExamenesModel('', '', '', '', '', '', '');
   usersPacientes: UsersModel[] = [];
   citas: CitasModel[] = [];
   isFormSubmitted: boolean = false;

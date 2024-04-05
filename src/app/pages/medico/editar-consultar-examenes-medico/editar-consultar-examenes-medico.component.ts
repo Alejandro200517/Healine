@@ -100,4 +100,31 @@ export class EditarConsultarExamenesMedicoComponent implements OnInit {
     this.mostrarEncuesta = false;
     window.location.href = '/index';
   }
+
+  
+  autorizarExamen(examen: ExamenesModel) {
+    examen.estado = 'Autorizado';
+    this.examenesService.actualizarExamenes(examen).subscribe(
+        (data) => {
+            alert('Examen Autorizado correctamente');
+        },
+        (error) => {
+            console.error(error);
+            alert('Error al confirmar el examen');
+        }
+    );
+}
+
+noAutorizarExamen(examen: ExamenesModel) {
+  examen.estado = 'No Autorizado';
+    this.examenesService.actualizarExamenes(examen).subscribe(
+        (data) => {
+            alert('Examen No Autorizado correctamente');
+        },
+        (error) => {
+            console.error(error);
+            alert('Error al cancelar el examen');
+        }
+    );
+}
 }

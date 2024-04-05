@@ -61,6 +61,31 @@ export class HistoriaComponent implements OnInit {
     );
   }
 
+  imprimirTabla() {
+    const printContent = document.getElementById('tabla-imprimir');
+
+    if (printContent) {
+      const originalContents = document.body.innerHTML; 
+
+      document.body.innerHTML = `
+        <html>
+          <head>
+            <title>Mi Historial Medico</title>
+          </head>
+          <body>
+            ${printContent.innerHTML}
+          </body>
+        </html>
+      `;
+
+      window.print(); 
+
+      document.body.innerHTML = originalContents;
+    } else {
+      console.error('No se encontró la tabla para imprimir');
+    }
+}
+
   isFormFilled(): boolean {
     return !!this.encuestas.calificacion && !!this.encuestas.facilidad && !!this.encuestas.seguridad && !!this.encuestas.velocidad && !!this.encuestas.opinion;
   }
