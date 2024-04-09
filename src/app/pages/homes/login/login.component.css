@@ -300,3 +300,29 @@ button.ghost {
     background-color: rgba(255, 255, 255, 0.184);
     color: #ffffff;
   }
+
+
+  @media only screen and (max-width: 800px) {
+    .container {
+      width: 100%; /* Ajusta el ancho del contenedor para dispositivos móviles */
+      padding: 0 10px; /* Ajusta el relleno del contenedor */
+    }
+    
+    .form-container {
+      width: 100%; /* Ajusta el ancho del formulario para dispositivos móviles */
+    }
+    
+    .input-container {
+      width: 100%; /* Ajusta el ancho de los inputs para dispositivos móviles */
+      margin: 0 0 10px; /* Agrega un poco de espacio entre los inputs */
+    }
+  
+    .boton-admin {
+      margin-left: 5%; /* Ajusta el margen izquierdo del botón Atrás para dispositivos móviles */
+    }
+  
+    .overlay-container {
+      display: none; /* Oculta el overlay-container en dispositivos móviles */
+    }
+  }
+  
