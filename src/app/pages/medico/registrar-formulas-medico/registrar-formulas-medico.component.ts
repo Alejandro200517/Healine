@@ -32,7 +32,7 @@ export class RegistrarFormulasMedicoComponent implements OnInit {
     this.formulasService.agregarFormulas(this.formulas).subscribe(
       (data) => {
         alert('formula registrada correctamente');
-        this.router.navigate(['/formulas-home']); 
+        this.router.navigate(['/medico-formulas']); 
       },
       (error) => {
         if (error.status === 500) {

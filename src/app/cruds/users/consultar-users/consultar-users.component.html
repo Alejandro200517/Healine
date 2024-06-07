@@ -25,53 +25,18 @@
               <!-- Agrega este bloque de código donde desees que aparezca el filtro de documento -->
             <div class="form-group">
                 <label class="labelCitaBuscar" for="filtroDocumento" style="font-size: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #101010;margin-left: 10%; margin-right: 10%;">Filtrar Por Documento</label>
-                <input placeholder="Documento" type="text" class="form-control" [(ngModel)]="filtroDocumento" name="filtroDocumento" style="margin-left: 10%; margin-right: 10%; width: 80%;">
+                <input placeholder="Documento" type="number" class="form-control" [(ngModel)]="filtroDocumento" name="filtroDocumento" style="margin-left: 10%; margin-right: 10%; width: 80%">
             </div>
             <div class="form-group">
                 <label class="labelCitaBuscar" for="filtroNombre" style="font-size: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #101010;margin-left: 10%; margin-right: 10%;">Filtrar Por Nombre</label> <br> 
                 <input placeholder="Nombre completo" type="text" class="form-control" [(ngModel)]="filtroNombre" name="filtroNombre" style="margin-left: 10%; margin-right: 10%; width: 80%;">
             </div>
               
-          <div class="table-responsive">
-            <table class="table table-striped table-responsive" style="width: 100%; margin-top: 20px;font-weight: 600;">
-                <thead>
-                    <tr>
-                        <th class="bg-primary text-white" style="border-radius: 15px 0 0 0; padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Documento</th>
-                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Tipo De Documento</th>
-                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Primer Nombre</th>
-                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Segundo Nombre</th>
-                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Primer Apellido</th>
-                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Segundo Apellido</th>
-                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Correo</th>
-                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Numero</th>
-                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Status</th>
-                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Rol</th>
-                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Especialidad</th>
-                        <th class="bg-primary text-white" style="border: 1px solid #ccc; border-radius: 0px 25px 0px 0px; padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">Sede</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let user of filtrarUsers(users | async) || []; let i = index" [class.odd]="i % 2 !== 0">
-                        <td>{{ user.documento }}</td>
-                        <td>{{ user.tipoDoc }}</td>
-                        <td>{{ user.primerNombre }}</td>
-                        <td>{{ user.segundoNombre }}</td>
-                        <td>{{ user.primerApellido }}</td>
-                        <td>{{ user.segundoApellido }}</td>
-                        <td>{{ user.email }}</td>
-                        <td>{{ user.numero }}</td>
-                        <td>{{ user.status }}</td>
-                        <td>{{ user.rol }}</td>
-                        <td>{{ user.especialidad }}</td>
-                        <td>{{ user.sede }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+          
         
         </div>
     </div>
-        <div class="col-xl-6" style="background-color: rgb(255, 255, 255);">
+        <div class="col-xl-6" style="background-color: rgb(255, 255, 255); margin-top: -90px;">
             <div>
                 <br><br><br>
                 <div class="container">
@@ -139,6 +104,56 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped table-responsive" style="width: 100%; margin-top: 20px;font-weight: 600;">
+                <thead>
+                    <tr>
+                        <th class="bg-primary text-white"
+                            style="border-radius: 15px 0 0 0; padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">
+                            Documento</th>
+                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">
+                            Tipo De Documento</th>
+                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">
+                            Primer Nombre</th>
+                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">
+                            Segundo Nombre</th>
+                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">
+                            Primer Apellido</th>
+                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">
+                            Segundo Apellido</th>
+                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">
+                            Correo</th>
+                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">
+                            Numero</th>
+                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">
+                            Status</th>
+                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">
+                            Rol</th>
+                        <th class="bg-primary text-white" style="padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">
+                            Especialidad</th>
+                        <th class="bg-primary text-white"
+                            style="border: 1px solid #ccc; border-radius: 0px 25px 0px 0px; padding: 12px; color: #fff; font-family: 'Arial', sans-serif;">
+                            Sede</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of filtrarUsers(users | async) || []; let i = index" [class.odd]="i % 2 !== 0">
+                        <td>{{ user.documento }}</td>
+                        <td>{{ user.tipoDoc }}</td>
+                        <td>{{ user.primerNombre }}</td>
+                        <td>{{ user.segundoNombre }}</td>
+                        <td>{{ user.primerApellido }}</td>
+                        <td>{{ user.segundoApellido }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.numero }}</td>
+                        <td>{{ user.status }}</td>
+                        <td>{{ user.rol }}</td>
+                        <td>{{ user.especialidad }}</td>
+                        <td>{{ user.sede }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
 </div>

@@ -11,7 +11,7 @@ import { UsersService } from '../../../shared/services/users.service';
 export class EditarConsultarUsersComponent implements OnInit {
   users: Observable<UsersModel[]> | undefined;
   filtroCorreo: string = '';
-  filtroDocumento: number = Number('');
+  filtroDocumento: string = '';
   filtroNombre: string = '';
 
 
@@ -49,7 +49,7 @@ export class EditarConsultarUsersComponent implements OnInit {
             this.filtroCorreo.trim() === '' ||
             u.email.toLowerCase().includes(this.filtroCorreo.toLowerCase());
         const documentoCoincide =
-            this.filtroDocumento === 0 ||
+            this.filtroDocumento === '' ||
             u.documento.toString().includes(this.filtroDocumento.toString());
 
         return nombreCoincide && correoCoincide && documentoCoincide;

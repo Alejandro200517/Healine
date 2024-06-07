@@ -29,6 +29,7 @@ export class AppComponent {
     url.includes('users/agregar') ||
     
     url.includes('user-home') || 
+      url.includes('user-false') || 
     url.includes('admin-home-2') || 
     url.includes('herramientas')|| 
     

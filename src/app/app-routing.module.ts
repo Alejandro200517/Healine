@@ -11,6 +11,7 @@ import { LoginComponent } from './pages/homes/login/login.component';
 import { PqrsComponent } from './pages/homes/pqrs/pqrs.component';
 import { UsersComponent } from './pages/homes/users/users.component';
 import { UserHomeComponent } from './pages/homes/user-home/user-home.component';
+import { UserFalseComponent } from './pages/homes/user-false/user-false.component';
 
 
 // Pages Principales Admin
@@ -155,6 +156,7 @@ const routes: Routes = [
   { path: 'pqrs', component: PqrsComponent },
   { path: 'users/agregar', component: UsersComponent },
   { path: 'user-home', component: UserHomeComponent },
+  { path: 'user-false', component: UserFalseComponent },
   
 
   // Pages Admin
@@ -265,6 +267,7 @@ const routes: Routes = [
   { path:'editar-ordenes-medico/editar/:id', component: EditarOrdenesMedicoComponent},
   { path:'medico-formulas', component: MedicoFormulasComponent},
   { path:'registrar-incapacidades-medico', component: RegistrarIncapacidadesMedicoComponent},
+  { path: 'registrar-formulas-medico', component: RegistrarFormulasMedicoComponent },
 
   //Pages Paciente
   { path:'paciente-home', component: PacienteHomeComponent },

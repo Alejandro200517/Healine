@@ -154,6 +154,7 @@ import { CitasRegistrarSecretariaComponent } from './pages/secretaria/citas/cita
 import { EditarPerfilSecretariaComponent } from './pages/secretaria/editar-perfil-secretaria/editar-perfil-secretaria.component';
 import { RecuperacionContrasenaComponent } from './pages/homes/recuperacion-contrasena/recuperacion-contrasena.component';
 import { ActualizarContrasenaComponent } from './pages/homes/actualizar-contrasena/actualizar-contrasena.component';
+import { UserFalseComponent } from './pages/homes/user-false/user-false.component';
 
 @NgModule({
   declarations: [
@@ -287,6 +288,7 @@ import { ActualizarContrasenaComponent } from './pages/homes/actualizar-contrase
     EditarPerfilSecretariaComponent,
     RecuperacionContrasenaComponent,
     ActualizarContrasenaComponent,
+    UserFalseComponent,
     
   ],
   imports: [

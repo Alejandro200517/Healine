@@ -143,11 +143,11 @@ input{
   display: block;
   background: linear-gradient(to bottom, #007bff27, #ffffff); 
 }
-.not-cuenta{
-    color: #777777;
-    text-shadow: 2px 2px 3px #a7a7a7;
-    transition: 0.3s;
-}
+.not-cuenta {
+  color: #777777;
+  text-shadow: 1px 1px 2px #cbcbcb;
+  transition: 0.3s;
+} 
   
 .not-cuenta:hover{
     color: #f9f9f9;
@@ -302,9 +302,9 @@ button.ghost {
   }
 
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 1350px) {
     .container {
-      width: 100%; /* Ajusta el ancho del contenedor para dispositivos móviles */
+      width: 95%; /* Ajusta el ancho del contenedor para dispositivos móviles */
       padding: 0 10px; /* Ajusta el relleno del contenedor */
     }
     

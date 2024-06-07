@@ -13,8 +13,8 @@
     <div class="overlay-container" style="float: left;">
       <div class="overlay">
         <div class="overlay-panel overlay-right">
-          <h1>!Hello¡</h1>
-          <p>Inicia Sesion</p>
+          <h1>!Bienvenido¡</h1>
+          <p style="font-weight: 500;">Inicia Sesion</p>
           <div class="ContBoton">
             <a style="text-decoration: none;" href="/login" class="buttonLogin3" class="botonnn2">Login</a>
           </div>      
@@ -74,6 +74,9 @@
             <a style="cursor: pointer;" class="botonnn3" (click)="showAdditionalFields = !showAdditionalFields" [hidden]="!showAdditionalFields">Ver Menos</a>
           </div>
           <br>
+          <h2>
+            <a class="not-cuenta" style="text-decoration: none;" href="/login">¿Ya Tienes Cuenta?</a>
+          </h2>
           <button class="botonnn" type="submit" [disabled]="!registrarForm.form.valid && isFormSubmitted">Registrarse</button>
         </form>
       </div>

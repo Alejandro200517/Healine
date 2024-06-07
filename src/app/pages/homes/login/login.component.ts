@@ -62,13 +62,21 @@ export class LoginComponent {
               }
             } else {
               console.error('Respuesta de inicio de sesión inválida:', response);
-              this.showAlert = true; 
+              this.showAlert = true;
             }
           },
           (error) => {
             console.error('Error en el proceso de inicio de sesión:', error);
-            this.showAlert = true; 
-            alert('Credenciales de inicio de sesión incorrectas. Por favor, inténtalo de nuevo.');
+            if (error.status === 401) {
+              if (error.error.error === 'Credenciales incorrectas') {
+                alert('Credenciales de inicio de sesión incorrectas. Por favor, inténtalo de nuevo.');
+              } else if (error.error.error === 'Cuenta deshabilitada') {
+                this.router.navigate(['/user-false']);
+              }
+            } else {
+              alert('Ocurrió un error en el servidor. Por favor, inténtalo de nuevo más tarde.');
+            }
+            this.showAlert = true;
           }
         );
       } else {
@@ -78,7 +86,8 @@ export class LoginComponent {
     } else {
       this.showAlert = true;
       alert('Verifique Los Campos');
-      return; 
+      return;
     }
   }
+
 }
