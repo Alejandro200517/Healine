@@ -63,23 +63,26 @@ module.exports = function (app, conexion) {
     });
     
 
-
     app.post('/login', (req, res) => {
         const { email, password } = req.body;
-    
+
         const query = `SELECT * FROM users WHERE email=?`;
         conexion.query(query, [email], async (error, resultado) => {
             if (error) {
                 console.error(error.message);
                 return res.status(500).json({ error: 'Error interno del servidor' });
             }
-    
+
             if (resultado.length > 0) {
                 const user = resultado[0];
                 const passwordMatch = await bcrypt.compare(password, user.password);
-    
+
                 if (passwordMatch) {
-                    res.json({ mensaje: 'Inicio de sesión exitoso', usuario: user });
+                    if (user.status === 'True') {
+                        res.json({ mensaje: 'Inicio de sesión exitoso', usuario: user });
+                    } else {
+                        res.status(401).json({ error: 'Cuenta deshabilitada' });
+                    }
                 } else {
                     res.status(401).json({ error: 'Credenciales incorrectas' });
                 }
@@ -88,6 +91,8 @@ module.exports = function (app, conexion) {
             }
         });
     });
+
+
 
 
 
@@ -102,7 +107,7 @@ module.exports = function (app, conexion) {
             service: 'gmail',
             auth: {
                 user: 'healineoficial@gmail.com',
-                pass: 'pczp jjjw mrut qifv' 
+                pass: 'nltu qgrp syko ixqy' 
             }
         });
 
@@ -110,8 +115,30 @@ module.exports = function (app, conexion) {
             from: 'healineoficial@gmail.com', // Correo Electrónico Que Envia Tokens
             to: email,
             subject: 'Recuperación de contraseña',
-            text: `Para recuperar tu contraseña, usa este token: ${token}`
+            html: `
+         <p>¡Hola, estimado usuario de Healine!</p>
+        <p>Hemos recibido una solicitud para restablecer la contraseña de tu cuenta. Si no has solicitado este cambio, por favor, ignora este mensaje.</p>
+        <p>Para continuar con el proceso de recuperación, sigue las siguientes instrucciones:</p>
+        <ol>
+            <p style="background-color: #f0f0f0; padding: 10px; border-radius: 5px; font-family: Arial, sans-serif;">${token}</p>
+        </ol>
+        <p>Por favor, ten en cuenta que este token es sensible a mayúsculas y minúsculas.</p>
+        <p>Si no has solicitado este cambio de contraseña, te recomendamos cambiar tu contraseña actual y mantener tu cuenta segura.</p>
+        <p>Si necesitas ayuda adicional o tienes alguna pregunta, no dudes en ponerte en contacto con nuestro equipo de soporte en help@healine.com.</p>
+        <p>¡Gracias por elegir Healine!</p>
+        <p>Saludos cordiales,</p>
+        <p>El equipo de Healine</p>
+        <hr>
+        <p>Este es un correo electrónico automático, por favor, no respondas a este mensaje. Si necesitas asistencia, por favor, visita nuestra sección de ayuda en línea.</p>
+        <p><a href="https://help.healine.com">Visita nuestra sección de ayuda</a></p>
+        <p>© 2024 Healine. Todos los derechos reservados.</p>
+        
+        
+    `
         };
+
+
+
 
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
