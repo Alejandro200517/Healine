@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-// Pages Principales (Users)
+// Pagesss xd Principales (Users)
 import { IndexComponent } from './pages/homes/index/index.component';
 import { ServiciosComponent } from './pages/homes/servicios/servicios.component';
 import { AcercaComponent } from './pages/homes/acerca/acerca.component';
